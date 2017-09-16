@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[第一篇博文]]></title>
+    <url>%2F2017%2F09%2F16%2Ffirstblog%2F</url>
+    <content type="text"><![CDATA[因为感觉能有一个自己独立的博客网站，能够在上面写写东西，能够把自己学到的给记录下来，这绝对是一件很cool的事，所以就有了这个博客网站，嘿嘿。因此自己特地花上两三天时间，终于把一个能够搬上台面的博客网站给整出来了。当然，目前网站里也只是完成了一些基本功能的整合，还有许多常用的功能尚未组装进来，所以后续的会继续进行完善。 写这个博文，第一是想庆祝下，自己这几天的忙绿终有结果，看着还不错 &gt;_&lt;第二就是想提醒下自己，在以后的学习成长过程中最好能够把所看到的、所学到的内容整理出来，方便理清思路及以后的回顾，搭建这个博客的初衷也就是这；最后，希望自己能够稳步前行。恩，over！]]></content>
+      <categories>
+        <category>Life</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+        <tag>Thought</tag>
+        <tag>Life</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2F2017%2F09%2F10%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
