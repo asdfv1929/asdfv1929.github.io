@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[中秋节快乐！]]></title>
+    <url>%2F2017%2F10%2F04%2Fmidautumn%2F</url>
+    <content type="text"><![CDATA[祝所有走过路过的亲们 中秋节快乐，幸福如意！时间：2017-10-04节日：中秋佳节地点：笔者家]]></content>
+      <categories>
+        <category>Life</category>
+      </categories>
+      <tags>
+        <tag>Life</tag>
+        <tag>Thought</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[蛮力法]]></title>
     <url>%2F2017%2F09%2F21%2Fbruteforce%2F</url>
     <content type="text"><![CDATA[算法设计策略 – 蛮力法一种简单直接地解决问题的方法，常常直接基于问题的描述和所涉及的概念定义。 选择排序和冒泡排序选择排序基本原理 扫描整个列表，找到最小元素，将其和第一个元素进行交换，此时最小元素在有序表中的最终位置上； 从第二元素开始扫描列表，找到最后n-1个元素中的最小元素，再和第二个元素交换位置； 之后，在对该列表做第i遍扫描时(i值为0~n-2)，在最后n-i个元素中寻找最小元素，然后将之和 Ai 交换； 在经过n-1遍后，列表已序。 示例：1234567| 89 45 68 90 29 34 17 17 | 45 68 90 29 34 89 17 29 | 68 90 45 34 89 17 29 34 | 90 45 68 89 17 29 34 45 | 90 68 89 17 29 34 45 68 | 90 89 17 29 34 45 68 89 | 90 代码实现伪代码： 12345678910算法 SelectionSort(A[0..n-1]) //该算法用选择排序对给定列表排序 //输入: 一个可排序数组 A[0..n-1] //输出: 升序排列的数组 A[0..n-1] for i = 0 to n - 2 do min = i for j = i + 1 to n - 1 do if A[j] &lt; A[min] min = j swap A[i] and A[min] python实现： 1234567891011def SelectionSort(A): #选择排序 对给定列表排序(升序) #输入: 待排序列表 A[0..n-1] list #输出: 已排序列表 A[0..n-1] list lenA = len(A) for i in range(lenA-1): minValIndex = i for j in range(i+1, lenA): if A[minValIndex] &gt; A[j]: minValIndex = j A[i], A[minValIndex] = A[minValIndex], A[i] 算法分析输入规模由列表中元素的个数n决定，基本操作是 键值比较 A[j] &lt; A[min] ，因此该比较的执行次数由以下求和公式给出： 因此，对于任何输入来说，选择排序都是一个 的算法。键的交换次数仅为 冒泡排序基本原理 从第一个元素开始，依次比较相邻元素值，即第一个元素和第二个元素比较，若逆序，则交换位置； 第二个元素和第三个元素比较，若逆序，交换位置； 依次下去，则将最大元素移动到了最右端（“沉到最底部”）； 再次从列表头开始依次比较相邻数，重复多次后，第二大的数已移到最右第二个位置上； 多次比较后，列表已序。 示例：1234567891011121314151689 &lt;?&gt; 45 68 90 29 34 1745 89 &lt;?&gt; 68 90 29 34 1745 68 89 &lt;?&gt; 90 29 34 1745 68 89 90 &lt;?&gt; 29 34 1745 68 89 29 90 &lt;?&gt; 34 1745 68 89 29 34 90 &lt;?&gt; 1745 68 89 29 34 17 |9045 &lt;?&gt; 68 89 29 34 17 |9045 68 &lt;?&gt; 89 29 34 17 |9045 68 89 &lt;?&gt; 29 34 17 |9045 68 29 89 &lt;?&gt; 34 17 |9045 68 29 34 89 &lt;?&gt; 17 |9045 68 29 34 17 |89 90etc. 代码实现伪代码：12345678算法 BubbleSort(A[0..n-1]) //该算法用冒泡排序对数组A[0..n-1]进行排序 //输入：一个可排序数组A[0..n-1] //输出：非降序排列的数组A[0..n-1] for i = 0 to n - 2 do for j = 0 to n - 2 - i do if A[j+1] &lt; A[j] swap A[j] and A[j+1] python实现123456789def BubbleSort(A): #冒泡排序 对给定列表排序(升序) #输入: 待排序列表 A[0..n-1] list #输出: 已排序列表 A[0..n-1] list lenA = len(A) for i in range(lenA-1): for j in range(lenA-1-i): if A[j+1] &lt; A[j]: A[j], A[j+1] = A[j+1], A[j] 算法分析]]></content>
@@ -34,9 +46,9 @@
         <category>Life</category>
       </categories>
       <tags>
-        <tag>Blog</tag>
-        <tag>Thought</tag>
         <tag>Life</tag>
+        <tag>Thought</tag>
+        <tag>Blog</tag>
       </tags>
   </entry>
   <entry>
