@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[利用Python进行数据分析-Chapter4-NumPy基础]]></title>
+    <url>%2F2017%2F10%2F20%2Fpython-for-data-analysis-ch4-numpy%2F</url>
+    <content type="text"><![CDATA[NumPy(Numerical Python的简称)：高性能科学计算和数据分析的基础包。其部分功能如下： ndarray，一个具有矢量算数运算和复杂广播能力的快速且节省空间的多维数组 用于对数组数据进行快速运算的标准数学函数（无需编写循环） 用于读写磁盘数据的工具一集用于操作内存映射文件的工具 线性代数、随机数生成以及傅里叶变换功能 用于集成由C、C++、Fortran等语言编写的代码的工具 NumPy的ndarray：一种多维数组对象通用的同构数据多维容器所有元素必须是相同类型的每个数组都有一个shape（一个表示各维度大小的元组）和一个dtype（一个用于说明数组数据类型的对象）]]></content>
+      <categories>
+        <category>Data Analysis</category>
+      </categories>
+      <tags>
+        <tag>Python Numpy Data Analysis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[中秋节快乐！]]></title>
     <url>%2F2017%2F10%2F04%2Fmidautumn%2F</url>
     <content type="text"><![CDATA[祝所有走过路过的亲们 中秋节快乐，幸福如意！时间：2017-10-04节日：中秋佳节地点：笔者家]]></content>
