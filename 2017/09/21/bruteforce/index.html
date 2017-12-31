@@ -104,14 +104,14 @@
 <meta name="description" content="算法设计策略 – 蛮力法一种简单直接地解决问题的方法，常常直接基于问题的描述和所涉及的概念定义。">
 <meta name="keywords" content="algorithm,brute force">
 <meta property="og:type" content="article">
-<meta property="og:title" content="蛮力法">
+<meta property="og:title" content="算法学习之蛮力法">
 <meta property="og:url" content="https://asdfv1929.github.io/2017/09/21/bruteforce/index.html">
 <meta property="og:site_name" content="asdfv1929 &#39;s Home">
 <meta property="og:description" content="算法设计策略 – 蛮力法一种简单直接地解决问题的方法，常常直接基于问题的描述和所涉及的概念定义。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-10-03T13:31:00.358Z">
+<meta property="og:updated_time" content="2017-12-31T03:45:32.387Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="蛮力法">
+<meta name="twitter:title" content="算法学习之蛮力法">
 <meta name="twitter:description" content="算法设计策略 – 蛮力法一种简单直接地解决问题的方法，常常直接基于问题的描述和所涉及的概念定义。">
 
 
@@ -148,7 +148,7 @@
 
 
 
-  <title>蛮力法 | asdfv1929 's Home</title>
+  <title>算法学习之蛮力法 | asdfv1929 's Home</title>
   
 
 
@@ -336,7 +336,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">蛮力法</h1>
+          <h1 class="post-title" itemprop="name headline">算法学习之蛮力法</h1>
         
 
         <div class="post-meta">
@@ -371,8 +371,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm-Design/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm Design</span>
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
                   </a>
                 </span>
 
@@ -388,7 +388,7 @@
 
           
           
-             <span id="/2017/09/21/bruteforce/" class="leancloud_visitors" data-flag-title="蛮力法">
+             <span id="/2017/09/21/bruteforce/" class="leancloud_visitors" data-flag-title="算法学习之蛮力法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -431,8 +431,6 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">算法 SelectionSort(A[<span class="number">0.</span>.n<span class="number">-1</span>])</div><div class="line">     <span class="comment">//该算法用选择排序对给定列表排序</span></div><div class="line">     <span class="comment">//输入: 一个可排序数组 A[0..n-1]</span></div><div class="line">     <span class="comment">//输出: 升序排列的数组 A[0..n-1]</span></div><div class="line">     <span class="keyword">for</span> i = <span class="number">0</span> to n - <span class="number">2</span> <span class="keyword">do</span></div><div class="line">         min = i</div><div class="line">         <span class="keyword">for</span> j = i + <span class="number">1</span> to n - <span class="number">1</span> <span class="keyword">do</span></div><div class="line">             <span class="keyword">if</span> A[j] &lt; A[min]</div><div class="line">                  min = j</div><div class="line">         swap A[i] <span class="keyword">and</span> A[min]</div></pre></td></tr></table></figure>
 <p>python实现：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">SelectionSort</span><span class="params">(A)</span>:</span></div><div class="line">    <span class="comment">#选择排序 对给定列表排序(升序)</span></div><div class="line">    <span class="comment">#输入: 待排序列表 A[0..n-1] list</span></div><div class="line">    <span class="comment">#输出: 已排序列表 A[0..n-1] list</span></div><div class="line">    lenA = len(A)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(lenA<span class="number">-1</span>):</div><div class="line">        minValIndex = i</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>, lenA):</div><div class="line">            <span class="keyword">if</span> A[minValIndex] &gt; A[j]:</div><div class="line">                minValIndex = j</div><div class="line">        A[i], A[minValIndex] = A[minValIndex], A[i]</div></pre></td></tr></table></figure>
-<h4 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h4><p>输入规模由列表中元素的个数<code>n</code>决定，基本操作是 <strong>键值比较 <code>A[j] &lt;  A[min]</code> </strong> ，因此该比较的执行次数由以下求和公式给出：</p>
-<p>因此，对于任何输入来说，选择排序都是一个 的算法。<br>键的交换次数仅为</p>
 <h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><h4 id="基本原理-1"><a href="#基本原理-1" class="headerlink" title="基本原理"></a>基本原理</h4><ul>
 <li>从第一个元素开始，依次比较相邻元素值，即第一个元素和第二个元素比较，若逆序，则交换位置；</li>
 <li>第二个元素和第三个元素比较，若逆序，交换位置；</li>
@@ -443,7 +441,7 @@
 <p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">89 &lt;?&gt; 45     68     90     29     34     17</div><div class="line">45     89 &lt;?&gt; 68     90     29     34     17</div><div class="line">45     68     89 &lt;?&gt; 90     29     34     17</div><div class="line">45     68     89     90 &lt;?&gt; 29     34     17</div><div class="line">45     68     89     29     90 &lt;?&gt; 34     17</div><div class="line">45     68     89     29     34     90 &lt;?&gt; 17</div><div class="line">45     68     89     29     34     17    |90</div><div class="line"></div><div class="line">45 &lt;?&gt; 68     89     29     34     17    |90</div><div class="line">45     68 &lt;?&gt; 89     29     34     17    |90</div><div class="line">45     68     89 &lt;?&gt; 29     34     17    |90</div><div class="line">45     68     29     89 &lt;?&gt; 34     17    |90</div><div class="line">45     68     29     34     89 &lt;?&gt; 17    |90</div><div class="line">45     68     29     34     17    |89     90</div><div class="line"></div><div class="line">etc.</div></pre></td></tr></table></figure></p>
 <h4 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h4><p>伪代码：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">算法 BubbleSort(A[<span class="number">0.</span>.n<span class="number">-1</span>])</div><div class="line">     <span class="comment">//该算法用冒泡排序对数组A[0..n-1]进行排序</span></div><div class="line">     <span class="comment">//输入：一个可排序数组A[0..n-1]</span></div><div class="line">     <span class="comment">//输出：非降序排列的数组A[0..n-1]</span></div><div class="line">     <span class="keyword">for</span> i = <span class="number">0</span> to n - <span class="number">2</span> <span class="keyword">do</span></div><div class="line">         <span class="keyword">for</span> j = <span class="number">0</span> to n - <span class="number">2</span> - i <span class="keyword">do</span></div><div class="line">             <span class="keyword">if</span> A[j+<span class="number">1</span>] &lt; A[j]</div><div class="line">                 swap A[j] <span class="keyword">and</span> A[j+<span class="number">1</span>]</div></pre></td></tr></table></figure></p>
 <p>python实现<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">BubbleSort</span><span class="params">(A)</span>:</span></div><div class="line">    <span class="comment">#冒泡排序 对给定列表排序(升序)</span></div><div class="line">    <span class="comment">#输入: 待排序列表 A[0..n-1] list</span></div><div class="line">    <span class="comment">#输出: 已排序列表 A[0..n-1] list</span></div><div class="line">    lenA = len(A)</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(lenA<span class="number">-1</span>):</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(lenA<span class="number">-1</span>-i):</div><div class="line">            <span class="keyword">if</span> A[j+<span class="number">1</span>] &lt; A[j]:</div><div class="line">                A[j], A[j+<span class="number">1</span>] = A[j+<span class="number">1</span>], A[j]</div></pre></td></tr></table></figure></p>
-<h4 id="算法分析-1"><a href="#算法分析-1" class="headerlink" title="算法分析"></a>算法分析</h4>
+
       
     </div>
     
@@ -602,7 +600,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -613,7 +611,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -624,7 +622,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -688,7 +686,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算法设计策略-–-蛮力法"><span class="nav-number">1.</span> <span class="nav-text">算法设计策略 – 蛮力法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择排序和冒泡排序"><span class="nav-number">1.1.</span> <span class="nav-text">选择排序和冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择排序"><span class="nav-number">1.1.1.</span> <span class="nav-text">选择排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本原理"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">基本原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法分析"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">算法分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序"><span class="nav-number">1.1.2.</span> <span class="nav-text">冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本原理-1"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">基本原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-1"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法分析-1"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">算法分析</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#算法设计策略-–-蛮力法"><span class="nav-number">1.</span> <span class="nav-text">算法设计策略 – 蛮力法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择排序和冒泡排序"><span class="nav-number">1.1.</span> <span class="nav-text">选择排序和冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择排序"><span class="nav-number">1.1.1.</span> <span class="nav-text">选择排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本原理"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">基本原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序"><span class="nav-number">1.1.2.</span> <span class="nav-text">冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本原理-1"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">基本原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-1"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
