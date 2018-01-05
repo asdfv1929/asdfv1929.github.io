@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[TensorFlow实现Softmax Regression识别手写数字]]></title>
+    <url>%2F2018%2F01%2F05%2Ftf-softmax-mnist%2F</url>
+    <content type="text"><![CDATA[MNIST数据集MNIST（Mixed National Institute of Standards and Technology database）是一个非常简单的机器视觉数据集，如上图所示，它由几万张28像素x28像素的手写数字图片组成，这些图片只包含灰度值信息。我们所需要做的任务就是对这些手写数字的图片进行分类，转成0~9一共10类。 首先对MNIST数据进行加载，TensorFlow为我们提供了一个方便的封装，可以直接加载MNIST数据成我们期望的格式。在Jupyter上运行代码：12345from tensorflow.examples.tutorials.mnist import input_datamnist = input_data.read_data_sets("MNIST_data", one_hot=True)print(mnist.train.images.shape, mnist.train.labels.shape) print(mnist.test.images.shape, mnist.test.labels.shape) print(mnist.validation.images.shape, mnist.validation.labels.shape) 结果显示为：1234567891011Successfully downloaded train-images-idx3-ubyte.gz 9912422 bytes.Extracting MNIST_data\train-images-idx3-ubyte.gzSuccessfully downloaded train-labels-idx1-ubyte.gz 28881 bytes.Extracting MNIST_data\train-labels-idx1-ubyte.gzSuccessfully downloaded t10k-images-idx3-ubyte.gz 1648877 bytes.Extracting MNIST_data\t10k-images-idx3-ubyte.gzSuccessfully downloaded t10k-labels-idx1-ubyte.gz 4542 bytes.Extracting MNIST_data\t10k-labels-idx1-ubyte.gz(55000, 784) (55000, 10)(10000, 784) (10000, 10)(5000, 784) (5000, 10) 其中数据集成功下载获得，并得知mnist的训练集中有55000张图像，784维的特征，测试集有10000张图像，验证集有5000张图像。 注：1) 图像是28像素x28像素大小的灰度图片，即空白部分全部为0，有笔迹的地方根据颜色深浅有0到1之间的取值。2) 每个样本有784维的特征，来自于将28x28个像素点展开成一维的结果（28x28=784）。3) 此处简化了问题，丢弃图像的空间结构的信息，将图片按同样的顺序展开至1维向量即可。4) 训练数据的特征是一个55000x784的Tensor，第一个维度是图片的编号，第二个维度是图片中像素点的编号。同时训练的数据Label是一个55000x10的Tensor。测试集、验证集同样道理。5) 读取数据时，对10个种类进行了one-hot编码，Label是一个10维的向量，只有1个值为1，其余为0。比如数字0，对应的Label就是[1,0,0,0,0,0,0,0,0,0]，数字5对应的Label就是[0,0,0,0,0,1,0,0,0,0]，数字n就代表对应位置的值为1。 Softmax Regression数据准备好后，我们采用的是一个叫Softmax Regression的算法来训练手写数字识别的分类模型。数据集的数字都是0~9之间的，所以一共有10个类别。当模型对一张图片进行预测时，Softmax Regression会对每一种类别估算一个概率，比如预测是数字3的概率为80%，是数字5的概率为5%，最后取概率最大的那个数字为模型的输出结果。 \feature_i = \sum_j W_ix_j + b_i]]></content>
+      <categories>
+        <category>TensorFlow实战学习</category>
+      </categories>
+      <tags>
+        <tag>Deep Learning</tag>
+        <tag>TensorFlow</tag>
+        <tag>MNIST</tag>
+        <tag>Softmax</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Happy New Year]]></title>
     <url>%2F2018%2F01%2F01%2Fnew-year-2018%2F</url>
     <content type="text"><![CDATA[今天是2018年1月1日，新一年的第一天，不写些东西，还真有点不应这个元旦的景。 所谓是新年新气象，希望接下来的一年，能够尽快地完成自己的目标。虽然我知道，这个过程是有点难受，不过不打紧，不停顿、保持往前走的态势就行，希望能够有所收获。 之后希望我的家人，还有大家都平平安安、幸福美满。 asdfv19292018.1.1 14:55]]></content>
