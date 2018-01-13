@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[git_note]]></title>
+    <title><![CDATA[Git Bash上传项目命令]]></title>
     <url>%2F2018%2F01%2F13%2Fgit-note%2F</url>
     <content type="text"><![CDATA[主要是记录下平时将项目demo上传至GitHub上的命令。 首先是打开需要上传的项目，切换至该文件夹下，右击Git Bash Here，在Git命令行界面中依次输入以下指令： 将当前文件夹初始化为GitHub项目文件夹：1git init 添加项目中README.md文件，可添加内容备注项目信息等：1git add README.md 设置项目提交后文件上显示的备注信息：1git commit -m &quot;first commit&quot; 添加远程项目仓库：1git remote add origin https://github.com/asdfv1929/test.git 最后push项目到仓库master分支：1git push -u origin master]]></content>
       <categories>
