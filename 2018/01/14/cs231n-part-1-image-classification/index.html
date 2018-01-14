@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python,spider,novel,BeautifulSoup," />
+  <meta name="keywords" content="Deep Learning,CNN,Image Classification,kNN," />
 
 
 
@@ -101,21 +101,30 @@
 
 
 
-<meta name="description" content="本次我所要记录的是关于小说网的简单爬取，并将内容保存至txt文件中小说网链接：http://www.quanshuwang.com/list/1_1.html">
-<meta name="keywords" content="python,spider,novel,BeautifulSoup">
+<meta name="description" content="此为学习斯坦福cs231n课程所做笔记。">
+<meta name="keywords" content="Deep Learning,CNN,Image Classification,kNN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="全书网小说内容爬取">
-<meta property="og:url" content="https://asdfv1929.github.io/2018/01/13/quanshu-novel-net-spider/index.html">
+<meta property="og:title" content="cs231n学习记录_part1 Image Classification">
+<meta property="og:url" content="https://asdfv1929.github.io/2018/01/14/cs231n-part-1-image-classification/index.html">
 <meta property="og:site_name" content="asdfv1929 &#39;s Home">
-<meta property="og:description" content="本次我所要记录的是关于小说网的简单爬取，并将内容保存至txt文件中小说网链接：http://www.quanshuwang.com/list/1_1.html">
+<meta property="og:description" content="此为学习斯坦福cs231n课程所做笔记。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://s1.ax1x.com/2018/01/13/pJasC8.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/01/13/pJRGdO.png">
-<meta property="og:updated_time" content="2018-01-13T09:04:06.674Z">
+<meta property="og:image" content="http://cs231n.github.io/assets/classify.png">
+<meta property="og:image" content="http://cs231n.github.io/assets/challenges.jpeg">
+<meta property="og:image" content="http://cs231n.github.io/assets/trainset.jpg">
+<meta property="og:image" content="http://cs231n.github.io/assets/nn.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2018/01/14/pNFOmj.png">
+<meta property="og:image" content="http://cs231n.github.io/assets/nneg.jpeg">
+<meta property="og:image" content="https://s1.ax1x.com/2018/01/14/pNk1nH.png">
+<meta property="og:image" content="http://cs231n.github.io/assets/knn.jpeg">
+<meta property="og:image" content="http://cs231n.github.io/assets/cvplot.png">
+<meta property="og:image" content="http://cs231n.github.io/assets/crossval.jpeg">
+<meta property="og:image" content="http://cs231n.github.io/assets/samenorm.png">
+<meta property="og:updated_time" content="2018-01-14T15:02:24.420Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="全书网小说内容爬取">
-<meta name="twitter:description" content="本次我所要记录的是关于小说网的简单爬取，并将内容保存至txt文件中小说网链接：http://www.quanshuwang.com/list/1_1.html">
-<meta name="twitter:image" content="https://s1.ax1x.com/2018/01/13/pJasC8.png">
+<meta name="twitter:title" content="cs231n学习记录_part1 Image Classification">
+<meta name="twitter:description" content="此为学习斯坦福cs231n课程所做笔记。">
+<meta name="twitter:image" content="http://cs231n.github.io/assets/classify.png">
 
 
 
@@ -145,13 +154,13 @@
 
 
 
-  <link rel="canonical" href="https://asdfv1929.github.io/2018/01/13/quanshu-novel-net-spider/"/>
+  <link rel="canonical" href="https://asdfv1929.github.io/2018/01/14/cs231n-part-1-image-classification/"/>
 
 
 
 
 
-  <title>全书网小说内容爬取 | asdfv1929 's Home</title>
+  <title>cs231n学习记录_part1 Image Classification | asdfv1929 's Home</title>
   
 
 
@@ -322,7 +331,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://asdfv1929.github.io/2018/01/13/quanshu-novel-net-spider/">
+    <link itemprop="mainEntityOfPage" href="https://asdfv1929.github.io/2018/01/14/cs231n-part-1-image-classification/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="asdfv1929">
@@ -339,7 +348,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">全书网小说内容爬取</h1>
+          <h1 class="post-title" itemprop="name headline">cs231n学习记录_part1 Image Classification</h1>
         
 
         <div class="post-meta">
@@ -351,8 +360,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-13T13:59:31+08:00">
-                2018-01-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-14T00:05:41+08:00">
+                2018-01-14
               </time>
             
 
@@ -374,8 +383,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/爬虫/" itemprop="url" rel="index">
-                    <span itemprop="name">爬虫</span>
+                  <a href="/categories/cs231n/" itemprop="url" rel="index">
+                    <span itemprop="name">cs231n</span>
                   </a>
                 </span>
 
@@ -391,7 +400,7 @@
 
           
           
-             <span id="/2018/01/13/quanshu-novel-net-spider/" class="leancloud_visitors" data-flag-title="全书网小说内容爬取">
+             <span id="/2018/01/14/cs231n-part-1-image-classification/" class="leancloud_visitors" data-flag-title="cs231n学习记录_part1 Image Classification">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -422,23 +431,69 @@
       
 
       
-        <p>本次我所要记录的是关于小说网的简单爬取，并将内容保存至txt文件中<br>小说网链接：<a href="http://www.quanshuwang.com/list/1_1.html" target="_blank" rel="external">http://www.quanshuwang.com/list/1_1.html</a><br><a id="more"></a></p>
-<h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><p>准备工作的话，一方面Python语言，另一方面就是几个Python库的使用：requests、bs4等。<br>关于这些库的具体用法，我这边就不描述了，详细的内容可见官方文档或某些博客：<br>requests：<a href="http://docs.python-requests.org/zh_CN/latest/user/quickstart.html" target="_blank" rel="external">http://docs.python-requests.org/zh_CN/latest/user/quickstart.html</a><br>bs4：<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html" target="_blank" rel="external">https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html</a></p>
-<h1 id="小说模型"><a href="#小说模型" class="headerlink" title="小说模型"></a>小说模型</h1><p>我是定义了一个小说类模型，用来存储或操作一篇小说的相关信息。</p>
-<p>首先是，通过小说的一些数据信息对小说进行初始化：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, title=None, author=None, cover=None, desc=None, novel_url=None, chapters_url=None)</span>:</span></div><div class="line">    self.NovelTitle = title    <span class="comment"># 小说名</span></div><div class="line">    self.Author = author       <span class="comment"># 小说作者</span></div><div class="line">    self.CoverImgUrl = cover   <span class="comment"># 封面图片链接</span></div><div class="line">    self.Desc = desc           <span class="comment"># 小说内容的简短介绍</span></div><div class="line">    self.NovelUrl = novel_url  <span class="comment"># 小说跳转链接</span></div><div class="line">    self.ChaptersUrl = chapters_url  <span class="comment"># 小说目录链接</span></div><div class="line">    self.Chapters = []         <span class="comment"># 小说所有章节(chapterTitle, chapterUrl)列表</span></div></pre></td></tr></table></figure></p>
-<p>之后，我简单定义了一个获取网页源码的方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 读取传入参数url的网页源码</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">readHtml</span><span class="params">(self, url)</span>:</span></div><div class="line">        html = requests.get(url)   <span class="comment"># 请求url</span></div><div class="line">        html.encoding = <span class="string">'gbk'</span></div><div class="line">        <span class="keyword">return</span> html.text</div></pre></td></tr></table></figure></p>
-<p>接着便是获取该小说所有章节的标题及章节链接：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 获取该小说所有章节的(title, url)组成的列表Chapters</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getChaptersUrl</span><span class="params">(self)</span>:</span></div><div class="line">        html = self.readHtml(self.ChaptersUrl)</div><div class="line">        soup = BeautifulSoup(html, <span class="string">'html.parser'</span>)</div><div class="line">        <span class="keyword">for</span> chapter <span class="keyword">in</span> soup.select(<span class="string">".chapterNum ul li a"</span>):</div><div class="line">            self.Chapters.append((chapter.string, chapter[<span class="string">'href'</span>]))  <span class="comment"># 章节名及链接加入列表</span></div><div class="line">        <span class="keyword">return</span> self.Chapters</div></pre></td></tr></table></figure></p>
-<p>最后便是通过章节链接，去访问该章节对应的小说内容，当然，里面还包括了将内容存入本地txt：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 获取该小说某一章节的小说文本内容，并写入文件 chapter: (chapter_title, chapter_url)</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getOneChapterContent</span><span class="params">(self, chapter)</span>:</span></div><div class="line">        k = <span class="number">0</span></div><div class="line">        obj = <span class="keyword">None</span></div><div class="line">        <span class="keyword">while</span> k &lt; <span class="number">3</span>:                                  <span class="comment"># 容错</span></div><div class="line">            html = self.readHtml(chapter[<span class="number">1</span>])</div><div class="line">            soup = BeautifulSoup(html, <span class="string">'html.parser'</span>)</div><div class="line">            obj = soup.find(attrs=<span class="string">"mainContenr"</span>)</div><div class="line">            <span class="keyword">if</span> obj:</div><div class="line">                <span class="keyword">break</span></div><div class="line">            k += <span class="number">1</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> obj:</div><div class="line">            print(<span class="string">'None'</span>)</div><div class="line">            <span class="keyword">return</span></div><div class="line">        content = obj.text</div><div class="line">        content_drop = content.replace(<span class="string">"style5();"</span>, <span class="string">""</span>).replace(<span class="string">"style6();"</span>, <span class="string">""</span>).replace(<span class="string">'&lt;br /&gt;'</span>, <span class="string">'\n'</span>).replace(<span class="string">u'\xa0'</span>, <span class="string">u' '</span>).replace(<span class="string">u'\ufffd'</span>, <span class="string">u' '</span>)</div><div class="line">        self.write2txt(chapter[<span class="number">0</span>], content_drop)</div></pre></td></tr></table></figure></p>
-<p>其中，里面有调用了写入文本的方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 写入txt，传入章节名和该章节对应的文本内容</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">write2txt</span><span class="params">(self, chapter_name, content)</span>:</span></div><div class="line">        <span class="keyword">with</span> open(<span class="string">'Novels/'</span> + self.NovelTitle + <span class="string">'.txt'</span>, <span class="string">'a'</span>) <span class="keyword">as</span> file:</div><div class="line">            print(self.NovelTitle + <span class="string">' 正在写入 '</span> + chapter_name)</div><div class="line">            file.writelines(chapter_name + <span class="string">'\n\n'</span> + content + <span class="string">'\n\n'</span>)</div></pre></td></tr></table></figure></p>
-<h1 id="所有小说信息"><a href="#所有小说信息" class="headerlink" title="所有小说信息"></a>所有小说信息</h1><p>在这边，我主要是获取链接页面中，所有小说的基本信息，例如小说名、作者、封面图片链接、内容简介、跳转链接等。<br>首先便是，基本的网页源码读取：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 返回页面源码</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">readHtml</span><span class="params">(url)</span>:</span></div><div class="line">    html = requests.get(url)  <span class="comment"># 请求url</span></div><div class="line">    html.encoding = <span class="string">'gbk'</span></div><div class="line">    <span class="keyword">return</span> html.text</div></pre></td></tr></table></figure></p>
-<p>接着是获取该页面上所有小说的基本信息：小说名、作者、封面链接、内容描述、跳转链接，返回信息列表<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 获取小说信息</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_novels_info</span><span class="params">(url)</span>:</span></div><div class="line">    novels = []</div><div class="line">    html = readHtml(url)</div><div class="line">    soup = BeautifulSoup(html, <span class="string">'html.parser'</span>)</div><div class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> soup.select(<span class="string">".seeWell li"</span>):</div><div class="line">        title = item.find(attrs=<span class="string">'clearfix'</span>).text                        <span class="comment"># 小说名</span></div><div class="line">        author = item.span.find_all(<span class="string">'a'</span>)[<span class="number">1</span>].text                        <span class="comment"># 作者</span></div><div class="line">        coverImg = item.find(<span class="string">'img'</span>)[<span class="string">'src'</span>]                              <span class="comment"># 小说封面链接</span></div><div class="line">        desc = item.find(<span class="string">'em'</span>).text.replace(<span class="string">'\n'</span>, <span class="string">''</span>).replace(<span class="string">' '</span>, <span class="string">''</span>)  <span class="comment"># 内容描述</span></div><div class="line">        novelUrl = item.span.find(<span class="string">'a'</span>)[<span class="string">'href'</span>]                          <span class="comment"># 小说跳转链接</span></div><div class="line">        <span class="comment">#print(title, author, coverImg, desc, novelUrl)</span></div><div class="line">        novel = [title, author, coverImg, desc, novelUrl]</div><div class="line">        novels.append(novel)</div><div class="line">    <span class="keyword">return</span> novels</div></pre></td></tr></table></figure></p>
-<p>这边是小说信息写入csv文件的方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将小说信息写入csv文件</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">write2csv</span><span class="params">(novels)</span>:</span></div><div class="line">    <span class="keyword">with</span> open(<span class="string">"novels.csv"</span>, <span class="string">'a'</span>, newline=<span class="string">''</span>) <span class="keyword">as</span> file:</div><div class="line">        writer = csv.writer(file)</div><div class="line">        <span class="keyword">for</span> novel <span class="keyword">in</span> novels:</div><div class="line">            writer.writerow(novel)</div></pre></td></tr></table></figure></p>
-<p>之后便是获取小说跳转至目录的链接，并将该链接也添加至数据信息列表，并返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 获取小说跳转至章节的链接</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_chapters_url</span><span class="params">(novel_list)</span>:</span></div><div class="line">    <span class="keyword">for</span> novel <span class="keyword">in</span> novel_list:</div><div class="line">        k = <span class="number">0</span></div><div class="line">        obj = <span class="keyword">None</span></div><div class="line">        <span class="keyword">while</span> k &lt; <span class="number">3</span>:</div><div class="line">            html = readHtml(novel[<span class="number">-1</span>])</div><div class="line">            soup = BeautifulSoup(html, <span class="string">'html.parser'</span>)</div><div class="line">            obj = soup.find(attrs=<span class="string">"reader"</span>)</div><div class="line">            <span class="keyword">if</span> obj:</div><div class="line">                <span class="keyword">break</span></div><div class="line">            k += <span class="number">1</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> obj:</div><div class="line">            novel.append(<span class="string">''</span>)</div><div class="line">            <span class="keyword">continue</span></div><div class="line">        chapters_url = obj[<span class="string">'href'</span>]</div><div class="line">        novel.append(chapters_url)</div><div class="line">    <span class="keyword">return</span> novel_list</div></pre></td></tr></table></figure></p>
-<p>最后便是实例化小说对象，然后获取所有章节链接，之后遍历访问它的小说内容：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">all_chapters_url</span><span class="params">(novel_list)</span>:</span></div><div class="line">    <span class="keyword">for</span> novel <span class="keyword">in</span> novel_list:</div><div class="line">        a_novel = ANovel(novel[<span class="number">0</span>], novel[<span class="number">1</span>], novel[<span class="number">2</span>], novel[<span class="number">3</span>], novel[<span class="number">4</span>], novel[<span class="number">5</span>])  <span class="comment"># 初始化一个novel对象</span></div><div class="line">        a_novel.getChaptersUrl()                                                      <span class="comment"># 获取该小说对象的所有章节的链接</span></div><div class="line">        <span class="comment">#print(a_novel.Chapters[:10])                                                 # 打印小说章节列表中的前10章</span></div><div class="line">        <span class="keyword">for</span> chapter <span class="keyword">in</span> a_novel.Chapters:              <span class="comment"># 遍历该小说的所有章节</span></div><div class="line">            a_novel.getOneChapterContent(chapter)     <span class="comment"># 获取某一章节的文本内容</span></div></pre></td></tr></table></figure></p>
-<h1 id="调用运行"><a href="#调用运行" class="headerlink" title="调用运行"></a>调用运行</h1><p>最后就是在main里调用运行即可：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    url = <span class="string">'http://www.quanshuwang.com/list/1_%s.html'</span></div><div class="line">    <span class="keyword">for</span> page <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">2</span>):                         <span class="comment"># range范围可修改</span></div><div class="line">        novelsObjList = get_novels_info(url % page)</div><div class="line">        novelsObjList = get_chapters_url(novelsObjList)</div><div class="line">        <span class="comment"># write2csv(novelsObjList)</span></div><div class="line">        all_chapters_url(novelsObjList)</div></pre></td></tr></table></figure></p>
-<p>运行显示：<br><img src="https://s1.ax1x.com/2018/01/13/pJasC8.png" alt="novel">  </p>
-<p>小说下载：<br><img src="https://s1.ax1x.com/2018/01/13/pJRGdO.png" alt="pJRGdO.png"></p>
-<p>附上程序：<a href="https://github.com/asdfv1929/QuanshuNetNovelSpider" target="_blank" rel="external">https://github.com/asdfv1929/QuanshuNetNovelSpider</a></p>
+        <p>此为学习斯坦福cs231n课程所做笔记。<br><a id="more"></a></p>
+<h1 id="Image-Classification"><a href="#Image-Classification" class="headerlink" title="Image Classification"></a>Image Classification</h1><h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>本节主要讲了图像分类问题，它是一个从固定的类别集合里分配一个标签（label）给输入图像的任务。这是计算机视觉的核心问题，虽然看似简单，但是有很多的实际应用。其他许多看似不同的计算机视觉任务（比如说：目标检测，图像分割）都可以归类为图像分类。</p>
+<h2 id="Exmaple"><a href="#Exmaple" class="headerlink" title="Exmaple"></a>Exmaple</h2><p><img src="http://cs231n.github.io/assets/classify.png" alt="example"><br>举个栗子，上图中，一个图像分类模型获取了一个图像，并赋给它4个标签值（cat、dog、hat、mug）。如图所示，对于计算机来说，一个图像可被视为是一个大型的3维数组。在这里，猫图有248像素宽，400像素高，且有三个颜色通道：Red、Green、Blue（即RGB）。因此，该图像是由248x400x3个数字组成，也就是总共297600个数字。其中每个数字都是一个在0（black）到255（white）范围内的整数值。我们的任务就是将这组几十万的数字转换成单个的标签label，比如说“cat”。</p>
+<p>注：图像分类的任务是为一个给定图像预测一个标签值（或是关于标签的一个分布，比如上图中四种标签的概率分布）。图像是一个由0~255范围内数字组成的3维数组，大小为 Width x Height x 3，其中3表示为三种颜色通道：Red、Green、Blue。</p>
+<h2 id="Challenges"><a href="#Challenges" class="headerlink" title="Challenges"></a>Challenges</h2><p>因为识别一个视觉上的目标（比如说，猫）对于人类来说是相对微不足道的，但是从计算机视觉算法的角度上去考虑涉及到的困难挑战是十分值得的。下面列出部分挑战：</p>
+<ul>
+<li>Viewpoint variation（视角变化）：一个目标实体对于照相机来说可以多种方式进行定向。</li>
+<li>Scale variation（规模变化）：视觉目标通常会存在多种大小变化（真实世界中的大小，不仅仅是图像中的大小程度）</li>
+<li>Deformation（形变）：许多目标实体不是那种刚体，也可能会以极端方式发生变形。</li>
+<li>Occlusion（遮挡）：目标实体可能会被遮挡，有时候目标只有一小部分（只有少数像素）可见。</li>
+<li>Illumination conditions（光照条件）：光照条件在像素级上影响较大。</li>
+<li>Background clutter（背景混乱）：目标对象可能混入其环境之中，使得他们难以被识别出来。</li>
+<li>Intra-class variation（类内变化）：目标对象的类别可能相对广泛，比如说椅子。这些目标有许多不同的类型，每个类型都有自己的外观。     </li>
+</ul>
+<p><img src="http://cs231n.github.io/assets/challenges.jpeg" alt="variation"><br>一个好的图像分类模型必须是对这些变化的交叉组合保持不变性，同时对类间变化保持敏感性。</p>
+<h2 id="Data-driven-approach"><a href="#Data-driven-approach" class="headerlink" title="Data-driven approach"></a>Data-driven approach</h2><p>提供给计算机每类许多样本，之后研发出一个学习算法去训练这些样本，学习每一类的视觉外观。这种方法被称为<code>数据驱动方法</code>，因为它依赖于首先收集标注过的图像的训练数据集。如下图所示：<br><img src="http://cs231n.github.io/assets/trainset.jpg" alt="dataset"></p>
+<h2 id="Image-classification-pipeline"><a href="#Image-classification-pipeline" class="headerlink" title="Image classification pipeline"></a>Image classification pipeline</h2><p>图像分类的任务是输入代表图像的像素数组，输出一个分配给它的标签值。   </p>
+<p>完整的流程大致如下：</p>
+<ul>
+<li>输入：输入N个图像，其中每个图像都被标注为K个不同类别中的一个，称之为训练集</li>
+<li>学习：任务是学习训练集，学习每一类外观是什么样子的。称这个步骤为训练一个分类器，或学习一个模型</li>
+<li>评估：最后，通过预测新的图像集合的标签来评估这个分类器的性能</li>
+</ul>
+<h1 id="Nearest-Neighbor-Classifier"><a href="#Nearest-Neighbor-Classifier" class="headerlink" title="Nearest Neighbor Classifier"></a>Nearest Neighbor Classifier</h1><p>最近邻分类器，与卷积神经网络无关，但却非常的实用，它给出了一个图像分类问题基本解决方法的概念。</p>
+<h2 id="CIFAR-10"><a href="#CIFAR-10" class="headerlink" title="CIFAR-10"></a>CIFAR-10</h2><p>图像分类数据集CIFAR-10包含了60000张32x32像素的小图片，每个图片都被标注为10个类别中的一个。这60000张图片被分为含有50000张图片的训练集和含有10000张图片的测试集。</p>
+<p>下图中可以看到10类中每个各10张随机的图像样本：<br><img src="http://cs231n.github.io/assets/nn.jpg" alt="cifar-10"><br>上图左侧是<a href="http://www.cs.toronto.edu/~kriz/cifar.html" target="_blank" rel="external">CIFAR-10</a>数据集的样例图像；右侧中第一列是几张图像，之后的列中是根据像素级距离来判断的与第一列中图像最近的10张图像。</p>
+<p>最近邻分类器接收一个测试图像，将之与训练集中的每个图像进行比较，之后输出最近训练图像的标签值，即为分类器的预测值。在上图的右侧中我们可以看到根据测试图像生成的距离最近的10张训练图像，其中10个测试图像只有少数几个检索到同一类的目标图像，其余的都不是该类图像。比如说，在第8行中，与测试图像（马）距离最近的训练图像中却是一辆车，这可能是因为两幅图中大范围的黑色背景所导致。因此，该马类图像在这种情况下被错误地标注为是一辆车。</p>
+<h2 id="L1-Distance"><a href="#L1-Distance" class="headerlink" title="L1 Distance"></a>L1 Distance</h2><p>接下来介绍下如何对两幅图像进行比较，也就是两个<code>32x32x3</code>的块之间的比较。一个最简单的方法是逐个比较图像的像素，并对其中所有的差值求和。换句话说，给定两张图像，分别表示为$I_1$、$I_2$，比较它们的一个合理方法便是<strong>L1距离</strong>：<br><img src="https://s1.ax1x.com/2018/01/14/pNFOmj.png" alt="L1"><br>其中求和操作是面向所有像素的。</p>
+<p>过程可视化：<br><img src="http://cs231n.github.io/assets/nneg.jpeg" alt="NN"><br>上图是一个在像素级上使用L1距离对两张图像进行比较的简单例子（例子中只是列出一个通道）。两幅图像各元素对应值相减，然后将所有的差值相加，得到单个数值。如果两张图像相同，则这单个数值将会是0。如果两张图像差异较大，则该值相对较大。</p>
+<h2 id="Code-Implement"><a href="#Code-Implement" class="headerlink" title="Code Implement"></a>Code Implement</h2><p>首先载入数据为4个数组：训练数据/标签、测试数据/标签。<code>Xtr</code>（size: 50000x32x32x3）包含了训练集中的所有图像，对应的一维数组<code>Ytr</code>（length: 50000）包含了训练标签（0~9）：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Xtr, Ytr, Xte, Yte = load_CIFAR10(<span class="string">'data/cifar10/'</span>)</div><div class="line"><span class="comment"># 扁平化处理</span></div><div class="line">Xtr_rows = Xtr.reshape(Xtr.shape[<span class="number">0</span>], <span class="number">32</span> * <span class="number">32</span> * <span class="number">3</span>) <span class="comment"># Xtr_rows 50000 x 3072</span></div><div class="line">Xte_rows = Xte.reshape(Xte.shape[<span class="number">0</span>], <span class="number">32</span> * <span class="number">32</span> * <span class="number">3</span>) <span class="comment"># Xte_rows 10000 x 3072</span></div></pre></td></tr></table></figure></p>
+<p>之后便是训练与评估：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">nn = NearestNeighbor()        <span class="comment"># 创建一个最近邻分类器的实例</span></div><div class="line">nn.train(Xtr_rows, Ytr)       <span class="comment"># 在训练集和标签上训练分类器</span></div><div class="line">Yte_predict = nn.predict(Xte_rows) <span class="comment"># 在测试图像上预测标签值</span></div><div class="line"><span class="comment"># 打印输出分类准确度</span></div><div class="line"><span class="keyword">print</span> <span class="string">'accuracy: %f'</span> % ( np.mean(Yte_predict == Yte) )</div></pre></td></tr></table></figure></p>
+<p>注：<br>1）一般都是用准确度来作为评估标准，预测正确的数量占比。<br>2）所有分类器都有一个公共的接口：<code>train(X, y)</code>方法，表示从数据和标签中学习模型。<br>3）<code>predict(X)</code>方法，接收新的数据，并预测其标签值。</p>
+<p>下面是一个使用L1距离的简单最近邻分类器的代码实现：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NearestNeighbor</span><span class="params">(object)</span>:</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">(self, X, y)</span>:</span></div><div class="line">    <span class="string">""" X is N x D where each row is an example. Y is 1-dimension of size N """</span></div><div class="line">    <span class="comment"># the nearest neighbor classifier simply remembers all the training data</span></div><div class="line">    self.Xtr = X</div><div class="line">    self.ytr = y</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, X)</span>:</span></div><div class="line">    <span class="string">""" X is N x D where each row is an example we wish to predict label for """</span></div><div class="line">    num_test = X.shape[<span class="number">0</span>]</div><div class="line">    <span class="comment"># lets make sure that the output type matches the input type</span></div><div class="line">    Ypred = np.zeros(num_test, dtype = self.ytr.dtype)</div><div class="line"></div><div class="line">    <span class="comment"># loop over all test rows</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(num_test):</div><div class="line">      <span class="comment"># find the nearest training image to the i'th test image</span></div><div class="line">      <span class="comment"># using the L1 distance (sum of absolute value differences)</span></div><div class="line">      distances = np.sum(np.abs(self.Xtr - X[i,:]), axis = <span class="number">1</span>)</div><div class="line">      min_index = np.argmin(distances) <span class="comment"># get the index with smallest distance</span></div><div class="line">      Ypred[i] = self.ytr[min_index] <span class="comment"># predict the label of the nearest example</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> Ypred</div></pre></td></tr></table></figure></p>
+<h2 id="The-choice-of-distance"><a href="#The-choice-of-distance" class="headerlink" title="The choice of distance"></a>The choice of distance</h2><p>向量之间有多重方式去计算它们的距离。另一种常见的选择便是<code>L2距离</code>，其具有计算两个向量之间欧氏距离的几何解释。距离公式如下：<br><img src="https://s1.ax1x.com/2018/01/14/pNk1nH.png" alt="L2"><br>也是先计算像素级别上的差值，然后对其值求平方，之后将所有的值相加，最后对值开根号。<br>代码方面，只要对之前的代码做些许修改即可，将计算距离的那行代码替换为如下一行：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">distances = np.sqrt(np.sum(np.square(self.Xtr - X[i,:]), axis = <span class="number">1</span>))</div></pre></td></tr></table></figure></p>
+<p>上面代码中使用了<code>np.sqrt</code>，但在实际最近邻应用中，我们省去了<code>开根号</code>这一操作，因为开根是一个单调函数。也就是说，它控制了距离的绝对大小的量级，但仍保留其排序，所以有或没有开根，最近邻的比较没有影响。</p>
+<h2 id="L1-vs-L2"><a href="#L1-vs-L2" class="headerlink" title="L1 vs. L2"></a>L1 vs. L2</h2><p>L1/L2距离是p范数中最常用的特例。</p>
+<h1 id="k-Nearest-Neighbor-Classifier"><a href="#k-Nearest-Neighbor-Classifier" class="headerlink" title="k-Nearest Neighbor Classifier"></a>k-Nearest Neighbor Classifier</h1><p>k近邻分类器：找出与测试图像最相近的k个训练图像，然后根据投票规则，预测测试图像的标签值。特例，当k=1时，就变成最近邻分类器。直观上，较高的k值具有平滑效果，会使得分类器对异常值更具抵抗性。<br><img src="http://cs231n.github.io/assets/knn.jpeg" alt="knn"><br>上图中，有色区域代表的是根据L2距离分类器做出的决策边界。在最近邻中，异常值由于可能不正确的预测而导致出现一些与周围颜色不一致的“岛屿”，5-近邻中却将这些异常值做了相应处理，使得这些颜色边界更加平滑，这可能会产生对测试数据更好的<code>泛化</code>。右图中的灰色区域是由投票规则所导致的的（2票红色，2票蓝色，最后一票绿色）。</p>
+<h1 id="Validation-sets-for-Hyperparameter-tuning"><a href="#Validation-sets-for-Hyperparameter-tuning" class="headerlink" title="Validation sets for Hyperparameter tuning"></a>Validation sets for Hyperparameter tuning</h1><h2 id="Hyperparameter"><a href="#Hyperparameter" class="headerlink" title="Hyperparameter"></a>Hyperparameter</h2><p>k近邻分类器中的k值该如何选择，才会让分类器效果最优。之前距离函数的选择，包括L1、L2范数，这些选择都被称为“超参数”。</p>
+<p>一个最简单的想法是，我们尝试许多不同的值，然后看它们中哪一个会让分类器效果更好。但是这不能通过使用测试集来调整超参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Evaluate on the test set only a single time, at the very end.</div></pre></td></tr></table></figure></p>
+<h2 id="Validation-sets"><a href="#Validation-sets" class="headerlink" title="Validation sets"></a>Validation sets</h2><p>所以换一种方式去调整超参数：将训练集划分成两个集合，一个是稍微变小的训练集，另一个则是验证集。用CIFAR-10来做个栗子，我们可以使用训练集中的49000张图像来训练，剩下的1000张图像用来验证。验证集就好比是一个伪测试集用来对超参数进行调优的。</p>
+<p>对CIFAR-10进行验证集划分：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># assume we have Xtr_rows, Ytr, Xte_rows, Yte as before</span></div><div class="line"><span class="comment"># recall Xtr_rows is 50,000 x 3072 matrix</span></div><div class="line">Xval_rows = Xtr_rows[:<span class="number">1000</span>, :] <span class="comment"># take first 1000 for validation</span></div><div class="line">Yval = Ytr[:<span class="number">1000</span>]</div><div class="line">Xtr_rows = Xtr_rows[<span class="number">1000</span>:, :] <span class="comment"># keep last 49,000 for train</span></div><div class="line">Ytr = Ytr[<span class="number">1000</span>:]</div><div class="line"></div><div class="line"><span class="comment"># find hyperparameters that work best on the validation set</span></div><div class="line">validation_accuracies = []</div><div class="line"><span class="keyword">for</span> k <span class="keyword">in</span> [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">50</span>, <span class="number">100</span>]:</div><div class="line"></div><div class="line">  <span class="comment"># use a particular value of k and evaluation on validation data</span></div><div class="line">  nn = NearestNeighbor()</div><div class="line">  nn.train(Xtr_rows, Ytr)</div><div class="line">  <span class="comment"># here we assume a modified NearestNeighbor class that can take a k as input</span></div><div class="line">  Yval_predict = nn.predict(Xval_rows, k = k)</div><div class="line">  acc = np.mean(Yval_predict == Yval)</div><div class="line">  <span class="keyword">print</span> <span class="string">'accuracy: %f'</span> % (acc,)</div><div class="line"></div><div class="line">  <span class="comment"># keep track of what works on the validation set</span></div><div class="line">  validation_accuracies.append((k, acc))</div></pre></td></tr></table></figure></p>
+<h2 id="Cross-validation"><a href="#Cross-validation" class="headerlink" title="Cross-validation"></a>Cross-validation</h2><p>有时候我们的训练集的规模会比较小，这时候我们可以使用一个叫<code>交叉验证</code>的常用方法。比如说，5折交叉验证中，我们将训练集划分为5个相等数量的部分集合，使用其中的4个组成训练集，剩下的一个称为验证集。之后我们迭代选择其中一个为验证集，评估每一次的性能，最后对这5次评估取平均值。<br><img src="http://cs231n.github.io/assets/cvplot.png" alt="cross-validation"><br>上图是k近邻分类器使用5折交叉验证的样例。对于k的每一个值，都是训练4个子集合组成的训练集，在第5个子集合上评估。因此，每个k值都得到了5个准确度值。图中的折线是由每个k的平均准确度相连得到。图中表明，在交叉验证的情况下，当k=7时，准确度相对最高（峰值）。</p>
+<p>实际应用中，由于交叉验证在计算上消耗太大，人们一般都偏向于选择将训练数据中的50%-90%作为训练集，其余的作为验证集。但是若是你的训练样本非常少，建议使用交叉验证。常见的交叉验证的折数可以是3折、5折或10折。<br><img src="http://cs231n.github.io/assets/crossval.jpeg" alt="5-fold"></p>
+<h1 id="Pros-and-Cons-of-Nearest-Neighbor-classifier"><a href="#Pros-and-Cons-of-Nearest-Neighbor-classifier" class="headerlink" title="Pros and Cons of Nearest Neighbor classifier"></a>Pros and Cons of Nearest Neighbor classifier</h1><p>最近邻：<br>优点：</p>
+<ul>
+<li>易于实现和理解</li>
+<li>不需要时间去训练，因为所需要做的只是存储和对训练数据进行索引   </li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>测试时间中计算消耗太大，因为需要去将测试图像与每一个训练图像进行比较。测试时间的效率比训练时更重要。</li>
+<li>计算复杂度</li>
+</ul>
+<p>虽然说在某些情况下，最近邻的确是一个很好的选择，但是它却很少被应用于实际图像分类环境中去。其中的一个问题便是，图像是一个高维对象（通常包含许多像素），在这高维空间中距离很难被直观地表现出来。</p>
+<p>下图便阐明了由之前基于L2距离的相似与感官上的相似有很大不同。<br><img src="http://cs231n.github.io/assets/samenorm.png" alt=""><br>最左侧是原图，右侧三幅图分别对原图做了一些变化。然而这三幅图在L2像素距离上与原图有很大的差值。因此，像素级上的距离与感官或语义上的相似完全不相符。</p>
+<h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><ul>
+<li>图像分类，训练集，测试集</li>
+<li>最近邻分类器，超参数</li>
+<li>验证集</li>
+<li>交叉验证</li>
+<li>评估</li>
+<li>L1、L2距离</li>
+</ul>
 
       
     </div>
@@ -485,13 +540,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+            <a href="/tags/Deep-Learning/" rel="tag"><i class="fa fa-tag"></i> Deep Learning</a>
           
-            <a href="/tags/spider/" rel="tag"><i class="fa fa-tag"></i> spider</a>
+            <a href="/tags/CNN/" rel="tag"><i class="fa fa-tag"></i> CNN</a>
           
-            <a href="/tags/novel/" rel="tag"><i class="fa fa-tag"></i> novel</a>
+            <a href="/tags/Image-Classification/" rel="tag"><i class="fa fa-tag"></i> Image Classification</a>
           
-            <a href="/tags/BeautifulSoup/" rel="tag"><i class="fa fa-tag"></i> BeautifulSoup</a>
+            <a href="/tags/kNN/" rel="tag"><i class="fa fa-tag"></i> kNN</a>
           
         </div>
       
@@ -504,8 +559,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/05/tf-softmax-mnist/" rel="next" title="TensorFlow实现Softmax Regression识别手写数字">
-                <i class="fa fa-chevron-left"></i> TensorFlow实现Softmax Regression识别手写数字
+              <a href="/2018/01/13/git-note/" rel="next" title="Git Bash上传项目命令">
+                <i class="fa fa-chevron-left"></i> Git Bash上传项目命令
               </a>
             
           </div>
@@ -513,10 +568,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/13/git-note/" rel="prev" title="Git Bash上传项目命令">
-                Git Bash上传项目命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -688,7 +739,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前期准备"><span class="nav-number">1.</span> <span class="nav-text">前期准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小说模型"><span class="nav-number">2.</span> <span class="nav-text">小说模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#所有小说信息"><span class="nav-number">3.</span> <span class="nav-text">所有小说信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调用运行"><span class="nav-number">4.</span> <span class="nav-text">调用运行</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Image-Classification"><span class="nav-number">1.</span> <span class="nav-text">Image Classification</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Motivation"><span class="nav-number">1.1.</span> <span class="nav-text">Motivation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exmaple"><span class="nav-number">1.2.</span> <span class="nav-text">Exmaple</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Challenges"><span class="nav-number">1.3.</span> <span class="nav-text">Challenges</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-driven-approach"><span class="nav-number">1.4.</span> <span class="nav-text">Data-driven approach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Image-classification-pipeline"><span class="nav-number">1.5.</span> <span class="nav-text">Image classification pipeline</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nearest-Neighbor-Classifier"><span class="nav-number">2.</span> <span class="nav-text">Nearest Neighbor Classifier</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CIFAR-10"><span class="nav-number">2.1.</span> <span class="nav-text">CIFAR-10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L1-Distance"><span class="nav-number">2.2.</span> <span class="nav-text">L1 Distance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Code-Implement"><span class="nav-number">2.3.</span> <span class="nav-text">Code Implement</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-choice-of-distance"><span class="nav-number">2.4.</span> <span class="nav-text">The choice of distance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L1-vs-L2"><span class="nav-number">2.5.</span> <span class="nav-text">L1 vs. L2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#k-Nearest-Neighbor-Classifier"><span class="nav-number">3.</span> <span class="nav-text">k-Nearest Neighbor Classifier</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Validation-sets-for-Hyperparameter-tuning"><span class="nav-number">4.</span> <span class="nav-text">Validation sets for Hyperparameter tuning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hyperparameter"><span class="nav-number">4.1.</span> <span class="nav-text">Hyperparameter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Validation-sets"><span class="nav-number">4.2.</span> <span class="nav-text">Validation sets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cross-validation"><span class="nav-number">4.3.</span> <span class="nav-text">Cross-validation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pros-and-Cons-of-Nearest-Neighbor-classifier"><span class="nav-number">5.</span> <span class="nav-text">Pros and Cons of Nearest Neighbor classifier</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Summary"><span class="nav-number">6.</span> <span class="nav-text">Summary</span></a></li></ol></div>
             
 
           </div>
