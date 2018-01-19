@@ -101,20 +101,20 @@
 
 
 
-<meta name="description" content="本次我所要记录的是关于小说网的简单爬取，并将内容保存至txt文件中小说网链接：http://www.quanshuwang.com/list/1_1.html">
+<meta name="description" content="本篇主要记录的是关于小说网的简单爬取，并将内容保存至txt文件中。">
 <meta name="keywords" content="python,spider,novel,BeautifulSoup">
 <meta property="og:type" content="article">
 <meta property="og:title" content="全书网小说内容爬取">
 <meta property="og:url" content="https://asdfv1929.github.io/2018/01/13/quanshu-novel-net-spider/index.html">
 <meta property="og:site_name" content="asdfv1929 &#39;s Home">
-<meta property="og:description" content="本次我所要记录的是关于小说网的简单爬取，并将内容保存至txt文件中小说网链接：http://www.quanshuwang.com/list/1_1.html">
+<meta property="og:description" content="本篇主要记录的是关于小说网的简单爬取，并将内容保存至txt文件中。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://s1.ax1x.com/2018/01/13/pJasC8.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/01/13/pJRGdO.png">
-<meta property="og:updated_time" content="2018-01-13T09:04:06.674Z">
+<meta property="og:updated_time" content="2018-01-19T15:25:43.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="全书网小说内容爬取">
-<meta name="twitter:description" content="本次我所要记录的是关于小说网的简单爬取，并将内容保存至txt文件中小说网链接：http://www.quanshuwang.com/list/1_1.html">
+<meta name="twitter:description" content="本篇主要记录的是关于小说网的简单爬取，并将内容保存至txt文件中。">
 <meta name="twitter:image" content="https://s1.ax1x.com/2018/01/13/pJasC8.png">
 
 
@@ -422,8 +422,9 @@
       
 
       
-        <p>本次我所要记录的是关于小说网的简单爬取，并将内容保存至txt文件中<br>小说网链接：<a href="http://www.quanshuwang.com/list/1_1.html" target="_blank" rel="external">http://www.quanshuwang.com/list/1_1.html</a><br><a id="more"></a></p>
+        <p>本篇主要记录的是关于小说网的简单爬取，并将内容保存至txt文件中。<br><a id="more"></a></p>
 <h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><p>准备工作的话，一方面Python语言，另一方面就是几个Python库的使用：requests、bs4等。<br>关于这些库的具体用法，我这边就不描述了，详细的内容可见官方文档或某些博客：<br>requests：<a href="http://docs.python-requests.org/zh_CN/latest/user/quickstart.html" target="_blank" rel="external">http://docs.python-requests.org/zh_CN/latest/user/quickstart.html</a><br>bs4：<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html" target="_blank" rel="external">https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html</a></p>
+<p>小说网链接：<a href="http://www.quanshuwang.com/list/1_1.html" target="_blank" rel="external">http://www.quanshuwang.com/list/1_1.html</a></p>
 <h1 id="小说模型"><a href="#小说模型" class="headerlink" title="小说模型"></a>小说模型</h1><p>我是定义了一个小说类模型，用来存储或操作一篇小说的相关信息。</p>
 <p>首先是，通过小说的一些数据信息对小说进行初始化：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, title=None, author=None, cover=None, desc=None, novel_url=None, chapters_url=None)</span>:</span></div><div class="line">    self.NovelTitle = title    <span class="comment"># 小说名</span></div><div class="line">    self.Author = author       <span class="comment"># 小说作者</span></div><div class="line">    self.CoverImgUrl = cover   <span class="comment"># 封面图片链接</span></div><div class="line">    self.Desc = desc           <span class="comment"># 小说内容的简短介绍</span></div><div class="line">    self.NovelUrl = novel_url  <span class="comment"># 小说跳转链接</span></div><div class="line">    self.ChaptersUrl = chapters_url  <span class="comment"># 小说目录链接</span></div><div class="line">    self.Chapters = []         <span class="comment"># 小说所有章节(chapterTitle, chapterUrl)列表</span></div></pre></td></tr></table></figure></p>
 <p>之后，我简单定义了一个获取网页源码的方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 读取传入参数url的网页源码</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">readHtml</span><span class="params">(self, url)</span>:</span></div><div class="line">        html = requests.get(url)   <span class="comment"># 请求url</span></div><div class="line">        html.encoding = <span class="string">'gbk'</span></div><div class="line">        <span class="keyword">return</span> html.text</div></pre></td></tr></table></figure></p>
@@ -479,6 +480,24 @@
       </div>
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    asdfv1929
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://asdfv1929.github.io/2018/01/13/quanshu-novel-net-spider/" title="全书网小说内容爬取">https://asdfv1929.github.io/2018/01/13/quanshu-novel-net-spider/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -624,7 +643,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -1324,6 +1343,21 @@
 
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 

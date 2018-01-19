@@ -101,19 +101,22 @@
 
 
 
+<meta name="description" content="这是本人在学习TensorFlow实战一书时所记录下来的一些内容。">
 <meta name="keywords" content="Deep Learning,TensorFlow,MNIST,Softmax">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow实现Softmax Regression识别手写数字">
 <meta property="og:url" content="https://asdfv1929.github.io/2018/01/05/tf-softmax-mnist/index.html">
 <meta property="og:site_name" content="asdfv1929 &#39;s Home">
+<meta property="og:description" content="这是本人在学习TensorFlow实战一书时所记录下来的一些内容。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://static.zybuluo.com/Duanxx/w0xalk5eflf4h49yx9yznr83/image_1b18cfh9p1urvl7idsrnfo11ia9.png">
 <meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1515219012485&di=9e78bfbaab7a6d8ededf57ac7b1132e3&imgtype=0&src=http%3A%2F%2Fs13.sinaimg.cn%2Flarge%2F0047Alutzy79HTiSazG9c%26690">
 <meta property="og:image" content="https://s1.ax1x.com/2018/01/06/pEsXlT.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/01/06/pEs0yD.png">
-<meta property="og:updated_time" content="2018-01-06T05:07:10.941Z">
+<meta property="og:updated_time" content="2018-01-19T15:22:48.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow实现Softmax Regression识别手写数字">
+<meta name="twitter:description" content="这是本人在学习TensorFlow实战一书时所记录下来的一些内容。">
 <meta name="twitter:image" content="http://static.zybuluo.com/Duanxx/w0xalk5eflf4h49yx9yznr83/image_1b18cfh9p1urvl7idsrnfo11ia9.png">
 
 
@@ -421,7 +424,7 @@
       
 
       
-        <p><img src="http://static.zybuluo.com/Duanxx/w0xalk5eflf4h49yx9yznr83/image_1b18cfh9p1urvl7idsrnfo11ia9.png" alt="pic"><br><a id="more"></a></p>
+        <p>这是本人在学习TensorFlow实战一书时所记录下来的一些内容。<br><a id="more"></a><br><img src="http://static.zybuluo.com/Duanxx/w0xalk5eflf4h49yx9yznr83/image_1b18cfh9p1urvl7idsrnfo11ia9.png" alt="pic"></p>
 <h1 id="MNIST数据集"><a href="#MNIST数据集" class="headerlink" title="MNIST数据集"></a>MNIST数据集</h1><p>MNIST（Mixed National Institute of Standards and Technology database）是一个非常简单的机器视觉数据集，如上图所示，它由几万张28像素x28像素的手写数字图片组成，这些图片只包含灰度值信息（channel=1）。<br>我们所需要做的任务就是对这些手写数字的图片进行分类，转成0~9一共10类。</p>
 <p>首先对MNIST数据进行加载，TensorFlow为我们提供了一个方便的封装，可以直接加载MNIST数据成我们期望的格式。<br>在Jupyter上运行代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</div><div class="line">mnist = input_data.read_data_sets(<span class="string">"MNIST_data"</span>, one_hot=<span class="keyword">True</span>)</div><div class="line">print(mnist.train.images.shape, mnist.train.labels.shape)  </div><div class="line">print(mnist.test.images.shape, mnist.test.labels.shape)    </div><div class="line">print(mnist.validation.images.shape, mnist.validation.labels.shape)</div></pre></td></tr></table></figure></p>
 <p>结果显示为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Successfully downloaded train-images-idx3-ubyte.gz 9912422 bytes.</div><div class="line">Extracting MNIST_data\train-images-idx3-ubyte.gz</div><div class="line">Successfully downloaded train-labels-idx1-ubyte.gz 28881 bytes.</div><div class="line">Extracting MNIST_data\train-labels-idx1-ubyte.gz</div><div class="line">Successfully downloaded t10k-images-idx3-ubyte.gz 1648877 bytes.</div><div class="line">Extracting MNIST_data\t10k-images-idx3-ubyte.gz</div><div class="line">Successfully downloaded t10k-labels-idx1-ubyte.gz 4542 bytes.</div><div class="line">Extracting MNIST_data\t10k-labels-idx1-ubyte.gz</div><div class="line">(55000, 784) (55000, 10)</div><div class="line">(10000, 784) (10000, 10)</div><div class="line">(5000, 784) (5000, 10)</div></pre></td></tr></table></figure></p>
@@ -482,6 +485,24 @@
       </div>
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    asdfv1929
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://asdfv1929.github.io/2018/01/05/tf-softmax-mnist/" title="TensorFlow实现Softmax Regression识别手写数字">https://asdfv1929.github.io/2018/01/05/tf-softmax-mnist/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -627,7 +648,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -1327,6 +1348,21 @@
 
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 
