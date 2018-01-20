@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Yesky网镁铝图片下载]]></title>
+    <url>%2F2018%2F01%2F20%2Fyesky-image-spider%2F</url>
+    <content type="text"><![CDATA[看到这么多漂亮的妹纸，内心是久久不能平静啊（滑稽脸￣ω￣=）。这不，只能靠记录下怎么获取妹子们图片的流程来安稳心神了ヽ(￣▽￣)ﾉ。 Model创建了一个类，初始化：1234def __init__(self, url, title): self.url = url self.title = title self.img_urls_list = [] # 列表，存储图片的链接 读取网页源码：123456789# 获取网页源码，带容错def get_html(self, url, k=3): count = 0 while count &lt; k: html = requests.get(url) if html: return html.text count += 1 return None 这是将BeautifulSoup解析抽成一个方法，便于后面调用：1234567def get_html_soup(self, url): html = self.get_html(url) if not html: print("It does not get the html.") return None html_soup = BeautifulSoup(html, 'html.parser') return html_soup 获取某一页面上的镁铝图片链接：1234567891011# 返回该页面上的图片链接def get_img(self, url): html_soup = self.get_html_soup(url) if not html_soup: return None select_list = html_soup.select(".l_effect_img_mid a img") if not select_list: print("select mistake.") return None item = select_list[0] return item['src'] 保存所有链接到列表：12345678910# 保存所有图片的链接到列表（嵌套列表）def get_img_urls(self): html_soup = self.get_html_soup(self.url) img_set = [] select_list = html_soup.select(".overview ul li a") if select_list: for item in select_list: img_url = self.get_img(item['href']) img_set.append(img_url) self.img_urls_list.append(img_set) 最后便是保存图片，其中涉及到对标题需做一定的修改，确保文件夹创建成功：12345678910111213141516171819202122# 获取图片的名称，如 77VQ96UV4D9F.jpgdef get_img_name(self, url): return url.split('/')[-1]# 消除一些影响创建文件夹的特殊字符def del_special_symbol(self, string): return string.replace(':', '').replace('"', '').replace('?', '').strip()# 保存图片至本地def download_img(self, urls_list, file_path): for url in urls_list: # 遍历一组照片链接列表 urllib.request.urlretrieve(url, file_path + '\\' + self.get_img_name(url)) # 下载图片# 创建文件夹，并保存图片def save_to_dir(self): for item in self.img_urls_list: # 遍历各组图片链接列表 print(self.title, ' downloading...') file_path = 'yeskyImgs\%s' % self.del_special_symbol(self.title) # 路径 if not os.path.exists(file_path): os.makedirs(file_path) # 创建该组图片的文件夹 th = threading.Thread(target=self.download_img(item, file_path)) # 下载该组图片 th.start() All Images1234567891011121314151617181920def get_html(url, k=3): count = 0 while count &lt; k: html = requests.get(url) if html: return html.text count += 1 return Nonedef get_info(html): html_soup = BeautifulSoup(html, 'html.parser') select_list = html_soup.select(".lb_box dl dd a") if select_list: for item in select_list: url = item['href'] # 跳转链接 title = item.string # 该组图片的标题 model = AModel(url, title) model.get_img_urls() # 获取该组图片的所有链接 model.save_to_dir() # 保存图片到文件夹下 Run12345678if __name__ == '__main__': url = 'http://pic.yesky.com/c/6_20491_%s.shtml' start = time.time() for page in range(1, 6): html = AllPics.get_html(url % page) AllPics.get_info(html) end = time.time() print('%.2f seconds' % (end - start)) 图片下载到本地后的结果： 附上程序：https://github.com/asdfv1929/YeskyImagesSpider]]></content>
+      <categories>
+        <category>爬虫</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Spider</tag>
+        <tag>BeautifulSoup</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo NexT主题中集成gitalk评论系统]]></title>
     <url>%2F2018%2F01%2F20%2Fgitalk%2F</url>
     <content type="text"><![CDATA[记录在NexT主题中添加gitalk评论系统的步骤。gitalk：一个基于 Github Issue 和 Preact 开发的评论插件详情Demo可见：https://gitalk.github.io/ Register Application在GitHub上注册新应用，链接：https://github.com/settings/applications/new参数说明：Application name： # 应用名称，随意Homepage URL： # 网站URL，如https://asdfv1929.github.ioApplication description # 描述，随意Authorization callback URL：# 网站URL，https://asdfv1929.github.io 点击注册后，页面跳转如下，其中Client ID和Client Secret在后面的配置中需要用到，到时复制粘贴即可： gitalk.swig新建/layout/_third-party/comments/gitalk.swig文件，并添加内容：1234567891011121314151617&#123;% if page.comments &amp;&amp; theme.gitalk.enable %&#125; &lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/gitalk/dist/gitalk.css&quot;&gt; &lt;script src=&quot;https://unpkg.com/gitalk/dist/gitalk.min.js&quot;&gt;&lt;/script&gt; &lt;script type=&quot;text/javascript&quot;&gt; var gitalk = new Gitalk(&#123; clientID: &apos;&#123;&#123; theme.gitalk.ClientID &#125;&#125;&apos;, clientSecret: &apos;&#123;&#123; theme.gitalk.ClientSecret &#125;&#125;&apos;, repo: &apos;&#123;&#123; theme.gitalk.repo &#125;&#125;&apos;, owner: &apos;&#123;&#123; theme.gitalk.githubID &#125;&#125;&apos;, admin: [&apos;&#123;&#123; theme.gitalk.adminUser &#125;&#125;&apos;], id: location.pathname, distractionFreeMode: &apos;&#123;&#123; theme.gitalk.distractionFreeMode &#125;&#125;&apos; &#125;) gitalk.render(&apos;gitalk-container&apos;) &lt;/script&gt;&#123;% endif %&#125; comments.swig修改/layout/_partials/comments.swig，添加内容如下，与前面的elseif同一级别上：12&#123;% elseif theme.gitalk.enable %&#125; &lt;div id=&quot;gitalk-container&quot;&gt;&lt;/div&gt; index.swig修改layout/_third-party/comments/index.swig，在最后一行添加内容：1&#123;% include &apos;gitalk.swig&apos; %&#125; gitalk.styl新建/source/css/_common/components/third-party/gitalk.styl文件，添加内容：1234.gt-header a, .gt-comments a, .gt-popup a border-bottom: none;.gt-container .gt-popup .gt-action.is--active:before top: 0.7em; third-party.styl修改/source/css/_common/components/third-party/third-party.styl，在最后一行上添加内容，引入样式：1@import &quot;gitalk&quot;; _config.yml在主题配置文件next/_config.yml中添加如下内容：12345678gitalk: enable: true githubID: github帐号 # 例：asdfv1929 repo: 仓库名称 # 例：asdfv1929.github.io ClientID: Client ID ClientSecret: Client Secret adminUser: github帐号 #指定可初始化评论账户 distractionFreeMode: true 以上就是NexT中添加gitalk评论的配置，博客上传到GitHub上后，打开页面进入某一博客内容下，就可看到评论处。]]></content>
@@ -28,7 +41,7 @@
   <entry>
     <title><![CDATA[Git Bash上传项目命令]]></title>
     <url>%2F2018%2F01%2F13%2Fgit-note%2F</url>
-    <content type="text"><![CDATA[记录下平时将项目demo上传至GitHub Repository上的命令。 首先是打开需要上传的项目，切换至该文件夹下，右击Git Bash Here，在Git命令行界面中依次输入以下指令： 将当前文件夹初始化为GitHub项目文件夹：1git init 添加项目中README.md文件，可添加内容备注项目信息等：1git add README.md 设置项目提交后文件上显示的备注信息：1git commit -m &quot;first commit&quot; 添加远程项目仓库：1git remote add origin https://github.com/asdfv1929/test.git 最后push项目到仓库master分支：1git push -u origin master]]></content>
+    <content type="text"><![CDATA[记录下平时将项目demo上传至GitHub Repository上的命令。 首先是打开需要上传的项目，切换至该文件夹下，右击Git Bash Here，在Git命令行界面中依次输入以下指令： 将当前文件夹初始化为GitHub项目文件夹：1git init 添加项目中所有文件：1git add . 设置项目提交后文件上显示的备注信息：1git commit -m &quot;first commit&quot; 添加远程项目仓库：1git remote add origin https://github.com/asdfv1929/test.git 最后push项目到仓库master分支：1git push -u origin master]]></content>
       <categories>
         <category>GitBlog</category>
       </categories>
@@ -45,10 +58,10 @@
         <category>爬虫</category>
       </categories>
       <tags>
+        <tag>BeautifulSoup</tag>
         <tag>python</tag>
         <tag>spider</tag>
         <tag>novel</tag>
-        <tag>BeautifulSoup</tag>
       </tags>
   </entry>
   <entry>
