@@ -350,40 +350,11 @@
           
   <div class="comments" id="comments">
     
-    <div onclick="showGitment()" id="gitment_title" class="gitment_title">显示 Gitment 评论</div>
-    <div id="container" style="display:none"></div>
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-    <script>
-    const myTheme = {
-      render(state, instance) {
-        const container = document.createElement('div');
-        container.lang = "en-US";
-        container.className = 'gitment-container gitment-root-container';
-        container.appendChild(instance.renderHeader(state, instance));
-        container.appendChild(instance.renderEditor(state, instance));
-        container.appendChild(instance.renderComments(state, instance));
-        container.appendChild(instance.renderFooter(state, instance));
-        return container;
-      }
-    }
-    function showGitment() {
-      $("#gitment_title").attr("style", "display:none");
-      $("#container").attr("style", "").addClass("gitment_container");
-      var gitment = new Gitment({
-        id: window.location.pathname,
-        theme: myTheme,
-        owner: 'asdfv1929',
-        repo: 'asdfv1929.github.io',
-        oauth: {
-          client_id: '5fe36b6fb87ecd8e46f4',
-          client_secret: '075b050ff7b5e6277fe683d300504bfa5e49037c'
-        }
-      });
-      gitment.render('container');
-    }
-    </script>
-    
+      
+        <div onclick="showGitment()" id="gitment-display-button">Show comments from Gitment</div>
+        <div id="gitment-container" style="display:none"></div>
+      
+
     
   </div>
 
@@ -692,6 +663,32 @@
 
 
 
+
+
+
+    
+    
+    
+    
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    
+        <script type="text/javascript">
+            function showGitment(){
+                document.getElementById("gitment-display-button").style.display = "none";
+                document.getElementById("gitment-container").style.display = "block";
+                var gitment = new Gitment({
+                        id: window.location.pathname,
+                        owner: 'asdfv1929',
+                        repo: 'asdfv1929.github.io',
+                        oauth: {
+                            client_id: '5fe36b6fb87ecd8e46f4',
+                            client_secret: '075b050ff7b5e6277fe683d300504bfa5e49037c',
+                        }});
+                gitment.render('gitment-container');
+            }
+        </script>
+    
 
 
 
