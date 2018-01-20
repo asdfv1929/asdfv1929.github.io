@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="asdfv1929 &#39;s Home">
 <meta property="og:description" content="记录下平时将项目demo上传至GitHub Repository上的命令。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-19T15:30:23.181Z">
+<meta property="og:updated_time" content="2018-01-20T03:05:28.355Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git Bash上传项目命令">
 <meta name="twitter:description" content="记录下平时将项目demo上传至GitHub Repository上的命令。">
@@ -553,12 +553,6 @@
           
   <div class="comments" id="comments">
     
-      
-        <div onclick="showGitment()" id="gitment-display-button">Show comments from Gitment</div>
-        <div id="gitment-container" style="display:none"></div>
-      
-
-    
   </div>
 
 
@@ -870,32 +864,6 @@
 
 
 
-
-
-
-    
-    
-    
-    
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-    
-        <script type="text/javascript">
-            function showGitment(){
-                document.getElementById("gitment-display-button").style.display = "none";
-                document.getElementById("gitment-container").style.display = "block";
-                var gitment = new Gitment({
-                        id: window.location.pathname,
-                        owner: 'asdfv1929',
-                        repo: 'asdfv1929.github.io',
-                        oauth: {
-                            client_id: '5fe36b6fb87ecd8e46f4',
-                            client_secret: '075b050ff7b5e6277fe683d300504bfa5e49037c',
-                        }});
-                gitment.render('gitment-container');
-            }
-        </script>
-    
 
 
 

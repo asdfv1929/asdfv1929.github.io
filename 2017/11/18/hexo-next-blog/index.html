@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="GitHub,Node.js,Git,Hexo," />
+  <meta name="keywords" content="GitHub,Git,Node.js,Hexo," />
 
 
 
@@ -102,7 +102,7 @@
 
 
 <meta name="description" content="本篇是自己在搭建Hexo博客平台时的一个过程记录。">
-<meta name="keywords" content="GitHub,Node.js,Git,Hexo">
+<meta name="keywords" content="GitHub,Git,Node.js,Hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用GitHub+Node.js+Hexo搭建个人博客">
 <meta property="og:url" content="https://asdfv1929.github.io/2017/11/18/hexo-next-blog/index.html">
@@ -531,9 +531,9 @@
           
             <a href="/tags/GitHub/" rel="tag"><i class="fa fa-tag"></i> GitHub</a>
           
-            <a href="/tags/Node-js/" rel="tag"><i class="fa fa-tag"></i> Node.js</a>
-          
             <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
+          
+            <a href="/tags/Node-js/" rel="tag"><i class="fa fa-tag"></i> Node.js</a>
           
             <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
           
@@ -595,12 +595,6 @@
 
           
   <div class="comments" id="comments">
-    
-      
-        <div onclick="showGitment()" id="gitment-display-button">Show comments from Gitment</div>
-        <div id="gitment-container" style="display:none"></div>
-      
-
     
   </div>
 
@@ -938,32 +932,6 @@
 
 
 
-
-
-
-    
-    
-    
-    
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-    
-        <script type="text/javascript">
-            function showGitment(){
-                document.getElementById("gitment-display-button").style.display = "none";
-                document.getElementById("gitment-container").style.display = "block";
-                var gitment = new Gitment({
-                        id: window.location.pathname,
-                        owner: 'asdfv1929',
-                        repo: 'asdfv1929.github.io',
-                        oauth: {
-                            client_id: '5fe36b6fb87ecd8e46f4',
-                            client_secret: '075b050ff7b5e6277fe683d300504bfa5e49037c',
-                        }});
-                gitment.render('gitment-container');
-            }
-        </script>
-    
 
 
 
