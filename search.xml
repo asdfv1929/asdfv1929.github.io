@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo NexT主题内接入网页在线联系功能]]></title>
+    <url>%2F2018%2F01%2F21%2Fdaovoice%2F</url>
+    <content type="text"><![CDATA[之前有访问过一些大佬的个人博客，里面有个在线联系功能，看着不错，所以也试着在自己的站点上接入了此功能。 注册首先在DaoVoice注册个账号，点击-&gt;邀请码是2e5d695d。 完成后，会得到一个app_id，后面会用到： 修改head.swig修改/themes/next/layout/_partials/head.swig文件，添加内容如下：123456789&#123;% if theme.daovoice %&#125; &lt;script&gt; (function(i,s,o,g,r,a,m)&#123;i[&quot;DaoVoiceObject&quot;]=r;i[r]=i[r]||function()&#123;(i[r].q=i[r].q||[]).push(arguments)&#125;,i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset=&quot;utf-8&quot;;m.parentNode.insertBefore(a,m)&#125;)(window,document,&quot;script&quot;,(&apos;https:&apos; == document.location.protocol ? &apos;https:&apos; : &apos;http:&apos;) + &quot;//widget.daovoice.io/widget/0f81ff2f.js&quot;,&quot;daovoice&quot;) daovoice(&apos;init&apos;, &#123; app_id: &quot;&#123;&#123;theme.daovoice_app_id&#125;&#125;&quot; &#125;); daovoice(&apos;update&apos;); &lt;/script&gt;&#123;% endif %&#125; 位置贴图： 主题配置文件在_config.yml文件中添加内容：123# Online contactdaovoice: truedaovoice_app_id: # 这里填你刚才获得的 app_id 聊天窗口配置附上我的聊天窗口的颜色、位置等设置信息： 至此，网页的在线联系功能已经完成，重新hexo g，hexo d上传GitHub后，页面上就能看到效果了。 就比如说你现在往右下角看看(～￣▽￣)～ ，欢迎撩我（滑稽）。]]></content>
+      <categories>
+        <category>GitBlog</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>NexT</tag>
+        <tag>DaoVoice</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Yesky网镁铝图片下载]]></title>
     <url>%2F2018%2F01%2F20%2Fyesky-image-spider%2F</url>
     <content type="text"><![CDATA[看到这么多漂亮的妹纸，内心是久久不能平静啊（滑稽脸￣ω￣=）。这不，只能靠记录下怎么获取妹子们图片的流程来安稳心神了ヽ(￣▽￣)ﾉ。 Model创建了一个类，初始化：1234def __init__(self, url, title): self.url = url self.title = title self.img_urls_list = [] # 列表，存储图片的链接 读取网页源码：123456789# 获取网页源码，带容错def get_html(self, url, k=3): count = 0 while count &lt; k: html = requests.get(url) if html: return html.text count += 1 return None 这是将BeautifulSoup解析抽成一个方法，便于后面调用：1234567def get_html_soup(self, url): html = self.get_html(url) if not html: print("It does not get the html.") return None html_soup = BeautifulSoup(html, 'html.parser') return html_soup 获取某一页面上的镁铝图片链接：1234567891011# 返回该页面上的图片链接def get_img(self, url): html_soup = self.get_html_soup(url) if not html_soup: return None select_list = html_soup.select(".l_effect_img_mid a img") if not select_list: print("select mistake.") return None item = select_list[0] return item['src'] 保存所有链接到列表：12345678910# 保存所有图片的链接到列表（嵌套列表）def get_img_urls(self): html_soup = self.get_html_soup(self.url) img_set = [] select_list = html_soup.select(".overview ul li a") if select_list: for item in select_list: img_url = self.get_img(item['href']) img_set.append(img_url) self.img_urls_list.append(img_set) 最后便是保存图片，其中涉及到对标题需做一定的修改，确保文件夹创建成功：12345678910111213141516171819202122# 获取图片的名称，如 77VQ96UV4D9F.jpgdef get_img_name(self, url): return url.split('/')[-1]# 消除一些影响创建文件夹的特殊字符def del_special_symbol(self, string): return string.replace(':', '').replace('"', '').replace('?', '').strip()# 保存图片至本地def download_img(self, urls_list, file_path): for url in urls_list: # 遍历一组照片链接列表 urllib.request.urlretrieve(url, file_path + '\\' + self.get_img_name(url)) # 下载图片# 创建文件夹，并保存图片def save_to_dir(self): for item in self.img_urls_list: # 遍历各组图片链接列表 print(self.title, ' downloading...') file_path = 'yeskyImgs\%s' % self.del_special_symbol(self.title) # 路径 if not os.path.exists(file_path): os.makedirs(file_path) # 创建该组图片的文件夹 th = threading.Thread(target=self.download_img(item, file_path)) # 下载该组图片 th.start() All Images1234567891011121314151617181920def get_html(url, k=3): count = 0 while count &lt; k: html = requests.get(url) if html: return html.text count += 1 return Nonedef get_info(html): html_soup = BeautifulSoup(html, 'html.parser') select_list = html_soup.select(".lb_box dl dd a") if select_list: for item in select_list: url = item['href'] # 跳转链接 title = item.string # 该组图片的标题 model = AModel(url, title) model.get_img_urls() # 获取该组图片的所有链接 model.save_to_dir() # 保存图片到文件夹下 Run12345678if __name__ == '__main__': url = 'http://pic.yesky.com/c/6_20491_%s.shtml' start = time.time() for page in range(1, 6): html = AllPics.get_html(url % page) AllPics.get_info(html) end = time.time() print('%.2f seconds' % (end - start)) 图片下载到本地后的结果： 附上程序：https://github.com/asdfv1929/YeskyImagesSpider]]></content>
@@ -21,9 +34,9 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Gitalk</tag>
-        <tag>NexT</tag>
         <tag>Hexo</tag>
+        <tag>NexT</tag>
+        <tag>Gitalk</tag>
       </tags>
   </entry>
   <entry>
