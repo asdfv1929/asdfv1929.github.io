@@ -21,20 +21,9 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>BeautifulSoup</tag>
         <tag>Python</tag>
         <tag>Spider</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[cs231n学习记录 Part2 Linear Classification]]></title>
-    <url>%2F2018%2F01%2F20%2Fcs231n-part-2-linear-classification%2F</url>
-    <content type="text"><![CDATA[继续cs231n课程系列，这是第二部分 Linear Classification现在要研究一个比第一部分中最近邻分类器更强大的图像分类方法，然后自然地过渡到神经网络和卷积神经网络方面。该方法将会有两个主要的组件：score function将原始数据映射为类分数（class scores），loss function则是量化预测的分数与真实标签之间的一致性。这可以视为是一个优化问题，目标是尽可能地减小关于score function参数的loss function。 Parameterized mapping from images to label scores方法的第一个组件是定义score function，将图像的像素值映射为每一类的分数。假定一个图像训练集$x_i \in R^D$，其中每个图像都有对应的标签$y_i$。这儿的$i = 1…N$，$y_i \in 1…K$。$N$是样本（每个维度为$D$）数量，$K$为类别数。举个栗子，在CIFAR-10数据集中，我们有一个$N = 50000$张图像的训练集，每个图像维度是 $D$ = 32 x 32 x 3 = 3072 像素，$K = 10$，因为数据集拥有10个不同的类别（dog、cat、car等）。 所以定义score function：$f: R^D \mapsto R^K$，将原始图像像素映射为类分数。 Linear Classifier线性映射：$$f(x_i, W, b) = W x_i + b$$上述等式中，我们假定图像$x_i$是一个已将其所有像素扁平化为形状为 [D x 1] 的单列向量。矩阵$W$（大小为 [K x D]）和向量$b$（大小为 [K x 1]）是这个函数的参数。在CIFAR-10中，$x_i$包含了已扁平化为 [3072 x 1] 单列向量的第$i$个图像中的所有像素，$W$形状为 [10 X 3072] ，$b$是 [10 X 1] ，所以有3072个数字（原始像素值）输入进函数，函数输出10个数字（类分数）。$W$中的参数通常被称为权重weights，$b$称为偏值向量bias vector，因为它影响输出的分数，而不会干扰实际数据$x_i$。大多数情况下，权重和参数交替使用。 注： 矩阵相乘$Wx_i$有效地评估了10个单独的分类器（每一类是一个分类器），其中$W$中的每一行是一个分类器。 该方法的一个优势是训练数据是被用来学习参数$W, b$的，一旦学习完成，我们可以丢弃掉训练数据，只保留学习到的参数即可，因为新的测试图像是基于这些参数来进行分类的。 该方法对测试图像进行分类主要只包括矩阵相乘和相加操作，速度明显快于将测试图像和所有训练图像进行比较。 卷积神经网络亦是将图像像素映射为分数值，但其映射函数$f$更加复杂，且包含更多参数。 Interpreting a linear classifier线性分类器计算图像3个颜色通道所有像素值的加权总和作为类的分数值。依赖于我们给这些权重设置了什么值，函数有能力喜欢或不喜欢（取决于每个权重的符号）图像中确定位置上的某一颜色。比如说，你可以想象，若某图像的边上有很多蓝色（可能对应于水），那么该图像就很有可能是“ship”类。可以这么想，“ship”分类器在蓝色通道权重上拥有许多正权重值（蓝色的存在增加了ship类的分数），在红/绿通道上负权重（红/绿的存在降低了ship类的分数）。 上图是一个将图像映射为类分数的简单例子。为了便于可视化展示，输入图像仅有4个像素值，且没有考虑颜色通道，分类器的输出有三个类：cat、dog、ship。我们首先将图像的像素扁平化为单个列向量，然后执行矩阵乘法，获得每个类对应的分数。上图中的权重值设置得并不好，它使得cat图像关于cat类得到一个非常低的分数。从图中右侧的三个类分数可以得到，这组权重值使得分类器认为输入图像可能是一个dog。 Loss functionInteractive Web Demo of Linear ClassificationSummary]]></content>
-      <categories>
-        <category>cs231n</category>
-      </categories>
-      <tags>
-        <tag>Linear Classification</tag>
+        <tag>BeautifulSoup</tag>
       </tags>
   </entry>
   <entry>
@@ -82,10 +71,10 @@
         <category>爬虫</category>
       </categories>
       <tags>
+        <tag>BeautifulSoup</tag>
         <tag>python</tag>
         <tag>spider</tag>
         <tag>novel</tag>
-        <tag>BeautifulSoup</tag>
       </tags>
   </entry>
   <entry>
