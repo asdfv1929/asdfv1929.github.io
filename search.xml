@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo NexT主题中添加网页标题崩溃欺骗搞怪特效]]></title>
+    <url>%2F2018%2F01%2F25%2Fcrash-cheat%2F</url>
+    <content type="text"><![CDATA[给网页title添加一些搞怪特效 crash_cheat.js在next\source\js\src文件夹下创建crash_cheat.js，添加代码：1234567891011121314151617&lt;!--崩溃欺骗--&gt;var OriginTitile = document.title; var titleTime; document.addEventListener(&apos;visibilitychange&apos;, function () &#123; if (document.hidden) &#123; $(&apos;[rel=&quot;icon&quot;]&apos;).attr(&apos;href&apos;, &quot;/img/TEP.ico&quot;); document.title = &apos;╭(°A°`)╮ 页面崩溃啦 ~&apos;; clearTimeout(titleTime); &#125; else &#123; $(&apos;[rel=&quot;icon&quot;]&apos;).attr(&apos;href&apos;, &quot;/favicon.ico&quot;); document.title = &apos;(ฅ&gt;ω&lt;*ฅ) 噫又好了~&apos; + OriginTitile; titleTime = setTimeout(function () &#123; document.title = OriginTitile; &#125;, 2000); &#125; &#125;); 引用在next\layout\_layout.swig文件中，添加引用：12&lt;!--崩溃欺骗--&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/src/crash_cheat.js&quot;&gt;&lt;/script&gt;]]></content>
+      <categories>
+        <category>GitBlog</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>NexT</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo NexT主题内接入网页在线联系功能]]></title>
     <url>%2F2018%2F01%2F21%2Fdaovoice%2F</url>
     <content type="text"><![CDATA[之前有访问过一些大佬的个人博客，里面有个在线联系功能，看着不错，所以也试着在自己的站点上接入了此功能。 注册首先在DaoVoice注册个账号，点击-&gt;邀请码是2e5d695d。 完成后，会得到一个app_id，后面会用到： 修改head.swig修改/themes/next/layout/_partials/head.swig文件，添加内容如下：123456789&#123;% if theme.daovoice %&#125; &lt;script&gt; (function(i,s,o,g,r,a,m)&#123;i[&quot;DaoVoiceObject&quot;]=r;i[r]=i[r]||function()&#123;(i[r].q=i[r].q||[]).push(arguments)&#125;,i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset=&quot;utf-8&quot;;m.parentNode.insertBefore(a,m)&#125;)(window,document,&quot;script&quot;,(&apos;https:&apos; == document.location.protocol ? &apos;https:&apos; : &apos;http:&apos;) + &quot;//widget.daovoice.io/widget/0f81ff2f.js&quot;,&quot;daovoice&quot;) daovoice(&apos;init&apos;, &#123; app_id: &quot;&#123;&#123;theme.daovoice_app_id&#125;&#125;&quot; &#125;); daovoice(&apos;update&apos;); &lt;/script&gt;&#123;% endif %&#125; 位置贴图： 主题配置文件在_config.yml文件中添加内容：123# Online contactdaovoice: truedaovoice_app_id: # 这里填你刚才获得的 app_id 聊天窗口配置附上我的聊天窗口的颜色、位置等设置信息： 至此，网页的在线联系功能已经完成，重新hexo g，hexo d上传GitHub后，页面上就能看到效果了。 就比如说你现在往右下角看看(～￣▽￣)～ ，欢迎撩我（滑稽）。]]></content>
@@ -8,8 +21,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>NexT</tag>
+        <tag>Hexo</tag>
         <tag>DaoVoice</tag>
       </tags>
   </entry>
@@ -21,9 +34,9 @@
         <category>爬虫</category>
       </categories>
       <tags>
+        <tag>BeautifulSoup</tag>
         <tag>Python</tag>
         <tag>Spider</tag>
-        <tag>BeautifulSoup</tag>
       </tags>
   </entry>
   <entry>
@@ -34,8 +47,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>NexT</tag>
+        <tag>Hexo</tag>
         <tag>Gitalk</tag>
       </tags>
   </entry>
@@ -59,8 +72,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>GitHub</tag>
         <tag>Git</tag>
+        <tag>GitHub</tag>
       </tags>
   </entry>
   <entry>
@@ -71,10 +84,10 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>BeautifulSoup</tag>
         <tag>python</tag>
         <tag>spider</tag>
         <tag>novel</tag>
+        <tag>BeautifulSoup</tag>
       </tags>
   </entry>
   <entry>
@@ -125,9 +138,9 @@
         <category>GitBlog</category>
       </categories>
       <tags>
+        <tag>Git</tag>
         <tag>Hexo</tag>
         <tag>GitHub</tag>
-        <tag>Git</tag>
         <tag>Node.js</tag>
       </tags>
   </entry>
