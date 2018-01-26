@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo NexT主题添加点击爱心效果]]></title>
+    <url>%2F2018%2F01%2F26%2Fclick-love%2F</url>
+    <content type="text"><![CDATA[给NexT主题内添加页面点击出现爱心的效果 创建js文件在/themes/next/source/js/src下新建文件clicklove.js，接着把该链接下的代码拷贝粘贴到clicklove.js文件中。代码如下：1!function(e,t,a)&#123;function n()&#123;c(&quot;.heart&#123;width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);&#125;.heart:after,.heart:before&#123;content: &apos;&apos;;width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;&#125;.heart:after&#123;top: -5px;&#125;.heart:before&#123;left: -5px;&#125;&quot;),o(),r()&#125;function r()&#123;for(var e=0;e&lt;d.length;e++)d[e].alpha&lt;=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText=&quot;left:&quot;+d[e].x+&quot;px;top:&quot;+d[e].y+&quot;px;opacity:&quot;+d[e].alpha+&quot;;transform:scale(&quot;+d[e].scale+&quot;,&quot;+d[e].scale+&quot;) rotate(45deg);background:&quot;+d[e].color+&quot;;z-index:99999&quot;);requestAnimationFrame(r)&#125;function o()&#123;var t=&quot;function&quot;==typeof e.onclick&amp;&amp;e.onclick;e.onclick=function(e)&#123;t&amp;&amp;t(),i(e)&#125;&#125;function i(e)&#123;var a=t.createElement(&quot;div&quot;);a.className=&quot;heart&quot;,d.push(&#123;el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()&#125;),t.body.appendChild(a)&#125;function c(e)&#123;var a=t.createElement(&quot;style&quot;);a.type=&quot;text/css&quot;;try&#123;a.appendChild(t.createTextNode(e))&#125;catch(t)&#123;a.styleSheet.cssText=e&#125;t.getElementsByTagName(&quot;head&quot;)[0].appendChild(a)&#125;function s()&#123;return&quot;rgb(&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;)&quot;&#125;var d=[];e.requestAnimationFrame=function()&#123;return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e)&#123;setTimeout(e,1e3/60)&#125;&#125;(),n()&#125;(window,document); 修改_layout.swig在\themes\next\layout\_layout.swig文件末尾添加：12&lt;!-- 页面点击小红心 --&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/src/clicklove.js&quot;&gt;&lt;/script&gt;]]></content>
+      <categories>
+        <category>GitBlog</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>NexT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo NexT主题中添加网页标题崩溃欺骗搞怪特效]]></title>
     <url>%2F2018%2F01%2F25%2Fcrash-cheat%2F</url>
     <content type="text"><![CDATA[给网页title添加一些搞怪特效 crash_cheat.js在next\source\js\src文件夹下创建crash_cheat.js，添加代码：1234567891011121314151617&lt;!--崩溃欺骗--&gt;var OriginTitile = document.title; var titleTime; document.addEventListener(&apos;visibilitychange&apos;, function () &#123; if (document.hidden) &#123; $(&apos;[rel=&quot;icon&quot;]&apos;).attr(&apos;href&apos;, &quot;/img/TEP.ico&quot;); document.title = &apos;╭(°A°`)╮ 页面崩溃啦 ~&apos;; clearTimeout(titleTime); &#125; else &#123; $(&apos;[rel=&quot;icon&quot;]&apos;).attr(&apos;href&apos;, &quot;/favicon.ico&quot;); document.title = &apos;(ฅ&gt;ω&lt;*ฅ) 噫又好了~&apos; + OriginTitile; titleTime = setTimeout(function () &#123; document.title = OriginTitile; &#125;, 2000); &#125; &#125;); 引用在next\layout\_layout.swig文件中，添加引用：12&lt;!--崩溃欺骗--&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/src/crash_cheat.js&quot;&gt;&lt;/script&gt;]]></content>
@@ -8,9 +20,9 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Git</tag>
-        <tag>NexT</tag>
         <tag>Hexo</tag>
+        <tag>NexT</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -21,8 +33,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>NexT</tag>
         <tag>Hexo</tag>
+        <tag>NexT</tag>
         <tag>DaoVoice</tag>
       </tags>
   </entry>
@@ -47,8 +59,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>NexT</tag>
         <tag>Hexo</tag>
+        <tag>NexT</tag>
         <tag>Gitalk</tag>
       </tags>
   </entry>
@@ -72,8 +84,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>GitHub</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -138,9 +150,9 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>Hexo</tag>
         <tag>GitHub</tag>
+        <tag>Git</tag>
         <tag>Node.js</tag>
       </tags>
   </entry>
