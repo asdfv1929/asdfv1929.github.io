@@ -474,13 +474,13 @@
 <h2 id="CIFAR-10数据集"><a href="#CIFAR-10数据集" class="headerlink" title="CIFAR-10数据集"></a>CIFAR-10数据集</h2><p>图像分类数据集<code>CIFAR-10</code>包含了60000张<code>32x32</code>像素的小图片，每个图片都被标注为10个类别中的一个。这6万张图片被划分为含有50000张图片的训练集和含有10000张图片的测试集。</p>
 <p>下图中可以看到数据集中每类各10张的随机图像样本：<br><img src="http://cs231n.github.io/assets/nn.jpg" alt="cifar-10"><br>上图左侧是<a href="http://www.cs.toronto.edu/~kriz/cifar.html" target="_blank" rel="external">CIFAR-10</a>数据集的样例图像；右侧中第一列是测试图像，之后的列中是根据像素级距离来判断的与第一列中测试图像距离最近的10张训练图像。</p>
 <p>最近邻分类器接收一个测试图像，将之与训练集中的每个图像进行比较，之后输出距离最近的训练图像的标签值，即为分类器的预测值。在上图的右侧中我们可以看到根据测试图像生成的距离最近的10张训练图像，从右侧的那些距离最近的训练图像中我们可以发现，测试图像中只有少数几个检索到同一类的目标图像，其余的都不是该类图像。比如说，在第8行中，与测试图像（马）距离最近的训练图像中却是一辆车，这可能是因为两幅图中大范围的黑色背景所导致。因此，该马类图像在这种情况下被错误地标注为是一辆车。</p>
-<h2 id="L1-Distance"><a href="#L1-Distance" class="headerlink" title="L1 Distance"></a>L1 Distance</h2><p>接下来介绍下如何对两幅图像进行比较，也就是两个<code>32x32x3</code>的块之间的比较。一个最简单的方法是逐个比较图像的像素，并对其中所有的差值求和。换句话说，给定两张图像，分别表示为$I_1$、$I_2$，比较它们的一个合理方法便是<strong>L1距离</strong>：<br>$$<br>d_1 (I_1, I<em>2) = \sum</em>{p} \left| I^p_1 - I^p_2 \right|<br>$$<br>其中求和操作是面向所有像素的。</p>
+<h2 id="L1-Distance"><a href="#L1-Distance" class="headerlink" title="L1 Distance"></a>L1 Distance</h2><p>接下来介绍下如何对两幅图像进行比较，也就是两个<code>32x32x3</code>的块之间的比较。一个最简单的方法是逐个比较图像的像素，并对其中所有的差值求和。换句话说，给定两张图像，分别表示为$I_1$、$I_2$，比较它们的一个合理方法便是<strong>L1距离</strong>：<br>$$<br>d_1 (I_1, I_2) = \sum_{p} \left| I^p_1 - I^p_2 \right|<br>$$<br>其中求和操作是面向所有像素的。</p>
 <p>过程可视化：<br><img src="http://cs231n.github.io/assets/nneg.jpeg" alt="NN"><br>上图是一个在像素级上使用L1距离对两张图像进行比较的简单例子（例子中只是列出一个通道）。两幅图像各元素对应值相减，然后将所有的差值相加，得到单个数值。如果两张图像相同，则这单个数值将会是0；如果两张图像差异较大，则该值相对较大。</p>
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>首先载入数据为4个数组：训练数据/标签、测试数据/标签。<code>Xtr</code>（size: 50000x32x32x3）包含了训练集中的所有图像，对应的一维数组<code>Ytr</code>（length: 50000）包含了训练标签（0~9）：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Xtr, Ytr, Xte, Yte = load_CIFAR10(<span class="string">'data/cifar10/'</span>) <span class="comment"># 魔法函数，获取数据</span></div><div class="line"><span class="comment"># 扁平化处理</span></div><div class="line">Xtr_rows = Xtr.reshape(Xtr.shape[<span class="number">0</span>], <span class="number">32</span> * <span class="number">32</span> * <span class="number">3</span>) <span class="comment"># Xtr_rows 50000 x 3072</span></div><div class="line">Xte_rows = Xte.reshape(Xte.shape[<span class="number">0</span>], <span class="number">32</span> * <span class="number">32</span> * <span class="number">3</span>) <span class="comment"># Xte_rows 10000 x 3072</span></div></pre></td></tr></table></figure></p>
 <p>之后便是训练与评估：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">nn = NearestNeighbor()        <span class="comment"># 创建一个最近邻分类器的实例</span></div><div class="line">nn.train(Xtr_rows, Ytr)       <span class="comment"># 在训练集和标签上训练分类器</span></div><div class="line">Yte_predict = nn.predict(Xte_rows) <span class="comment"># 在测试图像上预测标签值</span></div><div class="line"><span class="comment"># 打印输出分类准确度</span></div><div class="line"><span class="keyword">print</span> <span class="string">'accuracy: %f'</span> % ( np.mean(Yte_predict == Yte) )</div></pre></td></tr></table></figure></p>
 <p>注：<br>1）一般都是用<code>准确度</code>来作为评估标准，预测正确的数量占比。<br>2）所有分类器都有一个公共的接口：<code>train(X, y)</code>方法，表示从数据和标签中学习模型。<br>3）<code>predict(X)</code>方法，接收新的数据，并预测其标签值。</p>
 <p>下面是一个使用L1距离的简单最近邻分类器的代码实现：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NearestNeighbor</span><span class="params">(object)</span>:</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">(self, X, y)</span>:</span></div><div class="line">    <span class="string">""" X is N x D where each row is an example. Y is 1-dimension of size N """</span></div><div class="line">    <span class="comment"># the nearest neighbor classifier simply remembers all the training data</span></div><div class="line">    self.Xtr = X</div><div class="line">    self.ytr = y</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, X)</span>:</span></div><div class="line">    <span class="string">""" X is N x D where each row is an example we wish to predict label for """</span></div><div class="line">    num_test = X.shape[<span class="number">0</span>]    <span class="comment"># 测试样本数量</span></div><div class="line">    <span class="comment"># lets make sure that the output type matches the input type</span></div><div class="line">    Ypred = np.zeros(num_test, dtype = self.ytr.dtype)  <span class="comment"># 初始化预测值全为0</span></div><div class="line"></div><div class="line">    <span class="comment"># loop over all test rows</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(num_test):  <span class="comment"># 遍历所有测试图像</span></div><div class="line">      <span class="comment"># find the nearest training image to the i'th test image</span></div><div class="line">      <span class="comment"># using the L1 distance (sum of absolute value differences)</span></div><div class="line">      distances = np.sum(np.abs(self.Xtr - X[i,:]), axis = <span class="number">1</span>)</div><div class="line">      min_index = np.argmin(distances) <span class="comment"># get the index with smallest distance</span></div><div class="line">      Ypred[i] = self.ytr[min_index] <span class="comment"># predict the label of the nearest example</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> Ypred</div></pre></td></tr></table></figure></p>
-<h2 id="距离度量的选择"><a href="#距离度量的选择" class="headerlink" title="距离度量的选择"></a>距离度量的选择</h2><p>向量之间有多种方式计算它们的距离。另一种常见的方法便是<code>L2距离</code>，其具有计算两个向量之间欧氏距离的几何解释。距离公式如下：<br>$$<br>d_2 (I_1, I<em>2) = \sqrt{\sum</em>{p} \left( I^p_1 - I^p_2 \right)^2}<br>$$<br>也是先计算像素级别上的差值，然后对其值求平方，之后将所有的值相加，最后对值开根号。<br>代码方面，只要对之前的代码做些许修改即可，将计算距离的那行代码替换为如下一行：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">distances = np.sqrt(np.sum(np.square(self.Xtr - X[i,:]), axis = <span class="number">1</span>))</div></pre></td></tr></table></figure></p>
+<h2 id="距离度量的选择"><a href="#距离度量的选择" class="headerlink" title="距离度量的选择"></a>距离度量的选择</h2><p>向量之间有多种方式计算它们的距离。另一种常见的方法便是<code>L2距离</code>，其具有计算两个向量之间欧氏距离的几何解释。距离公式如下：<br>$$<br>d_2 (I_1, I_2) = \sqrt{\sum_{p} \left( I^p_1 - I^p_2 \right)^2}<br>$$<br>也是先计算像素级别上的差值，然后对其值求平方，之后将所有的值相加，最后对值开根号。<br>代码方面，只要对之前的代码做些许修改即可，将计算距离的那行代码替换为如下一行：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">distances = np.sqrt(np.sum(np.square(self.Xtr - X[i,:]), axis = <span class="number">1</span>))</div></pre></td></tr></table></figure></p>
 <p>上面代码中使用了<code>np.sqrt</code>，但在实际最近邻应用中，我们省去了<code>开根号</code>这一操作，因为开根是一个单调函数。也就是说，它控制了距离的绝对大小的量级，但仍保留其排序，所以有或没有开根，最近邻的比较没有影响（其实就是开根操作没有影响单调性）。</p>
 <h1 id="k近邻分类器"><a href="#k近邻分类器" class="headerlink" title="k近邻分类器"></a>k近邻分类器</h1><p>k近邻分类器：找出与测试图像最相近的k个训练图像，然后根据投票规则（哪一类数量多，就选哪类），预测出测试图像的标签。特例，当k=1时，就变成最近邻分类器。直观上，较大的k值具有平滑效果，会使得分类器对异常值更具抵抗性，分类的准确度会更高。<br><img src="http://cs231n.github.io/assets/knn.jpeg" alt="knn"><br>上图中，有色区域代表的是根据<code>L2距离</code>分类器做出的决策边界。在最近邻中，由于可能不正确的预测而导致出现一些与周围颜色不一致的“岛屿”，5-近邻中却将这些<code>异常值</code>做了相应处理，使得这些颜色边界更加平滑，这可能对测试数据会产生更好的<code>泛化</code>。右图中的灰色区域是由投票规则所导致的（2票红色，2票蓝色，最后一票绿色）。</p>
 <h1 id="超参数调优、验证集"><a href="#超参数调优、验证集" class="headerlink" title="超参数调优、验证集"></a>超参数调优、验证集</h1><h2 id="超参数"><a href="#超参数" class="headerlink" title="超参数"></a>超参数</h2><p>k近邻分类器中的k值该如何选择，才会让分类器效果最优。之前距离度量函数的选择，包括L1、L2范数，这些选择都被称为“超参数”。</p>
@@ -515,6 +515,17 @@
     
     
     
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:22px;">------------- 本 文 结 束 <i class="fa fa-paw"></i> 感 谢 您 的 阅 读 -------------</div>
+    
+</div>
+
+      
+    </div>
 
     
 
@@ -683,7 +694,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -705,7 +716,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
