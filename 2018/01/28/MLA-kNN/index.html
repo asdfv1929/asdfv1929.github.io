@@ -128,7 +128,7 @@
 <meta property="og:site_name" content="asdfv1929 &#39;s Home">
 <meta property="og:description" content="学习机器学习实战一书，记录一下。书上原代码都是以Python2版本编写，这边我是用Python3版本，所以会与书上代码有少许不同。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-28T14:38:41.333Z">
+<meta property="og:updated_time" content="2018-01-29T11:18:58.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="k-近邻算法">
 <meta name="twitter:description" content="学习机器学习实战一书，记录一下。书上原代码都是以Python2版本编写，这边我是用Python3版本，所以会与书上代码有少许不同。">
@@ -499,7 +499,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">handwritingClassTest</span><span class="params">()</span>:</span></div><div class="line">    hwLabels = []                                        <span class="comment"># 列表，存放训练数据集标签</span></div><div class="line">    trainingFileList = listdir(<span class="string">"digits/trainingDigits"</span>)  <span class="comment"># 列出给定目录中的文件名</span></div><div class="line">    m = len(trainingFileList)                            <span class="comment"># 训练样本数</span></div><div class="line">    trainingMat = np.zeros((m, <span class="number">1024</span>))                    <span class="comment"># 初始化全0矩阵 m行1024列</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(m):                                   <span class="comment"># 遍历训练数据</span></div><div class="line">        fileNameStr = trainingFileList[i]                <span class="comment"># 获取文件名全称，如 3_107.txt</span></div><div class="line">        fileStr = fileNameStr.split(<span class="string">'.'</span>)[<span class="number">0</span>]              <span class="comment"># 根据 . 划分，获取文件名 如 3_107</span></div><div class="line">        classNum = int(fileStr.split(<span class="string">'_'</span>)[<span class="number">0</span>])            <span class="comment"># 根据 _ 划分，获取该文件表示的真实数字 如 3</span></div><div class="line">        hwLabels.append(classNum)                        <span class="comment"># 将该数字标签放入训练集标签列表中</span></div><div class="line">        trainingMat[i, :] = img2vector(<span class="string">'digits/trainingDigits/%s'</span> % fileNameStr)  <span class="comment"># 调用函数，将第i个文件内的内容转化为数组，并存储</span></div><div class="line">    testFileList = listdir(<span class="string">"digits/testDigits"</span>)     <span class="comment"># 列出测试集目录中的文件名</span></div><div class="line">    errorCount = <span class="number">0.0</span>                                <span class="comment"># 错误统计</span></div><div class="line">    mTest = len(testFileList)                       <span class="comment"># 测试集大小</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(mTest):                          <span class="comment"># 遍历测试集</span></div><div class="line">        fileNameStr = testFileList[i]</div><div class="line">        fileStr = fileNameStr.split(<span class="string">'.'</span>)[<span class="number">0</span>]</div><div class="line">        classNum = int(fileStr.split(<span class="string">'_'</span>)[<span class="number">0</span>])</div><div class="line">        vectorUnderTest = img2vector(<span class="string">"digits/testDigits/%s"</span> % fileNameStr)</div><div class="line">        classifyResult = classify(vectorUnderTest, trainingMat, hwLabels, <span class="number">3</span>)  <span class="comment"># 调用函数，预测数字</span></div><div class="line">        print(<span class="string">"the classifier: %d, the real value: %d"</span> % (classifyResult, classNum))</div><div class="line">        <span class="keyword">if</span> classifyResult != classNum:</div><div class="line">            errorCount += <span class="number">1.0</span></div><div class="line">    print(<span class="string">"total number of errors: %d"</span> % errorCount)</div><div class="line">    print(<span class="string">"total error rate: %f"</span> % (errorCount / float(mTest)))   <span class="comment"># 错误率</span></div></pre></td></tr></table></figure>
 <p>调用运行：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kNN.handwritingClassTest()</div></pre></td></tr></table></figure></p>
 <p>结果显示：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">the classifier: <span class="number">0</span>, the real value: <span class="number">0</span></div><div class="line">the classifier: <span class="number">0</span>, the real value: <span class="number">0</span></div><div class="line">...</div><div class="line">the classifier: <span class="number">9</span>, the real value: <span class="number">9</span></div><div class="line">the classifier: <span class="number">9</span>, the real value: <span class="number">9</span></div><div class="line">the classifier: <span class="number">9</span>, the real value: <span class="number">9</span></div><div class="line">total number of errors: <span class="number">10</span></div><div class="line">total error rate: <span class="number">0.010571</span></div></pre></td></tr></table></figure></p>
-<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>本篇主要就是学习k-近邻算法，以及该算法的两个简单实际应用。k-近邻算法必须保存全部数据集，如果训练数据及很大，必须使用大量的存储空间。由于必须对数据集中的每个数据计算距离值，实际使用时非常耗时。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>本篇主要就是学习k-近邻算法，以及该算法的两个简单实际应用。k-近邻算法必须保存全部数据集，如果训练数据集很大，必须使用大量的存储空间。由于必须对数据集中的每个数据计算距离值，实际使用时非常耗时。</p>
 <p>代码链接：<a href="https://github.com/asdfv1929/MachineLearningInAction_Python3/tree/master/Chapter02_kNN" target="_blank" rel="external">https://github.com/asdfv1929/MachineLearningInAction_Python3/tree/master/Chapter02_kNN</a></p>
 
       
@@ -601,6 +601,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/02/16/happy-dog-year-2018/" rel="prev" title="狗年大吉！">
+                狗年大吉！ <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -682,7 +686,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
