@@ -104,7 +104,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Saliency Map," />
+  <meta name="keywords" content="Saliency Map,Image Processing,Translation," />
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-<meta name="description" content="基于前景目标感知的显著性检测">
-<meta name="keywords" content="Saliency Map">
+<meta name="description" content="主要是关于图像显著性检测的一篇论文。">
+<meta name="keywords" content="Saliency Map,Image Processing,Translation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="翻译：Foreground Object Sensing for Saliency Detection">
 <meta property="og:url" content="https://asdfv1929.github.io/2018/03/22/Foreground-Object-Sensing-for-Saliency-Detection/index.html">
 <meta property="og:site_name" content="asdfv1929 &#39;s Home">
-<meta property="og:description" content="基于前景目标感知的显著性检测">
+<meta property="og:description" content="主要是关于图像显著性检测的一篇论文。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://s1.ax1x.com/2018/03/24/9bTeKA.md.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/03/24/9bTKVP.png">
@@ -142,10 +142,10 @@
 <meta property="og:image" content="https://s1.ax1x.com/2018/03/25/9q5ftU.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/03/25/9q5I1J.png">
 <meta property="og:image" content="https://s1.ax1x.com/2018/03/25/9qIMBq.png">
-<meta property="og:updated_time" content="2018-03-25T15:29:29.141Z">
+<meta property="og:updated_time" content="2018-03-25T15:46:08.041Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="翻译：Foreground Object Sensing for Saliency Detection">
-<meta name="twitter:description" content="基于前景目标感知的显著性检测">
+<meta name="twitter:description" content="主要是关于图像显著性检测的一篇论文。">
 <meta name="twitter:image" content="https://s1.ax1x.com/2018/03/24/9bTeKA.md.png">
 
 
@@ -453,7 +453,7 @@
       
 
       
-        <p>基于前景目标感知的显著性检测<br><a id="more"></a></p>
+        <p>主要是关于图像显著性检测的一篇论文。<br><a id="more"></a><br>| Name | DESC |<br>| —– | —– |<br>| TITLE | Foreground Object Sensing for Saliency Detection |<br>| AUTHOR | Hengliang Zhu, Bin Sheng, Xiao Lin, Yangyang Hao, Lizhuang Ma |<br>| PBYEAR | 2016 |<br>| TRANSLATION | asdfv1929 |<br>| TIME | 2018.3 |</p>
 <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>许多先进的显著性检测算法都依赖于边界先验（boundary prior），但是这些算法只是简单地将图像周围的边界视为背景区域。在这里，我们提出一个快速有效的显著目标检测算法。首先提出一个新的方法，通过使用Harris Corner的凸包（convex hull）来近似定位前景目标。在此基础上，将不同区域的显著值划分为两部分，生成对应的贴图（cue maps）（前景和背景），并将其合并为凸包先验图（a convex hull prior map）。然后基于到凸包中心的距离提出一个新的先验来代替之前的中心先验。最后，将凸包先验图和凸包中心偏差（center-biased）图组合为显著图，然后对显著图进行优化以获得最终结果。通过与18个现有算法相比，在几个数据集上进行测试，本算法在精度和查全率（precision and recall）方面均表现良好。<br>CCS概念：计算方法 –&gt; 兴趣点和显著区域检测<br>关键字：前景目标；Harris Corner；凸包；显著图</p>
 <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>在对生物（人类）视觉系统的信息处理机制进行研究之后，近年来关于视觉显著性检测的工作迅速发展增加，并成功地应用到众多计算机视觉应用中，如图像分割[34]，图像压缩[13, 23]，图像缩放[29]，图像检索[8, 35]和图像质量评估[46]。“视觉显著性”的目标是找到图像中的丰富信息区域（abundant information regions），其中的显著区域和非显著区域在感知上可区分。</p>
 <p>从心理学角度[22]来看，显著性检测可以分为自下而上（数据驱动）方法[7, 12, 15, 32, 39, 45, 48]和自上而下（目标驱动）方法[20, 27, 47]。与后者利用图像的高级先验知识相比，前者利用图像的低级特征（例如，颜色、位置和纹理）来检测显著性区域。有了这些原始特征，在之前的工作[1, 18, 28, 37, 48]中，研究者提出了诸如中心先验（center prior）、对比先验（contrast prior）和边界先验（boundary prior）等先验假设，以提高显著目标检测的准确性。在本文中，我们主要关注自下而上的显著性检测。</p>
@@ -573,6 +573,10 @@
           
             <a href="/tags/Saliency-Map/" rel="tag"><i class="fa fa-tag"></i> Saliency Map</a>
           
+            <a href="/tags/Image-Processing/" rel="tag"><i class="fa fa-tag"></i> Image Processing</a>
+          
+            <a href="/tags/Translation/" rel="tag"><i class="fa fa-tag"></i> Translation</a>
+          
         </div>
       
 
@@ -686,7 +690,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -697,7 +701,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
