@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[图像显著性检测 LC算法]]></title>
+    <url>%2F2018%2F05%2F11%2Fsaliency-LC%2F</url>
+    <content type="text"><![CDATA[图像显著性检测算法之一：LC Algorithm 基本思想计算某个像素在整个图像上的全局对比度，即该像素与图像中其他所有像素在颜色上的距离之和作为该像素的显著值。 显著值计算图像 $I$ 中某个像素 $I_k$ 的显著值计算如下：其中$I_i$的取值范围为 $[0, 255]$， 即为灰度值。 上式等于：$N$表示图像中像素的数量。 给定一张图像，每个像素$I_k$的颜色值已知。假定$I_k = a_m$，则上式可进一步重构：其中，$f_n$表示图像中第$n$个像素的频数，以直方图的形式表示。 代码实现直接调用OpenCV接口，实现图像中像素的直方图统计，即统计$[0, 255]$中每个灰度值的数量。12# 直方图，统计图像中每个灰度值的数量hist_array = cv2.calcHist([image_gray], [0], None, [256], [0.0, 256.0]) 计算像素与其他所有像素在灰度值上的距离。12345678def cal_dist(hist): dist = &#123;&#125; for gray in range(256): value = 0.0 for k in range(256): value += hist[k][0] * abs(gray - k) dist[gray] = value return dist 将灰度值图像中的像素值更新为对比度值（即距离度量）。12345for i in range(image_width): for j in range(image_height): temp = image_gray[j][i] image_gray_copy[j][i] = gray_dist[temp]image_gray_copy = (image_gray_copy - np.min(image_gray_copy)) / (np.max(image_gray_copy) - np.min(image_gray_copy)) 代码链接： https://github.com/asdfv1929/Saliency_LC_Algorithm 结果展示原图： 显著图：]]></content>
+      <categories>
+        <category>Saliency Map</category>
+      </categories>
+      <tags>
+        <tag>Image Processing</tag>
+        <tag>Algorithm</tag>
+        <tag>Saliency</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[文献管理工具]]></title>
     <url>%2F2018%2F03%2F29%2FZotero%2F</url>
     <content type="text"><![CDATA[推荐一个文献管理工具：Zotero链接走起 &gt;&gt;&gt;&gt;&gt;&gt;&gt; Zotero 这边我简单地走一下软件的使用流程（因为我自己也只是会简单的应用，尴尬(*￣︶￣) ） 安装安装软件我就不说了，就一般程序安装步骤。在安装的过程中，Zotero会在本地的Word程序中安装插件，所以会有这样子的Tab出现： 添加文献信息比如添加一篇文献，可以先进入百度学术，搜索对应的文献，这边我搜索的是 deep learning，然后点击“引用” 之后点击“BibTex”，页面会跳转到显示如下文本内容： Ctrl+A Ctrl+C 就是复制一下该页文本。然后打开Zotero软件，点击“从剪贴板导入”，或者直接快捷键“Ctrl+Shift+Alt+I”，这样，该文献的信息就被导入进Zotero中了。 插入文档在文档Word中插入文献信息，就是在这个Tab中操作的。首先鼠标点击到文档中目标位置，然后点击“Add/Edit Citation” 会有Zotero的弹出框出来，在这里选择经典视图：之后便会出现如下所示的文献选取框，在这里就选定目标文献，点击OK就行了，目标位置处会有对应的文献序号索引生成，我就不截图了。 之后在论文中的参考文献章节下，鼠标移动到这，然后点击Tab中的Add/Edit Bibliography，就会在该鼠标处自动生成对应的文献信息：Lecun Y, Bengio Y, Hinton G. Deep learning[J]. Nature, 2015, 521(7553): 436. 之后的其他文献插入操作类似，都是这样进行，且文献序号是自动生成的，从前往后，后面的参考文献依次对应。 关于Zotero的一些操作，我就大体讲这些，，后续的相关操作就靠大家自己摸索了。 全军出击(((ꎤ’ω’)و三 ꎤ’ω’)-o≡]]></content>
@@ -104,8 +117,8 @@
       </categories>
       <tags>
         <tag>NexT</tag>
-        <tag>Hexo</tag>
         <tag>Git</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -218,8 +231,8 @@
         <category>Papers</category>
       </categories>
       <tags>
-        <tag>Translation</tag>
         <tag>Paper</tag>
+        <tag>Translation</tag>
         <tag>Deep Learning</tag>
         <tag>CNN</tag>
         <tag>AlexNet</tag>
@@ -233,8 +246,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Git</tag>
+        <tag>Hexo</tag>
         <tag>GitHub</tag>
         <tag>Node.js</tag>
       </tags>
