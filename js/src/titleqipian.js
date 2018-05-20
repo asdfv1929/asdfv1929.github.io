@@ -1,5 +1,5 @@
 <!--崩溃欺骗-->
-var OriginTitile = document.title;
+ var OriginTitle = document.title;
  var titleTime;
  document.addEventListener('visibilitychange', function () {
      if (document.hidden) {
@@ -9,9 +9,9 @@ var OriginTitile = document.title;
      }
      else {
          $('[rel="icon"]').attr('href', "/favicon.ico");
-         document.title = '(ฅ>ω<*ฅ) 噫又好了~' + OriginTitile;
+         document.title = '(ฅ>ω<*ฅ) 噫又好了~' + OriginTitle;
          titleTime = setTimeout(function () {
-             document.title = OriginTitile;
+             document.title = OriginTitle;
          }, 2000);
      }
  });

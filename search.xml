@@ -33,9 +33,9 @@
         <category>Papers</category>
       </categories>
       <tags>
+        <tag>Translation</tag>
         <tag>Saliency Map</tag>
         <tag>Image Processing</tag>
-        <tag>Translation</tag>
       </tags>
   </entry>
   <entry>
@@ -111,7 +111,7 @@
   <entry>
     <title><![CDATA[Hexo NexT主题中添加网页标题崩溃欺骗搞怪特效]]></title>
     <url>%2F2018%2F01%2F25%2Fcrash-cheat%2F</url>
-    <content type="text"><![CDATA[给网页title添加一些搞怪特效 crash_cheat.js在next\source\js\src文件夹下创建crash_cheat.js，添加代码：1234567891011121314151617&lt;!--崩溃欺骗--&gt;var OriginTitile = document.title; var titleTime; document.addEventListener(&apos;visibilitychange&apos;, function () &#123; if (document.hidden) &#123; $(&apos;[rel=&quot;icon&quot;]&apos;).attr(&apos;href&apos;, &quot;/img/TEP.ico&quot;); document.title = &apos;╭(°A°`)╮ 页面崩溃啦 ~&apos;; clearTimeout(titleTime); &#125; else &#123; $(&apos;[rel=&quot;icon&quot;]&apos;).attr(&apos;href&apos;, &quot;/favicon.ico&quot;); document.title = &apos;(ฅ&gt;ω&lt;*ฅ) 噫又好了~&apos; + OriginTitile; titleTime = setTimeout(function () &#123; document.title = OriginTitile; &#125;, 2000); &#125; &#125;); 引用在next\layout\_layout.swig文件中，添加引用：12&lt;!--崩溃欺骗--&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/src/crash_cheat.js&quot;&gt;&lt;/script&gt;]]></content>
+    <content type="text"><![CDATA[给网页title添加一些搞怪特效 crash_cheat.js在next\source\js\src文件夹下创建crash_cheat.js，添加代码：1234567891011121314151617&lt;!--崩溃欺骗--&gt; var OriginTitle = document.title; var titleTime; document.addEventListener(&apos;visibilitychange&apos;, function () &#123; if (document.hidden) &#123; $(&apos;[rel=&quot;icon&quot;]&apos;).attr(&apos;href&apos;, &quot;/img/TEP.ico&quot;); document.title = &apos;╭(°A°`)╮ 页面崩溃啦 ~&apos;; clearTimeout(titleTime); &#125; else &#123; $(&apos;[rel=&quot;icon&quot;]&apos;).attr(&apos;href&apos;, &quot;/favicon.ico&quot;); document.title = &apos;(ฅ&gt;ω&lt;*ฅ) 噫又好了~&apos; + OriginTitle; titleTime = setTimeout(function () &#123; document.title = OriginTitle; &#125;, 2000); &#125; &#125;); 引用在next\layout\_layout.swig文件中，添加引用：12&lt;!--崩溃欺骗--&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/js/src/crash_cheat.js&quot;&gt;&lt;/script&gt;]]></content>
       <categories>
         <category>GitBlog</category>
       </categories>
@@ -232,10 +232,10 @@
       </categories>
       <tags>
         <tag>Paper</tag>
-        <tag>Translation</tag>
         <tag>Deep Learning</tag>
         <tag>CNN</tag>
         <tag>AlexNet</tag>
+        <tag>Translation</tag>
       </tags>
   </entry>
   <entry>
