@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Eclipse Java 快捷键记录]]></title>
+    <url>%2F2018%2F05%2F21%2Feclipse-java-hotkey%2F</url>
+    <content type="text"><![CDATA[记录一下Eclipse中相关的快捷键。 Eclipse的快捷键 a: 内容辅助键 Alt + / 自动补齐main方法 main 然后 Alt+/ 自动补齐输出语句 syso 然后 Alt+/ b: 格式化代码 Ctrl + Shift + f 代码区域右键 – Source – Format c: 自动导包 Ctrl + Shift + o 如果当前类在多个包中都存在，这时候，使用 Ctrl + shift + o ,进行选择一个包导入即可。 d: 注释 单行注释 加注释： 先选中需要注释的内容，然后 Ctrl + / 取消注释：先选中需要取消注释的内容， 然后 Ctrl + / 多行注释 加注释： 先选中需要注释的内容，然后 Ctrl + Shift + / 取消注释：先选中需要取消注释的内容， 然后 Ctrl + Shift + \ e: 补充 代码上下移动 选中代码 alt + 上/下箭头 查看源码 选中类名(F3或者Ctrl+鼠标点击) 查找具体的类 ctrl + shift + t，输入要查找的类的名称–&gt;确定 查找具体类的具体方法 ctrl + o 给建议 ctrl + 1,根据右边生成左边的数据类型,生成方法 删除代码 ctrl + d 抽取方法 alt + shift + m 改名 alt + shift + r（类名，方法名，变量名）]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Eclipse</tag>
+        <tag>Hot Key</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[图像显著性检测 LC算法]]></title>
     <url>%2F2018%2F05%2F11%2Fsaliency-LC%2F</url>
     <content type="text"><![CDATA[图像显著性检测算法之一：LC Algorithm 基本思想计算某个像素在整个图像上的全局对比度，即该像素与图像中其他所有像素在颜色上的距离之和作为该像素的显著值。 显著值计算图像 $I$ 中某个像素 $I_k$ 的显著值计算如下：其中$I_i$的取值范围为 $[0, 255]$， 即为灰度值。 上式等于：$N$表示图像中像素的数量。 给定一张图像，每个像素$I_k$的颜色值已知。假定$I_k = a_m$，则上式可进一步重构：其中，$f_n$表示图像中第$n$个像素的频数，以直方图的形式表示。 代码实现直接调用OpenCV接口，实现图像中像素的直方图统计，即统计$[0, 255]$中每个灰度值的数量。12# 直方图，统计图像中每个灰度值的数量hist_array = cv2.calcHist([image_gray], [0], None, [256], [0.0, 256.0]) 计算像素与其他所有像素在灰度值上的距离。12345678def cal_dist(hist): dist = &#123;&#125; for gray in range(256): value = 0.0 for k in range(256): value += hist[k][0] * abs(gray - k) dist[gray] = value return dist 将灰度值图像中的像素值更新为对比度值（即距离度量）。12345for i in range(image_width): for j in range(image_height): temp = image_gray[j][i] image_gray_copy[j][i] = gray_dist[temp]image_gray_copy = (image_gray_copy - np.min(image_gray_copy)) / (np.max(image_gray_copy) - np.min(image_gray_copy)) 代码链接： https://github.com/asdfv1929/Saliency_LC_Algorithm 结果展示原图： 显著图：]]></content>
@@ -104,8 +117,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>NexT</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -116,8 +129,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>NexT</tag>
+        <tag>Hexo</tag>
         <tag>Git</tag>
       </tags>
   </entry>
@@ -129,8 +142,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>NexT</tag>
+        <tag>Hexo</tag>
         <tag>DaoVoice</tag>
       </tags>
   </entry>
@@ -143,8 +156,8 @@
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>BeautifulSoup</tag>
         <tag>Spider</tag>
+        <tag>BeautifulSoup</tag>
       </tags>
   </entry>
   <entry>
@@ -155,8 +168,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>NexT</tag>
+        <tag>Hexo</tag>
         <tag>Gitalk</tag>
       </tags>
   </entry>
@@ -180,8 +193,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>GitHub</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -192,10 +205,10 @@
         <category>爬虫</category>
       </categories>
       <tags>
+        <tag>BeautifulSoup</tag>
         <tag>python</tag>
         <tag>spider</tag>
         <tag>novel</tag>
-        <tag>BeautifulSoup</tag>
       </tags>
   </entry>
   <entry>
@@ -247,8 +260,8 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>Git</tag>
         <tag>GitHub</tag>
+        <tag>Git</tag>
         <tag>Node.js</tag>
       </tags>
   </entry>
