@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo NexT主题中添加百度分享功能]]></title>
+    <url>%2F2018%2F05%2F25%2Fbaidu-share%2F</url>
+    <content type="text"><![CDATA[给博文增加简单的百度分享功能 _config.yml因为next\layout_partials\share\baidushare.swig文件中代码显示：12345&#123;% if theme.baidushare.type === &quot;button&quot; %&#125;......&#123;% elseif theme.baidushare.type === &quot;slide&quot; %&#125;... 在配置百度分享功能时需指定其type，所以将主题配置_config.yml文件中关于baidushare部分的内容改为（其中type亦可以选择button）：123baidushare: type: slide baidushare: true download_config.yml中提示：Warning: Baidu Share does not support https.因为百度分享不支持在https上使用，所以一种解决方法便是，直接放文件到我们自己的目录下面。 访问链接： static文件夹下载压缩包到本地，解压后，将static文件夹保存至themes\next\source目录下。 baidushare.swig修改文件：themes\next\layout_partials\share\baidushare.swig将文件 末尾 部分的代码进行修改：1.src=&apos;http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=&apos;+~(-new Date()/36e5)]; 改为1.src=&apos;/static/api/js/share.js?v=89860593.js?cdnversion=&apos;+~(-new Date()/36e5)]; 最后重新生成下，就能展示分享功能了。 参考链接：百度分享不支持https的解决方案Hexo+Github搭建个人博客(三)——百度分享集成]]></content>
+      <categories>
+        <category>GitBlog</category>
+      </categories>
+      <tags>
+        <tag>NexT</tag>
+        <tag>BaiduShare</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Eclipse Java 快捷键记录]]></title>
     <url>%2F2018%2F05%2F21%2Feclipse-java-hotkey%2F</url>
     <content type="text"><![CDATA[记录一下Eclipse中相关的快捷键。 Eclipse的快捷键 a: 内容辅助键 Alt + / 自动补齐main方法 main 然后 Alt + / 自动补齐输出语句 syso 然后 Alt + / b: 格式化代码 Ctrl + Shift + f 代码区域右键 – Source – Format c: 自动导包 Ctrl + Shift + o 如果当前类在多个包中都存在，这时候，使用 Ctrl + shift + o ,进行选择一个包导入即可。 d: 注释 单行注释 加注释： 先选中需要注释的内容，然后 Ctrl + / 取消注释：先选中需要取消注释的内容， 然后 Ctrl + / 多行注释 加注释： 先选中需要注释的内容，然后 Ctrl + Shift + / 取消注释：先选中需要取消注释的内容， 然后 Ctrl + Shift + \ e: 补充 代码上下移动 选中代码 alt + 上/下箭头 查看源码 选中类名(F3或者Ctrl + 鼠标点击) 查找具体的类 ctrl + shift + t，输入要查找的类的名称–&gt;确定 查找具体类的具体方法 ctrl + o 给建议 ctrl + 1,根据右边生成左边的数据类型,生成方法 删除代码 ctrl + d 抽取方法 alt + shift + m 改名 alt + shift + r（类名，方法名，变量名）]]></content>
@@ -130,8 +142,8 @@
       </categories>
       <tags>
         <tag>NexT</tag>
-        <tag>Git</tag>
         <tag>Hexo</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -259,8 +271,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>Hexo</tag>
+        <tag>Git</tag>
         <tag>GitHub</tag>
         <tag>Node.js</tag>
       </tags>
