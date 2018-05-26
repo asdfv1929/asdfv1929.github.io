@@ -1,0 +1,5 @@
+.ImageGrid {width: 100%;max-width: 1040px;margin: 0 auto; text-align: center;}
+.card {overflow: hidden;transition: .3s ease-in-out; border-radius: 8px; background-color: #ddd;}
+.ImageInCard {}
+.ImageInCard img {padding: 0 0 0 0;}
+.TextInCard {line-height: 54px; background-color: #ffffff; font-size: 24px;}
