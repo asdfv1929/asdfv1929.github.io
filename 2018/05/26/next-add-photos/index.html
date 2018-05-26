@@ -128,7 +128,7 @@
 <meta property="og:site_name" content="asdfv1929 &#39;s Home">
 <meta property="og:description" content="给博客添加一个相册页面，以展示自己拍摄的一些照片  (≖ᴗ≖)✧">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-26T13:52:46.818Z">
+<meta property="og:updated_time" content="2018-05-26T14:04:42.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo NexT主题内添加相册功能">
 <meta name="twitter:description" content="给博客添加一个相册页面，以展示自己拍摄的一些照片  (≖ᴗ≖)✧">
@@ -457,7 +457,7 @@
       
         <p>给博客添加一个相册页面，以展示自己拍摄的一些照片  (≖ᴗ≖)✧<br><a id="more"></a></p>
 <h1 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h1><p>首先新建<code>hexo new page photos</code>相册页面，将会在<code>source/</code>下创建<code>photos/index.md</code>，在其中添加<code>type: photos</code></p>
-<p>之后在主题<code>_config.yml</code>文件中对应位置<code>menu</code>里添加<code>photos: /photos/ || image</code> ，这样生成后就能在页面的对应页面选项中有该相册Tab。</p>
+<p>之后在主题<code>_config.yml</code>文件中对应位置<code>menu</code>里添加<code>Photos: /photos/ || image</code> ，这样生成后就能在页面的对应页面选项中有该相册Tab。</p>
 <h1 id="json"><a href="#json" class="headerlink" title="json"></a>json</h1><p>在博客根目录下新建<code>uploadPhotos</code>文件夹，里面将会存放照片以及相关js文件。</p>
 <p>新建<code>uploadPhotos/Images/</code>文件夹，然后在其中存放需要在页面中展示的照片集（后续需将该文件夹上传至GitHub相册库，若没有对应库，可新建，并上传图片）。</p>
 <p>新建<code>uploadPhotos/tool.js</code>文件，里面内容如下，主要功能是访问照片文件夹，获取每张照片的size和name，并生成对应的json文件：</p>
@@ -477,7 +477,7 @@
 <li>将照片上传至GitHub相册库时，由于照片分辨率较高，其都达到了两三M以上，上传速度较慢，导致上传进度缓慢。后期想通过代码将照片进行压缩后再上传至相册库。</li>
 <li>相册展示整个操作流程为：先上传照片到git库，再生成json文件，之后便是正常的clean、g、d，后期想把压缩、上传照片和生成json文件整合到一起。</li>
 <li>在成果相册页面中，点击某一照片时，其跳转到的是GitHub的图片链接上，并进行原图展示，后期想根据fancyBox作为图片弹出展示的框架，进行相应的修改，以完善点击图片原图展示。</li>
-<li>目前的照片展示都是所有照片一整块放一起进行瀑布流显示，后期想将照片根据其旅游场景或类别、时间不同进行分类至对应文件夹，并根据类别或时间线显示展示出不同文件夹下的照片。</li>
+<li>目前的照片展示都是所有照片一整块放一起进行瀑布流显示，后期想将照片根据其旅游场景或类别、时间不同进行分类至对应文件夹，并根据类别或时间线显式展示出不同文件夹下的照片。</li>
 </ul>
 <p>参考链接：<br><a href="https://www.cnblogs.com/xljzlw/p/5137622.html" target="_blank" rel="external">hexo主题中添加相册功能</a><br><a href="https://fchange.github.io/2018/02/18/%E5%A6%82%E4%BD%95%E5%9C%A8Hexo%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%9B%B8%E5%86%8C%E5%8A%9F%E8%83%BD/" target="_blank" rel="external">如何在Hexo中实现自适应响应式相册功能</a></p>
 
