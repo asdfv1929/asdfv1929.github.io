@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo NexT主题中添加网页音乐播放器功能]]></title>
+    <url>%2F2018%2F05%2F26%2Fnext-add-music%2F</url>
+    <content type="text"><![CDATA[为博客添加网页音乐播放器功能 download点击访问Aplayer源码：GitHub Aplayer。下载到本地，解压后将dist文件夹复制到themes\next\source文件夹下。 music.js新建themes\next\source\dist\music.js文件，添加内容：12345678910111213141516171819202122232425const ap = new APlayer(&#123; container: document.getElementById(&apos;aplayer&apos;), fixed: true, autoplay: false, audio: [ &#123; name: &quot;PDD洪荒之力&quot;, artist: &apos;徐梦圆&apos;， url: &apos;http://up.mcyt.net/?down/39868.mp3&apos;, cover: &apos;http://oeff2vktt.bkt.clouddn.com/image/84.jpg&apos;, &#125; &#123; name: &apos;9420&apos;, artist: &apos;麦小兜&apos;, url: &apos;http://up.mcyt.net/?down/45967.mp3&apos;, cover: &apos;http://oeff2vktt.bkt.clouddn.com/image/8.jpg&apos;, &#125;, &#123; name: &apos;风筝误&apos;, artist: &apos;刘珂矣&apos;, url: &apos;http://up.mcyt.net/?down/46644.mp3&apos;, cover: &apos;http://oeff2vktt.bkt.clouddn.com/image/96.jpg&apos;, &#125; ]&#125;); 源码中对应的参数解释，这边都有： Aplayer 中文文档 audio对应的便是音频文件，所以音乐播放器需要播放的音乐是需要自己进行相关信息（如歌曲链接、歌词、封面等）的配置。这里放一个mp3音乐外链网站：http://up.mcyt.net/ ，搜索对应的音乐，然后复制url和右击封面图片链接粘贴到对应的位置上就行了。 注：由于该外链网站没有歌词链接，我这边没有进行配置，所以播放器在播放音乐时点击歌词是没有显示的。 _layout.swig打开themes\next\layout\_layout.swig文件，将1234&lt;link rel=&quot;stylesheet&quot; href=&quot;/dist/APlayer.min.css&quot;&gt;&lt;div id=&quot;aplayer&quot;&gt;&lt;/div&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/dist/APlayer.min.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;/dist/music.js&quot;&gt;&lt;/script&gt; 添加到&lt;body itemscope ...&gt;后面就行，即在&lt;body&gt;&lt;/body&gt;里面。 重新生成，访问页面，就能看到左下角的音乐播放器了。]]></content>
+      <categories>
+        <category>GitBlog</category>
+      </categories>
+      <tags>
+        <tag>Web Music</tag>
+        <tag>Aplayer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo NexT主题中添加百度分享功能]]></title>
     <url>%2F2018%2F05%2F25%2Fbaidu-share%2F</url>
     <content type="text"><![CDATA[给博文增加简单的百度分享功能 _config.yml因为next\layout_partials\share\baidushare.swig文件中代码显示：12345&#123;% if theme.baidushare.type === &quot;button&quot; %&#125;......&#123;% elseif theme.baidushare.type === &quot;slide&quot; %&#125;... 在配置百度分享功能时需指定其type，所以将主题配置_config.yml文件中关于baidushare部分的内容改为（其中type亦可以选择button）：123baidushare: type: slide baidushare: true download_config.yml中提示：Warning: Baidu Share does not support https.因为百度分享不支持在https上使用，所以一种解决方法便是，直接放文件到我们自己的目录下面。 访问链接： static文件夹下载压缩包到本地，解压后，将static文件夹保存至themes\next\source目录下。 baidushare.swig修改文件：themes\next\layout_partials\share\baidushare.swig将文件 末尾 部分的代码进行修改：1.src=&apos;http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=&apos;+~(-new Date()/36e5)]; 改为1.src=&apos;/static/api/js/share.js?v=89860593.js?cdnversion=&apos;+~(-new Date()/36e5)]; 最后重新生成下，就能展示分享功能了。 参考链接：百度分享不支持https的解决方案Hexo+Github搭建个人博客(三)——百度分享集成]]></content>
@@ -142,8 +154,8 @@
       </categories>
       <tags>
         <tag>NexT</tag>
-        <tag>Hexo</tag>
         <tag>Git</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -271,8 +283,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Git</tag>
+        <tag>Hexo</tag>
         <tag>GitHub</tag>
         <tag>Node.js</tag>
       </tags>
