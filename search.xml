@@ -90,8 +90,8 @@
         <category>Saliency Map</category>
       </categories>
       <tags>
-        <tag>Image Processing</tag>
         <tag>Algorithm</tag>
+        <tag>Image Processing</tag>
         <tag>Saliency</tag>
       </tags>
   </entry>
@@ -225,8 +225,8 @@
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>Spider</tag>
         <tag>BeautifulSoup</tag>
+        <tag>Spider</tag>
       </tags>
   </entry>
   <entry>
@@ -274,10 +274,10 @@
         <category>爬虫</category>
       </categories>
       <tags>
-        <tag>BeautifulSoup</tag>
         <tag>python</tag>
         <tag>spider</tag>
         <tag>novel</tag>
+        <tag>BeautifulSoup</tag>
       </tags>
   </entry>
   <entry>
