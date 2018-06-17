@@ -90,8 +90,8 @@
         <category>Saliency Map</category>
       </categories>
       <tags>
-        <tag>Algorithm</tag>
         <tag>Image Processing</tag>
+        <tag>Algorithm</tag>
         <tag>Saliency</tag>
       </tags>
   </entry>
@@ -199,8 +199,8 @@
       </categories>
       <tags>
         <tag>NexT</tag>
-        <tag>Hexo</tag>
         <tag>Git</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -313,8 +313,8 @@
         <category>Papers</category>
       </categories>
       <tags>
-        <tag>Paper</tag>
         <tag>Translation</tag>
+        <tag>Paper</tag>
         <tag>Deep Learning</tag>
         <tag>CNN</tag>
         <tag>AlexNet</tag>
@@ -328,8 +328,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>Git</tag>
+        <tag>Hexo</tag>
         <tag>GitHub</tag>
         <tag>Node.js</tag>
       </tags>
