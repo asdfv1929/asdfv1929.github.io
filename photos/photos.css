@@ -3,5 +3,3 @@
 .ImageInCard {}
 .ImageInCard img {padding: 0 0 0 0;}
 .TextInCard {line-height: 54px; background-color: #ffffff; font-size: 24px;}
-
-.Dir {width: 100%;max-width: 1040px; margin: 0 auto; text-align: left; border:red solid thin;}

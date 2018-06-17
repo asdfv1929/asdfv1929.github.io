@@ -16,9 +16,9 @@ photo ={
         var html, imgNameWithPattern, imgName, imageSize, imageX, imageY, li = "";
         for (var dir_name in data) {
           image_list = data[dir_name];
-          li += '<div class="ImageGrid">' +
-                      '<p>' + dir_name + '</p>'
-          for (var i = 0; i < image_list.length; i++) {
+          // li += '<div class="ImageGrid">' +
+          //             '<p>' + dir_name + '</p>'
+          for (var i = begin; i < end && i < image_list.length; i++) {
              imgNameWithPattern = image_list[i].split(' ')[1];
              imgName = imgNameWithPattern.split('.')[0]
              imageSize = image_list[i].split(' ')[0];
@@ -34,11 +34,11 @@ photo ={
                       // '<div class="TextInCard">' + imgName + '</div>' +
                   '</div>'
           }
-          li += '</div>'
+          // li += '</div>'
         }
 
-        $(".Dir").append(li);
-        $(".Dir").lazyload();
+        $(".ImageGrid").append(li);
+        $(".ImageGrid").lazyload();
         this.minigrid();
 
     },
