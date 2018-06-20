@@ -130,7 +130,7 @@
 <meta property="og:site_name" content="asdfv1929 &#39;s Home">
 <meta property="og:description" content="LeetCode刷题，记录学习">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-19T15:46:16.034Z">
+<meta property="og:updated_time" content="2018-06-19T15:50:37.785Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 001 TwoSum">
 <meta name="twitter:description" content="LeetCode刷题，记录学习">
@@ -462,7 +462,7 @@
 <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。</p>
 <p>你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。</p>
 <p>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">给定 nums = [2, 7, 11, 15], target = 9</div><div class="line"></div><div class="line">因为 nums[0] + nums[1] = 2 + 7 = 9</div><div class="line">所以返回 [0, 1]</div></pre></td></tr></table></figure></p>
-<h1 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h1><h2 id="方法一：暴力法"><a href="#方法一：暴力法" class="headerlink" title="方法一：暴力法"></a>方法一：暴力法</h2><p>遍历数组中每个元素，查找是否存在一个值与<code>target-x</code>相等的目标元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int[] twoSum(int[] nums, int target) &#123;</div><div class="line">        for(int i = 0; i &lt; nums.length-1; i++) &#123;</div><div class="line">            for(int j = i+1; j &lt; nums.length; j++) &#123;</div><div class="line">                if (nums[j] == target - nums[i]) &#123;</div><div class="line">                    return new int[] &#123; i, j &#125;;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        throw new IllegalArgumentException(&quot;No two sum solution&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h1><h2 id="方法一：暴力法"><a href="#方法一：暴力法" class="headerlink" title="方法一：暴力法"></a>方法一：暴力法</h2><p>遍历数组中每个元素<code>x</code>，查找是否存在一个值与<code>target-x</code>相等的目标元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int[] twoSum(int[] nums, int target) &#123;</div><div class="line">        for(int i = 0; i &lt; nums.length-1; i++) &#123;</div><div class="line">            for(int j = i+1; j &lt; nums.length; j++) &#123;</div><div class="line">                if (nums[j] == target - nums[i]) &#123;</div><div class="line">                    return new int[] &#123; i, j &#125;;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        throw new IllegalArgumentException(&quot;No two sum solution&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>复杂度分析：</p>
 <ul>
 <li>时间复杂度：$O(n^2)$<br>$$<br>\sum_{i=0}^{n-2}\sum_{j=i+1}^{n-1}1 = \sum_{i=0}^{n-2}(n-1) - (i+1) + 1 \\\\<br>= \sum_{i=0}^{n-2}(n-i-1) = (n-1) + (n-2)+ … + 1 = \frac{n(n-1)}{2}<br>$$</li>
@@ -585,33 +585,6 @@
 
 
     <div class="post-spread">
-      
-        
-  <script>
-    window._bd_share_config = {
-      "common": {
-        "bdText": "",
-        "bdMini": "1",
-        "bdMiniList": false,
-        "bdPic": ""
-      },
-      "image": {
-        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
-        "viewText": "分享到：",
-        "viewSize": "16"
-      },
-      "slide": {
-        "bdImg": "5",
-        "bdPos": "left",
-        "bdTop": "100"
-      }
-    }
-  </script>
-
-<script>
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-
       
     </div>
   </div>
