@@ -274,8 +274,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>GitHub</tag>
         <tag>Git</tag>
+        <tag>GitHub</tag>
       </tags>
   </entry>
   <entry>
@@ -341,8 +341,8 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>GitHub</tag>
         <tag>Git</tag>
+        <tag>GitHub</tag>
         <tag>Node.js</tag>
       </tags>
   </entry>
