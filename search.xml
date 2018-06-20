@@ -237,8 +237,8 @@
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>BeautifulSoup</tag>
         <tag>Spider</tag>
+        <tag>BeautifulSoup</tag>
       </tags>
   </entry>
   <entry>
@@ -286,10 +286,10 @@
         <category>爬虫</category>
       </categories>
       <tags>
+        <tag>BeautifulSoup</tag>
         <tag>python</tag>
         <tag>spider</tag>
         <tag>novel</tag>
-        <tag>BeautifulSoup</tag>
       </tags>
   </entry>
   <entry>
