@@ -24,8 +24,7 @@ photo ={
              imageSize = image_list[i].split(' ')[0];
              imageX = imageSize.split('.')[0];
              imageY = imageSize.split('.')[1];
-             li +=
-                  '<div class="card" style="width:330px">' +
+             li += '<div class="card" style="width:330px">' +
                       '<div class="ImageInCard" style="height:'+ 330 * imageY / imageX + 'px">' +
                         '<a data-fancybox="gallery" href="https://github.com/asdfv1929/BlogPhotos/blob/master/Images/' + imgNameWithPattern + '?raw=true" data-caption="' + imgName + '">' +
                           '<img src="https://github.com/asdfv1929/BlogPhotos/blob/master/Images/' + imgNameWithPattern + '?raw=true"/>' +
