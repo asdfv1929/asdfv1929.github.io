@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[leetcode 002 Add Two Numbers]]></title>
+    <title><![CDATA[LeetCode 003 无重复字符的最长子串]]></title>
+    <url>%2F2018%2F06%2F23%2Fleetcode-003-maxsubstring%2F</url>
+    <content type="text"><![CDATA[继续 问题给定一个字符串，找出不含有重复字符的最长子串的长度。 示例：给定 &quot;abcabcbb&quot; ，没有重复字符的最长子串是 &quot;abc&quot; ，那么长度就是3。给定 &quot;bbbbb&quot; ，最长的子串就是 &quot;b&quot; ，长度是1。给定 &quot;pwwkew&quot; ，最长子串是 &quot;wke&quot; ，长度是3。请注意答案必须是一个子串，&quot;pwke&quot; 是 子序列 而不是子串。 解答滑动窗口：定义空集合，之后左边i先固定，右边j向右走，判断集合中是否存在j所对应的字符，若不存在，则添加，且j++，同时最长子串长度也更新；若集合中已存在j所对应的字符，则集合移除左边i对应的字符，i++ 向右走一步。12345678910111213141516class Solution &#123; public int lengthOfLongestSubstring(String s) &#123; int n = s.length(); Set&lt;Character&gt; set = new HashSet&lt;&gt;(); int maxLen = 0, i = 0, j = 0; while(i &lt; n &amp;&amp; j &lt; n) &#123; if(!set.contains(s.charAt(j))) &#123; set.add(s.charAt(j++)); maxLen = Math.max(maxLen, j - i); &#125; else &#123; set.remove(s.charAt(i++)); &#125; &#125; return maxLen; &#125;&#125; 复杂度分析： 时间复杂度：$O(n)$ 空间复杂度：$O(min(m, n))$，需要$O(k)$的空间大小，k为集合的大小，同时集合的大小取决于字符串长度n和字符集的大小m。]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>HashSet</tag>
+        <tag>String</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 002 Add Two Numbers]]></title>
     <url>%2F2018%2F06%2F23%2Fleetcode-002-addtwonums%2F</url>
-    <content type="text"><![CDATA[学习记录 问题给定两个非空链表来表示两个非负整数。位数按照逆序方式存储，它们的每个节点只存储单个数字。将两数相加返回一个新的链表。 你可以假设除了数字 0 之外，这两个数字都不会以零开头。示例：123输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)输出：7 -&gt; 0 -&gt; 8原因：342 + 465 = 807 解答123456789101112131415161718192021222324252627282930313233343536/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123; ListNode retList = new ListNode(0); ListNode p = l1, q = l2, r = retList; boolean flag = false; while(p != null || q != null) &#123; int x = (p != null) ? p.val : 0; int y = (q != null) ? q.val : 0; int temp = x + y; if(flag) &#123; temp += 1; flag = false; &#125; if(temp &gt; 9) &#123; flag = true; temp -= 10; &#125; r.next = new ListNode(temp); r = r.next; if(p != null) p = p.next; if(q != null) q = q.next; &#125; if(flag) &#123; r.next = new ListNode(1); &#125; return retList.next; &#125;&#125; 复杂度分析： 时间复杂度：$O(max(m, n))$ 空间复杂度：$O(max(m, n))$，新列表的长度最多为$max(m, n) + 1$。]]></content>
+    <content type="text"><![CDATA[学习记录 问题给定两个非空链表来表示两个非负整数。位数按照逆序方式存储，它们的每个节点只存储单个数字。将两数相加返回一个新的链表。 你可以假设除了数字 0 之外，这两个数字都不会以零开头。示例：123输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)输出：7 -&gt; 0 -&gt; 8原因：342 + 465 = 807 解答123456789101112131415161718192021222324252627282930313233343536/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123; ListNode retList = new ListNode(0); ListNode p = l1, q = l2, r = retList; boolean flag = false; while(p != null || q != null) &#123; int x = (p != null) ? p.val : 0; int y = (q != null) ? q.val : 0; int temp = x + y; if(flag) &#123; temp += 1; flag = false; &#125; if(temp &gt; 9) &#123; flag = true; temp -= 10; &#125; r.next = new ListNode(temp); r = r.next; if(p != null) p = p.next; if(q != null) q = q.next; &#125; if(flag) &#123; r.next = new ListNode(1); &#125; return retList.next; &#125;&#125; 复杂度分析： 时间复杂度：$O(max(m, n))$ 空间复杂度：$O(max(m, n))$，新链表的长度最多为$max(m, n) + 1$。]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
