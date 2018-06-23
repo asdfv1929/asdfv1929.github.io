@@ -106,7 +106,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Life," />
+  <meta name="keywords" content="Linked List," />
 
 
 
@@ -122,18 +122,18 @@
 
 
 
-<meta name="description" content="祝所有走过路过的亲们 中秋节快乐，幸福如意！">
-<meta name="keywords" content="Life">
+<meta name="description" content="学习记录">
+<meta name="keywords" content="Linked List">
 <meta property="og:type" content="article">
-<meta property="og:title" content="中秋节快乐！">
-<meta property="og:url" content="https://asdfv1929.github.io/2017/10/04/midautumn/index.html">
+<meta property="og:title" content="leetcode 002 Add Two Numbers">
+<meta property="og:url" content="https://asdfv1929.github.io/2018/06/23/leetcode-002-addtwonums/index.html">
 <meta property="og:site_name" content="asdfv1929 &#39;s Home">
-<meta property="og:description" content="祝所有走过路过的亲们 中秋节快乐，幸福如意！">
+<meta property="og:description" content="学习记录">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-12-31T03:35:54.060Z">
+<meta property="og:updated_time" content="2018-06-23T03:32:17.659Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="中秋节快乐！">
-<meta name="twitter:description" content="祝所有走过路过的亲们 中秋节快乐，幸福如意！">
+<meta name="twitter:title" content="leetcode 002 Add Two Numbers">
+<meta name="twitter:description" content="学习记录">
 
 
 
@@ -163,13 +163,13 @@
 
 
 
-  <link rel="canonical" href="https://asdfv1929.github.io/2017/10/04/midautumn/"/>
+  <link rel="canonical" href="https://asdfv1929.github.io/2018/06/23/leetcode-002-addtwonums/"/>
 
 
 
 
 
-  <title>中秋节快乐！ | asdfv1929 's Home</title>
+  <title>leetcode 002 Add Two Numbers | asdfv1929 's Home</title>
 
   
 
@@ -354,7 +354,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://asdfv1929.github.io/2017/10/04/midautumn/">
+    <link itemprop="mainEntityOfPage" href="https://asdfv1929.github.io/2018/06/23/leetcode-002-addtwonums/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="asdfv1929">
@@ -371,7 +371,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">中秋节快乐！</h2>
+          <h2 class="post-title" itemprop="name headline">leetcode 002 Add Two Numbers</h2>
         
 
         <div class="post-meta">
@@ -383,8 +383,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-04T20:08:08+08:00">
-                2017-10-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-23T11:27:26+08:00">
+                2018-06-23
               </time>
             
 
@@ -406,8 +406,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Life/" itemprop="url" rel="index">
-                    <span itemprop="name">Life</span>
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
                   </a>
                 </span>
 
@@ -423,7 +423,7 @@
 
           
           
-             <span id="/2017/10/04/midautumn/" class="leancloud_visitors" data-flag-title="中秋节快乐！">
+             <span id="/2018/06/23/leetcode-002-addtwonums/" class="leancloud_visitors" data-flag-title="leetcode 002 Add Two Numbers">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -454,7 +454,15 @@
       
 
       
-        <p>祝所有走过路过的亲们 中秋节快乐，幸福如意！<br><a id="more"></a><br>时间：2017-10-04<br>节日：中秋佳节<br>地点：笔者家</p>
+        <p>学习记录<br><a id="more"></a></p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>给定两个非空链表来表示两个非负整数。位数按照逆序方式存储，它们的每个节点只存储单个数字。将两数相加返回一个新的链表。</p>
+<p>你可以假设除了数字 0 之外，这两个数字都不会以零开头。<br>示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)</div><div class="line">输出：7 -&gt; 0 -&gt; 8</div><div class="line">原因：342 + 465 = 807</div></pre></td></tr></table></figure></p>
+<h1 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Definition for singly-linked list.</div><div class="line"> * public class ListNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     ListNode next;</div><div class="line"> *     ListNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line">class Solution &#123;</div><div class="line">    public ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123;</div><div class="line">        ListNode retList = new ListNode(0);</div><div class="line">        ListNode p = l1, q = l2, r = retList;</div><div class="line">        boolean flag = false;</div><div class="line">        while(p != null || q != null) &#123;</div><div class="line">            int x = (p != null) ? p.val : 0;</div><div class="line">            int y = (q != null) ? q.val : 0;</div><div class="line">            int temp = x + y;</div><div class="line">            if(flag) &#123;</div><div class="line">                temp += 1;</div><div class="line">                flag = false;</div><div class="line">            &#125;</div><div class="line">            if(temp &gt; 9) &#123;</div><div class="line">                flag = true;</div><div class="line">                temp -= 10;</div><div class="line">            &#125;</div><div class="line">            r.next = new ListNode(temp);</div><div class="line">            r = r.next;</div><div class="line">            if(p != null) p = p.next;</div><div class="line">            if(q != null) q = q.next;</div><div class="line">        &#125;</div><div class="line">        if(flag) &#123;</div><div class="line">            r.next = new ListNode(1);</div><div class="line">        &#125;</div><div class="line">        return retList.next;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>复杂度分析：</p>
+<ul>
+<li>时间复杂度：$O(max(m, n))$</li>
+<li>空间复杂度：$O(max(m, n))$，新列表的长度最多为$max(m, n) + 1$。</li>
+</ul>
 
       
     </div>
@@ -515,7 +523,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="https://asdfv1929.github.io/2017/10/04/midautumn/" title="中秋节快乐！">https://asdfv1929.github.io/2017/10/04/midautumn/</a>
+    <a href="https://asdfv1929.github.io/2018/06/23/leetcode-002-addtwonums/" title="leetcode 002 Add Two Numbers">https://asdfv1929.github.io/2018/06/23/leetcode-002-addtwonums/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -530,7 +538,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Life/" rel="tag"><i class="fa fa-tag"></i> Life</a>
+            <a href="/tags/Linked-List/" rel="tag"><i class="fa fa-tag"></i> Linked List</a>
           
         </div>
       
@@ -543,8 +551,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/21/bruteforce/" rel="next" title="选择排序和冒泡排序">
-                <i class="fa fa-chevron-left"></i> 选择排序和冒泡排序
+              <a href="/2018/06/19/leetcode-001-twosum/" rel="next" title="LeetCode 001 TwoSum">
+                <i class="fa fa-chevron-left"></i> LeetCode 001 TwoSum
               </a>
             
           </div>
@@ -552,10 +560,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/18/hexo-next-blog/" rel="prev" title="利用GitHub+Node.js+Hexo搭建个人博客">
-                利用GitHub+Node.js+Hexo搭建个人博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -637,8 +641,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -760,6 +773,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解答"><span class="nav-number">2.</span> <span class="nav-text">解答</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

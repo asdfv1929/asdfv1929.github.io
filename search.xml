@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[leetcode 002 Add Two Numbers]]></title>
+    <url>%2F2018%2F06%2F23%2Fleetcode-002-addtwonums%2F</url>
+    <content type="text"><![CDATA[学习记录 问题给定两个非空链表来表示两个非负整数。位数按照逆序方式存储，它们的每个节点只存储单个数字。将两数相加返回一个新的链表。 你可以假设除了数字 0 之外，这两个数字都不会以零开头。示例：123输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)输出：7 -&gt; 0 -&gt; 8原因：342 + 465 = 807 解答123456789101112131415161718192021222324252627282930313233343536/** * Definition for singly-linked list. * public class ListNode &#123; * int val; * ListNode next; * ListNode(int x) &#123; val = x; &#125; * &#125; */class Solution &#123; public ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123; ListNode retList = new ListNode(0); ListNode p = l1, q = l2, r = retList; boolean flag = false; while(p != null || q != null) &#123; int x = (p != null) ? p.val : 0; int y = (q != null) ? q.val : 0; int temp = x + y; if(flag) &#123; temp += 1; flag = false; &#125; if(temp &gt; 9) &#123; flag = true; temp -= 10; &#125; r.next = new ListNode(temp); r = r.next; if(p != null) p = p.next; if(q != null) q = q.next; &#125; if(flag) &#123; r.next = new ListNode(1); &#125; return retList.next; &#125;&#125; 复杂度分析： 时间复杂度：$O(max(m, n))$ 空间复杂度：$O(max(m, n))$，新列表的长度最多为$max(m, n) + 1$。]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Linked List</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 001 TwoSum]]></title>
     <url>%2F2018%2F06%2F19%2Fleetcode-001-twosum%2F</url>
     <content type="text"><![CDATA[LeetCode刷题，记录学习 问题给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。 你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。 示例：1234给定 nums = [2, 7, 11, 15], target = 9因为 nums[0] + nums[1] = 2 + 7 = 9所以返回 [0, 1] 解答方法一：暴力法遍历数组中每个元素x，查找是否存在一个值与target-x相等的目标元素123456789101112class Solution &#123; public int[] twoSum(int[] nums, int target) &#123; for(int i = 0; i &lt; nums.length-1; i++) &#123; for(int j = i+1; j &lt; nums.length; j++) &#123; if (nums[j] == target - nums[i]) &#123; return new int[] &#123; i, j &#125;; &#125; &#125; &#125; throw new IllegalArgumentException(&quot;No two sum solution&quot;); &#125;&#125; 复杂度分析： 时间复杂度：$O(n^2)$$$\sum_{i=0}^{n-2}\sum_{j=i+1}^{n-1}1 = \sum_{i=0}^{n-2}(n-1) - (i+1) + 1 \\\\= \sum_{i=0}^{n-2}(n-i-1) = (n-1) + (n-2)+ … + 1 = \frac{n(n-1)}{2}$$ 空间复杂度： $O(1)$ 方法二：哈希表采用哈希表，通过以空间换时间，来保存数组中每个元素与其索引的对应关系。 在第一次迭代中，将每个元素的值和其索引添加到表中。然后，在第二次迭代中，检查每个元素所对应的目标元素$target - nums[i]$是否存在于表中。注意，该目标元素不能是 $nums[i]$ 本身123456789101112131415class Solution &#123; public int[] twoSum(int[] nums, int target) &#123; Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;(); for(int i = 0; i &lt; nums.length; i++) &#123; map.put(nums[i], i); &#125; for(int i = 0; i &lt; nums.length; i++) &#123; int temp = target - nums[i]; if(map.containsKey(temp) &amp;&amp; map.get(temp) != i) &#123; return new int[] &#123;i, map.get(temp)&#125;; &#125; &#125; throw new IllegalArgumentException(&quot;No two sum solution&quot;); &#125;&#125; 复杂度分析： 时间复杂度： $O(n)$，哈希表将查找时间缩短到 $O(1)$。 空间复杂度： $O(n)$，所需的额外空间取决于哈希表中存储的元素数量，该表中存储了$n$个元素。]]></content>
@@ -102,8 +113,8 @@
         <category>Saliency Map</category>
       </categories>
       <tags>
-        <tag>Algorithm</tag>
         <tag>Image Processing</tag>
+        <tag>Algorithm</tag>
         <tag>Saliency</tag>
       </tags>
   </entry>
@@ -127,9 +138,9 @@
         <category>Papers</category>
       </categories>
       <tags>
-        <tag>Translation</tag>
         <tag>Saliency Map</tag>
         <tag>Image Processing</tag>
+        <tag>Translation</tag>
       </tags>
   </entry>
   <entry>
@@ -325,11 +336,11 @@
         <category>Papers</category>
       </categories>
       <tags>
+        <tag>Translation</tag>
         <tag>Paper</tag>
         <tag>Deep Learning</tag>
         <tag>CNN</tag>
         <tag>AlexNet</tag>
-        <tag>Translation</tag>
       </tags>
   </entry>
   <entry>
