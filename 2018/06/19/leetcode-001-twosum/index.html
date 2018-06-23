@@ -130,7 +130,7 @@
 <meta property="og:site_name" content="asdfv1929 &#39;s Home">
 <meta property="og:description" content="LeetCode刷题，记录学习">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-19T15:50:37.785Z">
+<meta property="og:updated_time" content="2018-06-23T02:17:52.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 001 TwoSum">
 <meta name="twitter:description" content="LeetCode刷题，记录学习">
@@ -464,7 +464,13 @@
 <li>时间复杂度：$O(n^2)$<br>$$<br>\sum_{i=0}^{n-2}\sum_{j=i+1}^{n-1}1 = \sum_{i=0}^{n-2}(n-1) - (i+1) + 1 \\\\<br>= \sum_{i=0}^{n-2}(n-i-1) = (n-1) + (n-2)+ … + 1 = \frac{n(n-1)}{2}<br>$$</li>
 <li>空间复杂度： $O(1)$</li>
 </ul>
-<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><p>未完待续</p>
+<h2 id="方法二：哈希表"><a href="#方法二：哈希表" class="headerlink" title="方法二：哈希表"></a>方法二：哈希表</h2><p>采用哈希表，通过以空间换时间，来保存数组中每个元素与其索引的对应关系。</p>
+<p>在第一次迭代中，将每个元素的值和其索引添加到表中。<br>然后，在第二次迭代中，检查每个元素所对应的目标元素$target - nums[i]$是否存在于表中。<br>注意，该目标元素不能是 $nums[i]$ 本身<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Solution &#123;</div><div class="line">    public int[] twoSum(int[] nums, int target) &#123;</div><div class="line">        Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();</div><div class="line">        for(int i = 0; i &lt; nums.length; i++) &#123;</div><div class="line">            map.put(nums[i], i);</div><div class="line">        &#125;</div><div class="line">        for(int i = 0; i &lt; nums.length; i++) &#123;</div><div class="line">            int temp = target - nums[i];</div><div class="line">            if(map.containsKey(temp) &amp;&amp; map.get(temp) != i) &#123;</div><div class="line">                return new int[] &#123;i, map.get(temp)&#125;;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        throw new IllegalArgumentException(&quot;No two sum solution&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>复杂度分析：</p>
+<ul>
+<li>时间复杂度： $O(n)$，哈希表将查找时间缩短到 $O(1)$。</li>
+<li>空间复杂度： $O(n)$，所需的额外空间取决于哈希表中存储的元素数量，该表中存储了$n$个元素。</li>
+</ul>
 
       
     </div>
@@ -787,7 +793,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解答"><span class="nav-number">2.</span> <span class="nav-text">解答</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一：暴力法"><span class="nav-number">2.1.</span> <span class="nav-text">方法一：暴力法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二："><span class="nav-number">2.2.</span> <span class="nav-text">方法二：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解答"><span class="nav-number">2.</span> <span class="nav-text">解答</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一：暴力法"><span class="nav-number">2.1.</span> <span class="nav-text">方法一：暴力法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二：哈希表"><span class="nav-number">2.2.</span> <span class="nav-text">方法二：哈希表</span></a></li></ol></li></ol></div>
             
 
           </div>
