@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode 005 最长回文子串]]></title>
+    <url>%2F2018%2F06%2F24%2Fleetcode-005-longestpalindromicsubstring%2F</url>
+    <content type="text"><![CDATA[Hello Code 问题给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为1000。示例1：123输入: &quot;babad&quot;输出: &quot;bab&quot;注意: &quot;aba&quot;也是一个有效答案。 示例2：12输入: &quot;cbbd&quot;输出: &quot;bb&quot; 解答123456789101112131415161718192021222324252627class Solution &#123; public String longestPalindrome(String s) &#123; int maxLen = s.length(); int windowLen = maxLen; while(windowLen &gt; 0) &#123; int i = 0; while(i + windowLen &lt;= maxLen) &#123; String substr = s.substring(i, i + windowLen); if(isPalindrome(substr)) &#123; return substr; &#125; i++; &#125; windowLen--; &#125; return ""; &#125; public boolean isPalindrome(String substring) &#123; int length = substring.length(); for(int i = 0; i &lt; length / 2; i++) &#123; if(substring.charAt(i) != substring.charAt(length - i - 1)) return false; &#125; return true; &#125;&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Palindrome</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 004 两个排序数组的中位数]]></title>
+    <url>%2F2018%2F06%2F24%2Fleetcode-004-MedianofTwoSortedArrays%2F</url>
+    <content type="text"><![CDATA[Hello World 问题给定两个大小为 m 和 n 的有序数组 nums1 和 nums2 。 请找出这两个有序数组的中位数。 示例1：1234nums1 = [1, 3]nums2 = [2]中位数是 2.0 示例2：1234nums1 = [1, 2]nums2 = [3, 4]中位数是 (2 + 3)/2 = 2.5 解答12345678910111213141516171819202122232425262728293031class Solution &#123; public double findMedianSortedArrays(int[] nums1, int[] nums2) &#123; int m = nums1.length; int n = nums2.length; int[] output = new int[m+n]; int i = 0, j = 0, k = 0; while(i &lt; m &amp;&amp; j &lt; n) &#123; if(nums1[i] &lt; nums2[j]) &#123; output[k++] = nums1[i++]; &#125; else &#123; output[k++] = nums2[j++]; &#125; &#125; while(i &lt; m) &#123; output[k++] = nums1[i++]; &#125; while(j &lt; n) &#123; output[k++] = nums2[j++]; &#125; double result = 0.0; if((m + n) % 2 == 0) &#123; int a = output[(m + n) / 2]; int b = output[(m + n) / 2 - 1]; result = (a + b) / 2.0; &#125; if((m + n) % 2 == 1) &#123; result = output[(m + n) / 2]; &#125; return result; &#125;&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Sort</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 003 无重复字符的最长子串]]></title>
     <url>%2F2018%2F06%2F23%2Fleetcode-003-maxsubstring%2F</url>
     <content type="text"><![CDATA[继续 问题给定一个字符串，找出不含有重复字符的最长子串的长度。 示例：给定 &quot;abcabcbb&quot; ，没有重复字符的最长子串是 &quot;abc&quot; ，那么长度就是3。给定 &quot;bbbbb&quot; ，最长的子串就是 &quot;b&quot; ，长度是1。给定 &quot;pwwkew&quot; ，最长子串是 &quot;wke&quot; ，长度是3。请注意答案必须是一个子串，&quot;pwke&quot; 是 子序列 而不是子串。 解答滑动窗口：定义空集合，之后左边i先固定，右边j向右走，判断集合中是否存在j所对应的字符，若不存在，则添加，且j++，同时最长子串长度也更新；若集合中已存在j所对应的字符，则集合移除左边i对应的字符，i++ 向右走一步。12345678910111213141516class Solution &#123; public int lengthOfLongestSubstring(String s) &#123; int n = s.length(); Set&lt;Character&gt; set = new HashSet&lt;&gt;(); int maxLen = 0, i = 0, j = 0; while(i &lt; n &amp;&amp; j &lt; n) &#123; if(!set.contains(s.charAt(j))) &#123; set.add(s.charAt(j++)); maxLen = Math.max(maxLen, j - i); &#125; else &#123; set.remove(s.charAt(i++)); &#125; &#125; return maxLen; &#125;&#125; 复杂度分析： 时间复杂度：$O(n)$ 空间复杂度：$O(min(m, n))$，需要$O(k)$的空间大小，k为集合的大小，同时集合的大小取决于字符串长度n和字符集的大小m。]]></content>
@@ -125,8 +148,8 @@
         <category>Saliency Map</category>
       </categories>
       <tags>
-        <tag>Image Processing</tag>
         <tag>Algorithm</tag>
+        <tag>Image Processing</tag>
         <tag>Saliency</tag>
       </tags>
   </entry>
@@ -150,9 +173,9 @@
         <category>Papers</category>
       </categories>
       <tags>
+        <tag>Translation</tag>
         <tag>Saliency Map</tag>
         <tag>Image Processing</tag>
-        <tag>Translation</tag>
       </tags>
   </entry>
   <entry>
@@ -297,8 +320,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>GitHub</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -348,11 +371,11 @@
         <category>Papers</category>
       </categories>
       <tags>
-        <tag>Translation</tag>
         <tag>Paper</tag>
         <tag>Deep Learning</tag>
         <tag>CNN</tag>
         <tag>AlexNet</tag>
+        <tag>Translation</tag>
       </tags>
   </entry>
   <entry>
@@ -364,8 +387,8 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>Git</tag>
         <tag>GitHub</tag>
+        <tag>Git</tag>
         <tag>Node.js</tag>
       </tags>
   </entry>
