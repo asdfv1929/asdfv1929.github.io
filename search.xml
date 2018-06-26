@@ -173,9 +173,9 @@
         <category>Papers</category>
       </categories>
       <tags>
-        <tag>Translation</tag>
         <tag>Saliency Map</tag>
         <tag>Image Processing</tag>
+        <tag>Translation</tag>
       </tags>
   </entry>
   <entry>
@@ -320,8 +320,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>GitHub</tag>
         <tag>Git</tag>
+        <tag>GitHub</tag>
       </tags>
   </entry>
   <entry>
@@ -372,10 +372,10 @@
       </categories>
       <tags>
         <tag>Paper</tag>
+        <tag>Translation</tag>
         <tag>Deep Learning</tag>
         <tag>CNN</tag>
         <tag>AlexNet</tag>
-        <tag>Translation</tag>
       </tags>
   </entry>
   <entry>
@@ -387,8 +387,8 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>GitHub</tag>
         <tag>Git</tag>
+        <tag>GitHub</tag>
         <tag>Node.js</tag>
       </tags>
   </entry>
