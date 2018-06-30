@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode 011 盛最多水的容器]]></title>
+    <url>%2F2018%2F06%2F30%2Fleetcode-011-ContainerWithMostWater%2F</url>
+    <content type="text"><![CDATA[数组相关 问题给定 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。画 n 条垂直线，使得垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。 注意：你不能倾斜容器，n 至少是2。 解答容器可容纳的水是受短边影响，所以最多就是短边高乘上宽（x坐标上距离）。这边采用的是双指针法，一个从左到右，另一个从右到左。123456789101112131415public class Solution &#123; public int maxArea(int[] height) &#123; int maxarea = 0; int N = height.length; int l = 0, r = N-1; while(l &lt; r) &#123; maxarea = Math.max(maxarea, Math.min(height[l], height[r]) * (r - l)); if(height[l] &lt; height[r]) l++; else r--; &#125; return maxarea; &#125;&#125; 复杂度分析： 时间复杂度：$O(n)$ 空间复杂度：$O(1)$]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 005 最长回文子串]]></title>
     <url>%2F2018%2F06%2F24%2Fleetcode-005-longestpalindromicsubstring%2F</url>
     <content type="text"><![CDATA[Hello Code 问题给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为1000。示例1：123输入: &quot;babad&quot;输出: &quot;bab&quot;注意: &quot;aba&quot;也是一个有效答案。 示例2：12输入: &quot;cbbd&quot;输出: &quot;bb&quot; 解答123456789101112131415161718192021222324252627class Solution &#123; public String longestPalindrome(String s) &#123; int maxLen = s.length(); int windowLen = maxLen; while(windowLen &gt; 0) &#123; int i = 0; while(i + windowLen &lt;= maxLen) &#123; String substr = s.substring(i, i + windowLen); if(isPalindrome(substr)) &#123; return substr; &#125; i++; &#125; windowLen--; &#125; return ""; &#125; public boolean isPalindrome(String substring) &#123; int length = substring.length(); for(int i = 0; i &lt; length / 2; i++) &#123; if(substring.charAt(i) != substring.charAt(length - i - 1)) return false; &#125; return true; &#125;&#125;]]></content>
@@ -371,8 +382,8 @@
         <category>Papers</category>
       </categories>
       <tags>
-        <tag>Translation</tag>
         <tag>Paper</tag>
+        <tag>Translation</tag>
         <tag>Deep Learning</tag>
         <tag>CNN</tag>
         <tag>AlexNet</tag>
