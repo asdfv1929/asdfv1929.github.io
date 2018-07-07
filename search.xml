@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo NexT主题内加入动态背景]]></title>
+    <url>%2F2018%2F07%2F07%2Fnext-add-dynamicbg%2F</url>
+    <content type="text"><![CDATA[主题内新添加内容 _layout.swig找到themes\next\layout\_layout.swig文件，添加内容：在&lt;body&gt;里添加：123&lt;div class=&quot;bg_content&quot;&gt; &lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;&lt;/div&gt; 仍是该文件，在末尾添加：1&lt;script type=&quot;text/javascript&quot; src=&quot;/js/src/dynamic_bg.js&quot;&gt;&lt;/script&gt; dynamic_bg.js在themes\next\source\js\src中新建文件dynamic_bg.js，代码链接中可见：dynamic_bg.js custom.styl在themes\next\source\css\_custom\custom.styl文件末尾添加内容：1234567.bg_content &#123; position: fixed; top: 0; z-index: -1; width: 100%; height: 100%;&#125;]]></content>
+      <categories>
+        <category>GitBlog</category>
+      </categories>
+      <tags>
+        <tag>NexT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 015 三数之和]]></title>
     <url>%2F2018%2F06%2F30%2Fleetcode-015-3Sum%2F</url>
     <content type="text"><![CDATA[继续 问题给定一个包含 n 个整数的数组 nums，判断 nums中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。 注意：答案中不可以包含重复的三元组。1234567例如, 给定数组 nums = [-1, 0, 1, 2, -1, -4]，满足要求的三元组集合为：[ [-1, 0, 1], [-1, -1, 2]] 解答123456789101112131415161718192021222324252627282930313233343536373839class Solution &#123; public List&lt;List&lt;Integer&gt;&gt; threeSum(int[] nums) &#123; Arrays.sort(nums); //预排序 int N = nums.length; List&lt;List&lt;Integer&gt;&gt; all_list = new LinkedList&lt;&gt;(); for(int i = 0; i &lt; N; i++) &#123; //排序后的数组，若当前元素大于0，则其后续元素值均大于0， //其相关的三数之和不可能为0，所以退出循环 if(nums[i] &gt; 0) break; //若当前元素与前一个元素相等，则跳过本次循环 if (i &gt; 0 &amp;&amp; nums[i] == nums[i - 1]) continue; int j = i + 1; int k = N - 1; while(j &lt; k) &#123; int sum = nums[i] + nums[j] + nums[k]; if(sum == 0) &#123; List&lt;Integer&gt; sublist = new ArrayList&lt;&gt;(3); sublist.add(nums[i]); sublist.add(nums[j]); sublist.add(nums[k]); all_list.add(sublist); j++; k--; //避免重复 while(j &lt; k &amp;&amp; nums[j] == nums[j-1]) j++; while(j &lt; k &amp;&amp; nums[k] == nums[k+1]) k--; &#125; else if(sum &gt; 0) k--; else j++; &#125; &#125; return all_list; &#125;&#125;]]></content>
@@ -170,8 +181,8 @@
         <category>Saliency Map</category>
       </categories>
       <tags>
-        <tag>Algorithm</tag>
         <tag>Image Processing</tag>
+        <tag>Algorithm</tag>
         <tag>Saliency</tag>
       </tags>
   </entry>
