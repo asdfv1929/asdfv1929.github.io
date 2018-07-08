@@ -122,8 +122,8 @@
         <category>Master MLA</category>
       </categories>
       <tags>
-        <tag>Machine Learning</tag>
         <tag>Algorithm</tag>
+        <tag>Machine Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -341,8 +341,8 @@
       </categories>
       <tags>
         <tag>NexT</tag>
-        <tag>Hexo</tag>
         <tag>Gitalk</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -416,8 +416,8 @@
         <category>Papers</category>
       </categories>
       <tags>
-        <tag>Paper</tag>
         <tag>Translation</tag>
+        <tag>Paper</tag>
         <tag>Deep Learning</tag>
         <tag>CNN</tag>
         <tag>AlexNet</tag>
