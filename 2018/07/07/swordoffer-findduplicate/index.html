@@ -125,14 +125,14 @@
 <meta name="description" content="剑指Offer的学习记录，Java语言">
 <meta name="keywords" content="Array,Duplicate Numbers">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指Offer学习 001 找出数组中重复的数字">
-<meta property="og:url" content="https://asdfv1929.github.io/2018/07/07/swordoffer-001-findduplicate/index.html">
+<meta property="og:title" content="剑指Offer学习 找出数组中重复的数字">
+<meta property="og:url" content="https://asdfv1929.github.io/2018/07/07/swordoffer-findduplicate/index.html">
 <meta property="og:site_name" content="asdfv1929 &#39;s Home">
 <meta property="og:description" content="剑指Offer的学习记录，Java语言">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-07T04:20:32.894Z">
+<meta property="og:updated_time" content="2018-07-15T10:40:01.604Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指Offer学习 001 找出数组中重复的数字">
+<meta name="twitter:title" content="剑指Offer学习 找出数组中重复的数字">
 <meta name="twitter:description" content="剑指Offer的学习记录，Java语言">
 
 
@@ -163,13 +163,13 @@
 
 
 
-  <link rel="canonical" href="https://asdfv1929.github.io/2018/07/07/swordoffer-001-findduplicate/"/>
+  <link rel="canonical" href="https://asdfv1929.github.io/2018/07/07/swordoffer-findduplicate/"/>
 
 
 
 
 
-  <title>剑指Offer学习 001 找出数组中重复的数字 | asdfv1929 's Home</title>
+  <title>剑指Offer学习 找出数组中重复的数字 | asdfv1929 's Home</title>
 
   
 
@@ -357,7 +357,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://asdfv1929.github.io/2018/07/07/swordoffer-001-findduplicate/">
+    <link itemprop="mainEntityOfPage" href="https://asdfv1929.github.io/2018/07/07/swordoffer-findduplicate/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="asdfv1929">
@@ -374,7 +374,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">剑指Offer学习 001 找出数组中重复的数字</h2>
+          <h2 class="post-title" itemprop="name headline">剑指Offer学习 找出数组中重复的数字</h2>
         
 
         <div class="post-meta">
@@ -426,7 +426,7 @@
 
           
           
-             <span id="/2018/07/07/swordoffer-001-findduplicate/" class="leancloud_visitors" data-flag-title="剑指Offer学习 001 找出数组中重复的数字">
+             <span id="/2018/07/07/swordoffer-findduplicate/" class="leancloud_visitors" data-flag-title="剑指Offer学习 找出数组中重复的数字">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -458,7 +458,7 @@
 
       
         <p>剑指Offer的学习记录，Java语言<br><a id="more"></a></p>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>在一个长度为<code>n</code>的数组里的所有数字都在<code>0</code>到<code>n-1</code>的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为<code>7</code>的数组<code>{2,3,1,0,2,5,3}</code>，那么对应的输出是第一个重复的数字<code>2</code>。</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>在一个长度为<code>n</code>的数组里的所有数字都在<code>0</code>到<code>n-1</code>的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为<code>7</code>的数组<code>{2,3,1,0,2,5,3}</code>，那么对应的输出是第一个重复的数字<code>2</code>。</p>
 <h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>看到这种找重复数字的题目，第一反应是先将数组排序，然后在已序数组中查找重复数字。排序一个长度为<code>n</code>的数组需要$O(nlogn)$的时间，之后再遍历数组。</p>
 <p>同样，我们也可以利用哈希表来解决这个问题。从头到尾按顺序扫描原数组，每扫描一个数字，判断哈希表中是否存在该数字，若没有该数字，就将数字加入哈希表中，若哈希表中已存在该数字，则就找到一个重复数字。</p>
 <p>当然，今天所要讲解的方法并不是以上两个。</p>
@@ -534,7 +534,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="https://asdfv1929.github.io/2018/07/07/swordoffer-001-findduplicate/" title="剑指Offer学习 001 找出数组中重复的数字">https://asdfv1929.github.io/2018/07/07/swordoffer-001-findduplicate/</a>
+    <a href="https://asdfv1929.github.io/2018/07/07/swordoffer-findduplicate/" title="剑指Offer学习 找出数组中重复的数字">https://asdfv1929.github.io/2018/07/07/swordoffer-findduplicate/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -573,6 +573,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/15/swordoffer-stackpushpop/" rel="prev" title="剑指Offer学习 栈的压入、弹出序列">
+                剑指Offer学习 栈的压入、弹出序列 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -682,7 +686,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -704,7 +708,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -800,7 +804,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理解"><span class="nav-number">2.</span> <span class="nav-text">理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理解"><span class="nav-number">2.</span> <span class="nav-text">理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
 
           </div>
