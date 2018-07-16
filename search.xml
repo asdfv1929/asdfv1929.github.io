@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[剑指Offer学习 树的子结构]]></title>
+    <url>%2F2018%2F07%2F16%2Fswordoffer-subtree%2F</url>
+    <content type="text"><![CDATA[继续 问题输入两棵二叉树A，B，判断B是不是A的子结构。（ps：约定空树不是任意一个树的子结构）。 理解想要判断B是不是A的子结构，我们需要去依次遍历比较双方的结点value。这边采用的是递归的思想来解决该问题。首先将A的根节点与B的根节点比较， 若不相等，则继续扫描A的左右子树， A的左子树，与B的根节点比较， 若该子树的根节点与B的根节点相等，则继续遍历该子树的左右子树与B的左右子树是否相等 若不相等，则继续扫描A的子树结点，直到所有结点扫描结束 A的右子树，与B的根节点比较， 若该子树的根节点与B根节点相等，则继续遍历双方的左右子树，判断是否相等 若不相等，继续扫描子树 若相等，则双方各自分别往其左右子树方向走；判断左右子树结点是否相等 代码12345678910111213141516171819202122232425262728293031323334/**public class TreeNode &#123; int val = 0; TreeNode left = null; TreeNode right = null; public TreeNode(int val) &#123; this.val = val; &#125;&#125;*/public class Solution &#123; public boolean HasSubtree(TreeNode root1,TreeNode root2) &#123; if(root1 == null || root2 == null) return false; boolean result = false; if(root1.val == root2.val) result = Tree1HaveTree2(root1, root2); if(!result) result = HasSubtree(root1.left, root2); if(!result) result = HasSubtree(root1.right, root2); return result; &#125; public boolean Tree1HaveTree2(TreeNode r1, TreeNode r2) &#123; if(r2 == null) return true; if(r1 == null) return false; if(r1.val != r2.val) return false; return Tree1HaveTree2(r1.left, r2.left) &amp;&amp; Tree1HaveTree2(r1.right, r2.right); &#125;&#125;]]></content>
+      <categories>
+        <category>剑指Offer</category>
+      </categories>
+      <tags>
+        <tag>二叉树</tag>
+        <tag>递归</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[剑指Offer学习 栈的压入、弹出序列]]></title>
     <url>%2F2018%2F07%2F15%2Fswordoffer-stackpushpop%2F</url>
     <content type="text"><![CDATA[学习记录 问题输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列 1,2,3,4,5 是某栈的压入顺序，序列 4,5,3,2,1 是该压栈序列对应的一个弹出序列，但 4,3,5,1,2 就不可能是该压栈序列的弹出序列。 理解要想判断出第二个序列是否是该栈的弹出序列，我们得先模拟栈的压入。通过第一个序列，我们可以进行压栈。引入一个辅助栈，接着依次扫描第一个序列A，然后将扫描到的数字压入辅助栈，判断当前栈中栈顶数字（即，最后进的数字）是否与第二个序列B中依次扫描的数字相等，若相等，则出栈；B中继续往后扫描。若B是弹出序列，则辅助栈中应该是没有数字剩下；若栈中仍有内容，则B非弹出序列。 代码12345678910111213141516import java.util.ArrayList;import java.util.Stack;public class Solution &#123; public boolean IsPopOrder(int [] pushA,int [] popA) &#123; Stack&lt;Integer&gt; temp = new Stack&lt;&gt;(); int n = pushA.length; for(int indexA = 0, indexB = 0; indexA &lt; n; indexA++) &#123; temp.push(pushA[indexA]); while(indexB &lt; n &amp;&amp; temp.peek() == popA[indexB]) &#123; temp.pop(); indexB++; &#125; &#125; return temp.isEmpty(); &#125;&#125;]]></content>
@@ -204,8 +216,8 @@
         <category>Saliency Map</category>
       </categories>
       <tags>
-        <tag>Algorithm</tag>
         <tag>Image Processing</tag>
+        <tag>Algorithm</tag>
         <tag>Saliency</tag>
       </tags>
   </entry>
@@ -313,8 +325,8 @@
       </categories>
       <tags>
         <tag>NexT</tag>
-        <tag>Hexo</tag>
         <tag>Git</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -376,8 +388,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>GitHub</tag>
         <tag>Git</tag>
+        <tag>GitHub</tag>
       </tags>
   </entry>
   <entry>
@@ -427,8 +439,8 @@
         <category>Papers</category>
       </categories>
       <tags>
-        <tag>Paper</tag>
         <tag>Translation</tag>
+        <tag>Paper</tag>
         <tag>Deep Learning</tag>
         <tag>CNN</tag>
         <tag>AlexNet</tag>
@@ -442,9 +454,9 @@
         <category>GitBlog</category>
       </categories>
       <tags>
+        <tag>Git</tag>
         <tag>Hexo</tag>
         <tag>GitHub</tag>
-        <tag>Git</tag>
         <tag>Node.js</tag>
       </tags>
   </entry>
