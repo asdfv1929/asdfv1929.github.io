@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[剑指Offer学习 树的子结构]]></title>
     <url>%2F2018%2F07%2F16%2Fswordoffer-subtree%2F</url>
-    <content type="text"><![CDATA[继续 问题输入两棵二叉树A，B，判断B是不是A的子结构。（ps：约定空树不是任意一个树的子结构）。 理解想要判断B是不是A的子结构，我们需要去依次遍历比较双方的结点value。这边采用的是递归的思想来解决该问题。首先将A的根节点与B的根节点比较， 若不相等，则继续扫描A的左右子树， A的左子树，与B的根节点比较， 若该子树的根节点与B的根节点相等，则继续遍历该子树的左右子树与B的左右子树是否相等 若不相等，则继续扫描A的子树结点，直到所有结点扫描结束 A的右子树，与B的根节点比较， 若该子树的根节点与B根节点相等，则继续遍历双方的左右子树，判断是否相等 若不相等，继续扫描子树 若相等，则双方各自分别往其左右子树方向走；判断左右子树结点是否相等 代码12345678910111213141516171819202122232425262728293031323334/**public class TreeNode &#123; int val = 0; TreeNode left = null; TreeNode right = null; public TreeNode(int val) &#123; this.val = val; &#125;&#125;*/public class Solution &#123; public boolean HasSubtree(TreeNode root1,TreeNode root2) &#123; if(root1 == null || root2 == null) return false; boolean result = false; if(root1.val == root2.val) result = Tree1HaveTree2(root1, root2); if(!result) result = HasSubtree(root1.left, root2); if(!result) result = HasSubtree(root1.right, root2); return result; &#125; public boolean Tree1HaveTree2(TreeNode r1, TreeNode r2) &#123; if(r2 == null) return true; if(r1 == null) return false; if(r1.val != r2.val) return false; return Tree1HaveTree2(r1.left, r2.left) &amp;&amp; Tree1HaveTree2(r1.right, r2.right); &#125;&#125;]]></content>
+    <content type="text"><![CDATA[继续 问题输入两棵二叉树A，B，判断B是不是A的子结构。（ps：约定空树不是任意一个树的子结构）。 理解想要判断B是不是A的子结构，我们需要去依次遍历比较双方的结点value。这边采用的是递归的思想来解决该问题。首先将A的根节点与B的根节点比较， 若不相等，则继续扫描A的左右子树， A的左子树，与B的根节点比较， 若该子树的根节点与B的根节点相等，则继续遍历该子树的左右子树与B的左右子树是否相等 若不相等，则继续扫描A的子树结点，直到所有结点扫描结束 A的右子树，与B的根节点比较， 若该子树的根节点与B根节点相等，则继续遍历双方的左右子树，判断是否相等 若不相等，继续扫描子树 若相等，则双方各自分别往其左右子树方向走；判断左右子树结点是否相等 代码1234567891011121314151617181920212223242526272829303132333435/**public class TreeNode &#123; int val = 0; TreeNode left = null; TreeNode right = null; public TreeNode(int val) &#123; this.val = val; &#125;&#125;*/public class Solution &#123; public boolean HasSubtree(TreeNode root1,TreeNode root2) &#123; if(root1 == null || root2 == null) return false; boolean result = false; if(root1.val == root2.val) result = Tree1HaveTree2(root1, root2); //若根节点相等，则递归遍历其左右子树 if(!result) result = HasSubtree(root1.left, root2); //若不相等，扫描A的左子树 if(!result) result = HasSubtree(root1.right, root2); //若不相等，扫描A的右子树 return result; &#125; public boolean Tree1HaveTree2(TreeNode r1, TreeNode r2) &#123; if(r2 == null) //若B扫描完成，说明A中有结构与B相等 return true; if(r1 == null) //若A扫描完成，则表示没有子结构与B相等 return false; if(r1.val != r2.val) //根节点不相等，返回false，继续遍历扫描A的左右子树 return false; // 递归扫描在根节点相等时，A、B左右子树的情况 return Tree1HaveTree2(r1.left, r2.left) &amp;&amp; Tree1HaveTree2(r1.right, r2.right); &#125;&#125;]]></content>
       <categories>
         <category>剑指Offer</category>
       </categories>
@@ -216,8 +216,8 @@
         <category>Saliency Map</category>
       </categories>
       <tags>
-        <tag>Image Processing</tag>
         <tag>Algorithm</tag>
+        <tag>Image Processing</tag>
         <tag>Saliency</tag>
       </tags>
   </entry>
@@ -325,8 +325,8 @@
       </categories>
       <tags>
         <tag>NexT</tag>
-        <tag>Git</tag>
         <tag>Hexo</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -388,8 +388,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>GitHub</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -439,8 +439,8 @@
         <category>Papers</category>
       </categories>
       <tags>
-        <tag>Translation</tag>
         <tag>Paper</tag>
+        <tag>Translation</tag>
         <tag>Deep Learning</tag>
         <tag>CNN</tag>
         <tag>AlexNet</tag>
@@ -454,9 +454,9 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>Hexo</tag>
         <tag>GitHub</tag>
+        <tag>Git</tag>
         <tag>Node.js</tag>
       </tags>
   </entry>
