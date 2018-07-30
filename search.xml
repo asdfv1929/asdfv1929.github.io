@@ -410,8 +410,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>GitHub</tag>
         <tag>Git</tag>
+        <tag>GitHub</tag>
       </tags>
   </entry>
   <entry>
@@ -462,9 +462,9 @@
       </categories>
       <tags>
         <tag>Translation</tag>
-        <tag>Paper</tag>
         <tag>Deep Learning</tag>
         <tag>CNN</tag>
+        <tag>Paper</tag>
         <tag>AlexNet</tag>
       </tags>
   </entry>
@@ -477,8 +477,8 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>GitHub</tag>
         <tag>Git</tag>
+        <tag>GitHub</tag>
         <tag>Node.js</tag>
       </tags>
   </entry>
