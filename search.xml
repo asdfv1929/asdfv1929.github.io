@@ -167,8 +167,8 @@
         <category>Master MLA</category>
       </categories>
       <tags>
-        <tag>Machine Learning</tag>
         <tag>Algorithm</tag>
+        <tag>Machine Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -410,8 +410,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>GitHub</tag>
         <tag>Git</tag>
+        <tag>GitHub</tag>
       </tags>
   </entry>
   <entry>
@@ -477,8 +477,8 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>GitHub</tag>
         <tag>Git</tag>
+        <tag>GitHub</tag>
         <tag>Node.js</tag>
       </tags>
   </entry>
