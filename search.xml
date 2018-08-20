@@ -167,8 +167,8 @@
         <category>Master MLA</category>
       </categories>
       <tags>
-        <tag>Machine Learning</tag>
         <tag>Algorithm</tag>
+        <tag>Machine Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -238,8 +238,8 @@
         <category>Saliency Map</category>
       </categories>
       <tags>
-        <tag>Algorithm</tag>
         <tag>Image Processing</tag>
+        <tag>Algorithm</tag>
         <tag>Saliency</tag>
       </tags>
   </entry>
@@ -334,8 +334,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>NexT</tag>
         <tag>Hexo</tag>
+        <tag>NexT</tag>
       </tags>
   </entry>
   <entry>
@@ -346,8 +346,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>NexT</tag>
         <tag>Hexo</tag>
+        <tag>NexT</tag>
         <tag>Git</tag>
       </tags>
   </entry>
@@ -359,8 +359,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>NexT</tag>
         <tag>Hexo</tag>
+        <tag>NexT</tag>
         <tag>DaoVoice</tag>
       </tags>
   </entry>
@@ -385,8 +385,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>NexT</tag>
         <tag>Hexo</tag>
+        <tag>NexT</tag>
         <tag>Gitalk</tag>
       </tags>
   </entry>
@@ -410,8 +410,8 @@
         <category>GitBlog</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>GitHub</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -462,9 +462,9 @@
       </categories>
       <tags>
         <tag>Translation</tag>
-        <tag>Paper</tag>
         <tag>Deep Learning</tag>
         <tag>CNN</tag>
+        <tag>Paper</tag>
         <tag>AlexNet</tag>
       </tags>
   </entry>
@@ -477,8 +477,8 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>Git</tag>
         <tag>GitHub</tag>
+        <tag>Git</tag>
         <tag>Node.js</tag>
       </tags>
   </entry>
