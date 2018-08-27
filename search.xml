@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode 010 正则表达式匹配]]></title>
+    <url>%2F2018%2F08%2F25%2Fleetcode-010-RegularExpressionMatching%2F</url>
+    <content type="text"><![CDATA[动态规划相关 问题给定一个字符串 (s) 和一个字符模式 (p)。实现支持 &#39;.&#39; 和 &#39;*&#39; 的正则表达式匹配。12&apos;.&apos; 匹配任意单个字符。&apos;*&apos; 匹配零个或多个前面的元素。 匹配应该覆盖整个字符串 (s) ，而不是部分字符串。 说明: s 可能为空，且只包含从 a-z 的小写字母。 p 可能为空，且只包含从 a-z 的小写字母，以及字符 . 和 *。 示例1：12345输入:s = &quot;aa&quot;p = &quot;a&quot;输出: false解释: &quot;a&quot; 无法匹配 &quot;aa&quot; 整个字符串。 示例2：12345输入:s = &quot;aa&quot;p = &quot;a*&quot;输出: true解释: &apos;*&apos; 代表可匹配零个或多个前面的元素, 即可以匹配 &apos;a&apos; 。因此, 重复 &apos;a&apos; 一次, 字符串可变为 &quot;aa&quot;。 示例3：12345输入:s = &quot;ab&quot;p = &quot;.*&quot;输出: true解释: &quot;.*&quot; 表示可匹配零个或多个(&apos;*&apos;)任意字符(&apos;.&apos;)。 解答12345678910111213141516171819202122232425class Solution &#123; public boolean isMatch(String s, String p) &#123; boolean[][] dp = new boolean[s.length() + 1][p.length() + 1]; dp[0][0] = true; for(int i = 0; i &lt; p.length(); i++) &#123; if(p.charAt(i) == '*') dp[0][i + 1] = dp[0][i - 1]; &#125; for(int i = 0; i &lt; s.length(); i++) &#123; for(int j = 0; j &lt; p.length(); j++) &#123; if(p.charAt(j) == '.' || p.charAt(j) == s.charAt(i)) dp[i + 1][j + 1] = dp[i][j]; if(p.charAt(j) == '*') &#123; if(p.charAt(j - 1) != s.charAt(i) &amp;&amp; p.charAt(j - 1) != '.') dp[i + 1][j + 1] = dp[i + 1][j - 1]; else dp[i + 1][j + 1] = (dp[i + 1][j] || dp[i][j + 1] || dp[i + 1][j - 1]); &#125; &#125; &#125; return dp[s.length()][p.length()]; &#125;&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>String</tag>
+        <tag>Dynamic Programming</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 016 最接近的三数之和]]></title>
     <url>%2F2018%2F08%2F21%2Fleetcode-016-3SumClosest%2F</url>
     <content type="text"><![CDATA[双指针问题 问题给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案。 123例如，给定数组 nums = [-1，2，1，-4], 和 target = 1.与 target 最接近的三个数的和为 2. (-1 + 2 + 1 = 2). 解答关于三个数的和问题，我们可以参考两数之和问题。 首先将数组排序，达到非递减序；之后遍历i ， 范围0 ~ len-2，作为三数中的第一个数；取j = i + 1，其范围在1 ~ len-1中，作为第二个数，是从数组前端往后的指针；取k = len - 1，其范围为len-1 ~ j，为第三个数，是从数组后端往前的指针；当三个数相加后，其和若大于target，则k--前移；若小于target，则j++后移;若相等，则亦符合本题的最近和。在遍历求和过程中，不断将当前sum与最近sum相比较，并根据判断做相应操作。 代码如下：12345678910111213141516171819202122232425262728class Solution &#123; public int threeSumClosest(int[] nums, int target) &#123; int len = nums.length; Arrays.sort(nums); int closestSum = 0; int diff = Integer.MAX_VALUE; for(int i = 0; i &lt; len - 2; i++) &#123; int left = i + 1; int right = len - 1; while(left &lt; right) &#123; int temp_sum = nums[i] + nums[left] + nums[right]; int temp_diff = Math.abs(temp_sum - target); if(temp_diff &lt; diff) &#123; closestSum = temp_sum; diff = temp_diff; &#125; if(temp_sum &lt; target) left++; else if(temp_sum &gt; target) right--; else return temp_sum; &#125; &#125; return closestSum; &#125;&#125;]]></content>
@@ -260,8 +272,8 @@
         <category>Saliency Map</category>
       </categories>
       <tags>
-        <tag>Algorithm</tag>
         <tag>Image Processing</tag>
+        <tag>Algorithm</tag>
         <tag>Saliency</tag>
       </tags>
   </entry>
