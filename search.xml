@@ -155,8 +155,8 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>String</tag>
         <tag>HashSet</tag>
+        <tag>String</tag>
       </tags>
   </entry>
   <entry>
@@ -272,8 +272,8 @@
         <category>Saliency Map</category>
       </categories>
       <tags>
-        <tag>Image Processing</tag>
         <tag>Algorithm</tag>
+        <tag>Image Processing</tag>
         <tag>Saliency</tag>
       </tags>
   </entry>
@@ -388,7 +388,7 @@
   <entry>
     <title><![CDATA[Hexo NexT主题内接入网页在线联系功能]]></title>
     <url>%2F2018%2F01%2F21%2Fdaovoice%2F</url>
-    <content type="text"><![CDATA[之前有访问过一些大佬的个人博客，里面有个在线联系功能，看着不错，所以也试着在自己的站点上接入了此功能。 注册首先在DaoVoice注册个账号，点击-&gt;邀请码是2e5d695d。 完成后，会得到一个app_id，后面会用到： 修改head.swig修改/themes/next/layout/_partials/head.swig文件，添加内容如下：123456789&#123;% if theme.daovoice %&#125; &lt;script&gt; (function(i,s,o,g,r,a,m)&#123;i[&quot;DaoVoiceObject&quot;]=r;i[r]=i[r]||function()&#123;(i[r].q=i[r].q||[]).push(arguments)&#125;,i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset=&quot;utf-8&quot;;m.parentNode.insertBefore(a,m)&#125;)(window,document,&quot;script&quot;,(&apos;https:&apos; == document.location.protocol ? &apos;https:&apos; : &apos;http:&apos;) + &quot;//widget.daovoice.io/widget/0f81ff2f.js&quot;,&quot;daovoice&quot;) daovoice(&apos;init&apos;, &#123; app_id: &quot;&#123;&#123;theme.daovoice_app_id&#125;&#125;&quot; &#125;); daovoice(&apos;update&apos;); &lt;/script&gt;&#123;% endif %&#125; 位置贴图： 主题配置文件在_config.yml文件中添加内容：123# Online contactdaovoice: truedaovoice_app_id: # 这里填你刚才获得的 app_id 聊天窗口配置附上我的聊天窗口的颜色、位置等设置信息： 至此，网页的在线联系功能已经完成，重新hexo g，hexo d上传GitHub后，页面上就能看到效果了。 就比如说你现在往右下角看看(～￣▽￣)～ ，欢迎撩我（滑稽）。]]></content>
+    <content type="text"><![CDATA[之前有访问过一些大佬的个人博客，里面有个在线联系功能，看着不错，所以也试着在自己的站点上接入了此功能。 注册首先在DaoVoice注册个账号，点击-&gt;邀请码是2e5d695d。 完成后，会得到一个app_id，后面会用到： 修改head.swig修改/themes/next/layout/_partials/head.swig文件，添加内容如下：123456789&#123;% if theme.daovoice %&#125; &lt;script&gt; (function(i,s,o,g,r,a,m)&#123;i[&quot;DaoVoiceObject&quot;]=r;i[r]=i[r]||function()&#123;(i[r].q=i[r].q||[]).push(arguments)&#125;,i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset=&quot;utf-8&quot;;m.parentNode.insertBefore(a,m)&#125;)(window,document,&quot;script&quot;,(&apos;https:&apos; == document.location.protocol ? &apos;https:&apos; : &apos;http:&apos;) + &quot;//widget.daovoice.io/widget/2e5d695d.js&quot;,&quot;daovoice&quot;) daovoice(&apos;init&apos;, &#123; app_id: &quot;&#123;&#123;theme.daovoice_app_id&#125;&#125;&quot; &#125;); daovoice(&apos;update&apos;); &lt;/script&gt;&#123;% endif %&#125; 位置贴图： 主题配置文件在_config.yml文件中添加内容：123# Online contactdaovoice: truedaovoice_app_id: # 这里填你刚才获得的 app_id 聊天窗口配置附上我的聊天窗口的颜色、位置等设置信息： 至此，网页的在线联系功能已经完成，重新hexo g，hexo d上传GitHub后，页面上就能看到效果了。 就比如说你现在往右下角看看(～￣▽￣)～ ，欢迎撩我（滑稽）。]]></content>
       <categories>
         <category>GitBlog</category>
       </categories>
