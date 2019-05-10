@@ -155,8 +155,8 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>HashSet</tag>
         <tag>String</tag>
+        <tag>HashSet</tag>
       </tags>
   </entry>
   <entry>
@@ -495,8 +495,8 @@
         <category>Papers</category>
       </categories>
       <tags>
-        <tag>Paper</tag>
         <tag>Translation</tag>
+        <tag>Paper</tag>
         <tag>Deep Learning</tag>
         <tag>CNN</tag>
         <tag>AlexNet</tag>
