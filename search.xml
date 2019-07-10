@@ -155,8 +155,8 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>HashSet</tag>
         <tag>String</tag>
+        <tag>HashSet</tag>
       </tags>
   </entry>
   <entry>
@@ -201,8 +201,8 @@
         <category>Master MLA</category>
       </categories>
       <tags>
-        <tag>Machine Learning</tag>
         <tag>Algorithm</tag>
+        <tag>Machine Learning</tag>
       </tags>
   </entry>
   <entry>
@@ -272,8 +272,8 @@
         <category>Saliency Map</category>
       </categories>
       <tags>
-        <tag>Algorithm</tag>
         <tag>Image Processing</tag>
+        <tag>Algorithm</tag>
         <tag>Saliency</tag>
       </tags>
   </entry>
