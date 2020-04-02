@@ -1946,7 +1946,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9c4b0f;
+  background: #a88324;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3123,13 +3123,6 @@ pre .javascript .function {
 .main-inner {
   background: #fff;
   opacity: 0.85;
-}
-.bg_content {
-  position: fixed;
-  top: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
 }
 .with-love {
   animation: heartAnimate 1.33s ease-in-out infinite;
