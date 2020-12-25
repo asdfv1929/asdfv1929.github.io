@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hexo NexT主题中集成gitalk评论系统 | asdfv1929&#39;s Blog</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <meta name="description" content="Just playing">
+    <link rel="preload" href="/assets/css/0.styles.f59195ba.css" as="style"><link rel="preload" href="/assets/js/app.06761b2d.js" as="script"><link rel="preload" href="/assets/js/7.1fa92088.js" as="script"><link rel="preload" href="/assets/js/25.73087e58.js" as="script"><link rel="prefetch" href="/assets/js/1.00f260fa.js"><link rel="prefetch" href="/assets/js/10.c8b35ca4.js"><link rel="prefetch" href="/assets/js/11.8bf47934.js"><link rel="prefetch" href="/assets/js/12.d759c060.js"><link rel="prefetch" href="/assets/js/13.85f861a2.js"><link rel="prefetch" href="/assets/js/14.a81018cb.js"><link rel="prefetch" href="/assets/js/15.7b929946.js"><link rel="prefetch" href="/assets/js/16.5c3d3040.js"><link rel="prefetch" href="/assets/js/17.8ab171c9.js"><link rel="prefetch" href="/assets/js/18.a2f537d7.js"><link rel="prefetch" href="/assets/js/19.6a7e8362.js"><link rel="prefetch" href="/assets/js/20.045e0a3d.js"><link rel="prefetch" href="/assets/js/21.8a100691.js"><link rel="prefetch" href="/assets/js/22.39fa7cf1.js"><link rel="prefetch" href="/assets/js/23.0627500e.js"><link rel="prefetch" href="/assets/js/24.3c1157d3.js"><link rel="prefetch" href="/assets/js/26.fa385498.js"><link rel="prefetch" href="/assets/js/27.ddf555d2.js"><link rel="prefetch" href="/assets/js/3.423e0062.js"><link rel="prefetch" href="/assets/js/4.350ab2c5.js"><link rel="prefetch" href="/assets/js/5.cbb9184a.js"><link rel="prefetch" href="/assets/js/6.fde48977.js"><link rel="prefetch" href="/assets/js/8.0bb0aab6.js"><link rel="prefetch" href="/assets/js/9.a67ad7db.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f59195ba.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-meteorlxy" style="background-size:cover;background-repeat:no-repeat;background-position:center;background-attachment:scroll;background-image:url(/img/background.svg);"><header class="header" data-v-ea22690e><div data-v-e4145d0a data-v-ea22690e><nav class="navbar" data-v-e4145d0a><div class="container" data-v-e4145d0a><a href="/" class="router-link-active" data-v-e4145d0a><span class="navbar-site-name" data-v-e4145d0a>
+          asdfv1929's Blog
+        </span></a> <div class="navbar-toggler" data-v-e4145d0a><svg class="icon" style="font-size:1.2em;" data-v-e4145d0a data-v-e4145d0a><title data-v-e4145d0a data-v-e4145d0a>menu</title><use xlink:href="#icon-menu" data-v-e4145d0a data-v-e4145d0a></use></svg></div> <div class="navbar-links" data-v-e4145d0a><a href="/" class="navbar-link" data-v-e4145d0a>
+            首页
+          </a><a href="/posts/" class="navbar-link router-link-active" data-v-e4145d0a>
+            文章
+          </a><a href="/about/" class="navbar-link" data-v-e4145d0a>
+            关于
+          </a></div></div></nav> <div class="navbar-holder" style="display:none;" data-v-e4145d0a></div></div></header> <div class="container clearfix show-aside" data-v-4dd605a1 data-v-4dd605a1><main class="main" data-v-4dd605a1><div class="post" data-v-4dd605a1 data-v-4dd605a1><article class="main-div"><h1 style="text-align:center; margin-top:10px; margin-bottom:30px;">
+          Hexo NexT主题中集成gitalk评论系统
+    </h1> <div class="post-content content content__default"><p>记录在NexT主题中添加gitalk评论系统的步骤。
+gitalk：一个基于 Github Issue 和 Preact 开发的评论插件
+详情Demo可见：https://gitalk.github.io/</p> <h1 id="register-application"><a href="#register-application" class="header-anchor">#</a> Register Application</h1> <p>在GitHub上注册新应用，链接：https://github.com/settings/applications/new
+<a href="https://imgchr.com/i/p22o24" target="_blank" rel="noopener noreferrer"><img src="https://s1.ax1x.com/2018/01/20/p22o24.md.png" alt="app"><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>
+参数说明：<br>
+Application name：   # 应用名称，随意<br>
+Homepage URL：       # 网站URL，如<code>https://asdfv1929.github.io</code><br>
+Application description     # 描述，随意<br>
+Authorization callback URL：# 网站URL，<code>https://asdfv1929.github.io</code></p> <p>点击注册后，页面跳转如下，其中<code>Client ID</code>和<code>Client Secret</code>在后面的配置中需要用到，到时复制粘贴即可：
+<a href="https://imgchr.com/i/p25Ubj" target="_blank" rel="noopener noreferrer"><img src="https://s1.ax1x.com/2018/01/20/p25Ubj.md.png" alt="client"><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h1 id="gitalk-swig"><a href="#gitalk-swig" class="header-anchor">#</a> gitalk.swig</h1> <p>新建<code>/layout/_third-party/comments/gitalk.swig</code>文件，并添加内容：</p> <div class="language- extra-class"><pre class="language-text"><code>{% if page.comments &amp;&amp; theme.gitalk.enable %}
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/gitalk/dist/gitalk.css&quot;&gt;
+  &lt;script src=&quot;https://unpkg.com/gitalk/dist/gitalk.min.js&quot;&gt;&lt;/script&gt;
+   &lt;script type=&quot;text/javascript&quot;&gt;
+        var gitalk = new Gitalk({
+          clientID: '{{ theme.gitalk.ClientID }}',
+          clientSecret: '{{ theme.gitalk.ClientSecret }}',
+          repo: '{{ theme.gitalk.repo }}',
+          owner: '{{ theme.gitalk.githubID }}',
+          admin: ['{{ theme.gitalk.adminUser }}'],
+          id: location.pathname,
+          distractionFreeMode: '{{ theme.gitalk.distractionFreeMode }}'
+        })
+        gitalk.render('gitalk-container')           
+       &lt;/script&gt;
+{% endif %}
+</code></pre></div><h1 id="comments-swig"><a href="#comments-swig" class="header-anchor">#</a> comments.swig</h1> <p>修改<code>/layout/_partials/comments.swig</code>，添加内容如下，与前面的<code>elseif</code>同一级别上：</p> <div class="language- extra-class"><pre class="language-text"><code>{% elseif theme.gitalk.enable %}
+ &lt;div id=&quot;gitalk-container&quot;&gt;&lt;/div&gt;
+</code></pre></div><h1 id="index-swig"><a href="#index-swig" class="header-anchor">#</a> index.swig</h1> <p>修改<code>layout/_third-party/comments/index.swig</code>，在最后一行添加内容：</p> <div class="language- extra-class"><pre class="language-text"><code>{% include 'gitalk.swig' %}
+</code></pre></div><h1 id="gitalk-styl"><a href="#gitalk-styl" class="header-anchor">#</a> gitalk.styl</h1> <p>新建<code>/source/css/_common/components/third-party/gitalk.styl</code>文件，添加内容：</p> <div class="language- extra-class"><pre class="language-text"><code>.gt-header a, .gt-comments a, .gt-popup a
+  border-bottom: none;
+.gt-container .gt-popup .gt-action.is--active:before
+  top: 0.7em;
+</code></pre></div><h1 id="third-party-styl"><a href="#third-party-styl" class="header-anchor">#</a> third-party.styl</h1> <p>修改<code>/source/css/_common/components/third-party/third-party.styl</code>，在最后一行上添加内容，引入样式：</p> <div class="language- extra-class"><pre class="language-text"><code>@import &quot;gitalk&quot;;
+</code></pre></div><h1 id="config-yml"><a href="#config-yml" class="header-anchor">#</a> _config.yml</h1> <p>在主题配置文件<code>next/_config.yml</code>中添加如下内容：</p> <div class="language- extra-class"><pre class="language-text"><code>gitalk:
+  enable: true
+  githubID: github帐号  # 例：asdfv1929   
+  repo: 仓库名称   # 例：asdfv1929.github.io
+  ClientID: Client ID
+  ClientSecret: Client Secret
+  adminUser: github帐号 #指定可初始化评论账户
+  distractionFreeMode: true
+</code></pre></div><p>以上就是NexT中添加gitalk评论的配置，博客上传到GitHub上后，打开页面进入某一博客内容下，就可看到评论处。</p> <p>部分问题解决方法，可参见：
+https://liujunzhou.top/2018/8/10/gitalk-error/</p></div></article> <section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      发布时间 : 2018-01-20
+    </span> <!----></section> <section class="post-links" data-v-4e23451f><a href="/posts/2018/01/13/next-git-note.html" class="post-link" data-v-4e23451f>
+      上一篇 : Git Bash上传项目命令
+    </a> <a href="/posts/2018/01/21/next-daovoice.html" class="post-link" data-v-4e23451f>
+      下一篇 : Hexo NexT主题内接入网页在线联系功能
+    </a></section></section> <div id="post-comments" class="main-div"><!----></div></div></main> <aside class="aside" data-v-4dd605a1><div class="info-card main-div" data-v-9d847660 data-v-4dd605a1><div class="info-card-header" style="background-size:cover;background-repeat:no-repeat;background-position:center;background-attachment:scroll;background-image:url(/img/headbg.jpg);" data-v-9d847660><img src="/img/avatar.jpg" alt="asdfv1929" class="info-avatar" data-v-9d847660></div> <div class="info-card-body" data-v-9d847660><section class="info-nickname" data-v-9d847660>
+      asdfv1929
+    </section> <section class="info-desc" data-v-9d847660>Happy Life!</section> <section class="info-contact" data-v-9d847660><section data-v-9d847660><span title="MoDu, China" data-v-9d847660 data-v-9d847660><svg class="icon" style="font-size:1em;" data-v-9d847660 data-v-9d847660><title data-v-9d847660 data-v-9d847660>MoDu, China</title><use xlink:href="#icon-location" data-v-9d847660 data-v-9d847660></use></svg><span class="info-text" data-v-9d847660 data-v-9d847660>
+          MoDu, China
+        </span></span></section> <section data-v-9d847660><span title="China" data-v-9d847660 data-v-9d847660><svg class="icon" style="font-size:1em;" data-v-9d847660 data-v-9d847660><title data-v-9d847660 data-v-9d847660>China</title><use xlink:href="#icon-organization" data-v-9d847660 data-v-9d847660></use></svg><span class="info-text" data-v-9d847660 data-v-9d847660>
+          China
+        </span></span></section> <section data-v-9d847660><a href="mailto:asdfv1929@163.com" title="asdfv1929@163.com" data-v-9d847660 data-v-9d847660><svg class="icon" style="font-size:1em;" data-v-9d847660 data-v-9d847660><title data-v-9d847660 data-v-9d847660>asdfv1929@163.com</title><use xlink:href="#icon-email" data-v-9d847660 data-v-9d847660></use></svg><span class="info-text" data-v-9d847660 data-v-9d847660>
+          asdfv1929@163.com
+        </span></a></section></section></div> <div class="info-card-footer" data-v-9d847660><section class="info-sns clearfix" data-v-9d847660><a href="https://github.com/asdfv1929" target="_blank" class="sns-link" data-v-9d847660><span title="GitHub: asdfv1929" class="sns-icon" data-v-9d847660 data-v-9d847660><svg class="icon" style="font-size:1.5em;" data-v-9d847660 data-v-9d847660><title data-v-9d847660 data-v-9d847660>GitHub: asdfv1929</title><use xlink:href="#icon-github" data-v-9d847660 data-v-9d847660></use></svg></span></a></section></div></div> <div class="post-nav-card main-div" style="position:relative;top:0;width:0px;" data-v-4dd605a1><!----> <div class="post-nav-comments"><svg class="icon"><title>comment</title><use xlink:href="#icon-comment"></use></svg> <a href="/posts/2018/01/20/next-gitalk.html#post-comments">
+      评论
+    </a></div></div></aside></div> <footer class="footer" data-v-9b383ec0><p class="footer-text" data-v-9b383ec0><span data-v-9b383ec0>Powered by </span> <a href="https://github.com/vuejs/vuepress" target="_blank" data-v-9b383ec0>
+      VuePress
+    </a> <span data-v-9b383ec0> | </span> <a href="https://github.com/meteorlxy/vuepress-theme-meteorlxy" target="_blank" data-v-9b383ec0>
+        meteorlxy
+      </a></p> <p class="footer-text" data-v-9b383ec0>&copy; 2020 <a href="https://github.com/asdfv1929" target="_blank">asdfv1929</a></p></footer></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.06761b2d.js" defer></script><script src="/assets/js/7.1fa92088.js" defer></script><script src="/assets/js/25.73087e58.js" defer></script>
+  </body>
+</html>

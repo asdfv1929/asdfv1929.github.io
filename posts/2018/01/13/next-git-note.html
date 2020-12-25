@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Git Bash上传项目命令 | asdfv1929&#39;s Blog</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <meta name="description" content="Just playing">
+    <link rel="preload" href="/assets/css/0.styles.f59195ba.css" as="style"><link rel="preload" href="/assets/js/app.06761b2d.js" as="script"><link rel="preload" href="/assets/js/7.1fa92088.js" as="script"><link rel="preload" href="/assets/js/24.3c1157d3.js" as="script"><link rel="prefetch" href="/assets/js/1.00f260fa.js"><link rel="prefetch" href="/assets/js/10.c8b35ca4.js"><link rel="prefetch" href="/assets/js/11.8bf47934.js"><link rel="prefetch" href="/assets/js/12.d759c060.js"><link rel="prefetch" href="/assets/js/13.85f861a2.js"><link rel="prefetch" href="/assets/js/14.a81018cb.js"><link rel="prefetch" href="/assets/js/15.7b929946.js"><link rel="prefetch" href="/assets/js/16.5c3d3040.js"><link rel="prefetch" href="/assets/js/17.8ab171c9.js"><link rel="prefetch" href="/assets/js/18.a2f537d7.js"><link rel="prefetch" href="/assets/js/19.6a7e8362.js"><link rel="prefetch" href="/assets/js/20.045e0a3d.js"><link rel="prefetch" href="/assets/js/21.8a100691.js"><link rel="prefetch" href="/assets/js/22.39fa7cf1.js"><link rel="prefetch" href="/assets/js/23.0627500e.js"><link rel="prefetch" href="/assets/js/25.73087e58.js"><link rel="prefetch" href="/assets/js/26.fa385498.js"><link rel="prefetch" href="/assets/js/27.ddf555d2.js"><link rel="prefetch" href="/assets/js/3.423e0062.js"><link rel="prefetch" href="/assets/js/4.350ab2c5.js"><link rel="prefetch" href="/assets/js/5.cbb9184a.js"><link rel="prefetch" href="/assets/js/6.fde48977.js"><link rel="prefetch" href="/assets/js/8.0bb0aab6.js"><link rel="prefetch" href="/assets/js/9.a67ad7db.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f59195ba.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-meteorlxy" style="background-size:cover;background-repeat:no-repeat;background-position:center;background-attachment:scroll;background-image:url(/img/background.svg);"><header class="header" data-v-ea22690e><div data-v-e4145d0a data-v-ea22690e><nav class="navbar" data-v-e4145d0a><div class="container" data-v-e4145d0a><a href="/" class="router-link-active" data-v-e4145d0a><span class="navbar-site-name" data-v-e4145d0a>
+          asdfv1929's Blog
+        </span></a> <div class="navbar-toggler" data-v-e4145d0a><svg class="icon" style="font-size:1.2em;" data-v-e4145d0a data-v-e4145d0a><title data-v-e4145d0a data-v-e4145d0a>menu</title><use xlink:href="#icon-menu" data-v-e4145d0a data-v-e4145d0a></use></svg></div> <div class="navbar-links" data-v-e4145d0a><a href="/" class="navbar-link" data-v-e4145d0a>
+            首页
+          </a><a href="/posts/" class="navbar-link router-link-active" data-v-e4145d0a>
+            文章
+          </a><a href="/about/" class="navbar-link" data-v-e4145d0a>
+            关于
+          </a></div></div></nav> <div class="navbar-holder" style="display:none;" data-v-e4145d0a></div></div></header> <div class="container clearfix show-aside" data-v-4dd605a1 data-v-4dd605a1><main class="main" data-v-4dd605a1><div class="post" data-v-4dd605a1 data-v-4dd605a1><article class="main-div"><h1 style="text-align:center; margin-top:10px; margin-bottom:30px;">
+          Git Bash上传项目命令
+    </h1> <div class="post-content content content__default"><p>记录下平时将项目demo上传至GitHub Repository上的命令。
+</p> <p>首先是打开需要上传的项目，切换至该文件夹下，右击<code>Git Bash Here</code>，在Git命令行界面中依次输入以下指令：</p> <p>将当前文件夹初始化为GitHub项目文件夹：</p> <div class="language- extra-class"><pre class="language-text"><code>git init
+</code></pre></div><p>添加项目中所有文件：</p> <div class="language- extra-class"><pre class="language-text"><code>git add .
+</code></pre></div><p>设置项目提交后文件上显示的备注信息：</p> <div class="language- extra-class"><pre class="language-text"><code>git commit -m &quot;first commit&quot;
+</code></pre></div><p>添加远程项目仓库：</p> <div class="language- extra-class"><pre class="language-text"><code>git remote add origin https://github.com/asdfv1929/test.git
+</code></pre></div><p>最后<code>push</code>项目到仓库master分支：</p> <div class="language- extra-class"><pre class="language-text"><code>git push -u origin master
+</code></pre></div></div></article> <section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      发布时间 : 2018-01-14
+    </span> <!----></section> <section class="post-links" data-v-4e23451f><a href="/posts/2017/11/18/next-hexo-blog.html" class="post-link" data-v-4e23451f>
+      上一篇 : 利用GitHub+Node.js+Hexo搭建个人博客
+    </a> <a href="/posts/2018/01/20/next-gitalk.html" class="post-link" data-v-4e23451f>
+      下一篇 : Hexo NexT主题中集成gitalk评论系统
+    </a></section></section> <div id="post-comments" class="main-div"><!----></div></div></main> <aside class="aside" data-v-4dd605a1><div class="info-card main-div" data-v-9d847660 data-v-4dd605a1><div class="info-card-header" style="background-size:cover;background-repeat:no-repeat;background-position:center;background-attachment:scroll;background-image:url(/img/headbg.jpg);" data-v-9d847660><img src="/img/avatar.jpg" alt="asdfv1929" class="info-avatar" data-v-9d847660></div> <div class="info-card-body" data-v-9d847660><section class="info-nickname" data-v-9d847660>
+      asdfv1929
+    </section> <section class="info-desc" data-v-9d847660>Happy Life!</section> <section class="info-contact" data-v-9d847660><section data-v-9d847660><span title="MoDu, China" data-v-9d847660 data-v-9d847660><svg class="icon" style="font-size:1em;" data-v-9d847660 data-v-9d847660><title data-v-9d847660 data-v-9d847660>MoDu, China</title><use xlink:href="#icon-location" data-v-9d847660 data-v-9d847660></use></svg><span class="info-text" data-v-9d847660 data-v-9d847660>
+          MoDu, China
+        </span></span></section> <section data-v-9d847660><span title="China" data-v-9d847660 data-v-9d847660><svg class="icon" style="font-size:1em;" data-v-9d847660 data-v-9d847660><title data-v-9d847660 data-v-9d847660>China</title><use xlink:href="#icon-organization" data-v-9d847660 data-v-9d847660></use></svg><span class="info-text" data-v-9d847660 data-v-9d847660>
+          China
+        </span></span></section> <section data-v-9d847660><a href="mailto:asdfv1929@163.com" title="asdfv1929@163.com" data-v-9d847660 data-v-9d847660><svg class="icon" style="font-size:1em;" data-v-9d847660 data-v-9d847660><title data-v-9d847660 data-v-9d847660>asdfv1929@163.com</title><use xlink:href="#icon-email" data-v-9d847660 data-v-9d847660></use></svg><span class="info-text" data-v-9d847660 data-v-9d847660>
+          asdfv1929@163.com
+        </span></a></section></section></div> <div class="info-card-footer" data-v-9d847660><section class="info-sns clearfix" data-v-9d847660><a href="https://github.com/asdfv1929" target="_blank" class="sns-link" data-v-9d847660><span title="GitHub: asdfv1929" class="sns-icon" data-v-9d847660 data-v-9d847660><svg class="icon" style="font-size:1.5em;" data-v-9d847660 data-v-9d847660><title data-v-9d847660 data-v-9d847660>GitHub: asdfv1929</title><use xlink:href="#icon-github" data-v-9d847660 data-v-9d847660></use></svg></span></a></section></div></div> <div class="post-nav-card main-div" style="position:relative;top:0;width:0px;" data-v-4dd605a1><!----> <div class="post-nav-comments"><svg class="icon"><title>comment</title><use xlink:href="#icon-comment"></use></svg> <a href="/posts/2018/01/13/next-git-note.html#post-comments">
+      评论
+    </a></div></div></aside></div> <footer class="footer" data-v-9b383ec0><p class="footer-text" data-v-9b383ec0><span data-v-9b383ec0>Powered by </span> <a href="https://github.com/vuejs/vuepress" target="_blank" data-v-9b383ec0>
+      VuePress
+    </a> <span data-v-9b383ec0> | </span> <a href="https://github.com/meteorlxy/vuepress-theme-meteorlxy" target="_blank" data-v-9b383ec0>
+        meteorlxy
+      </a></p> <p class="footer-text" data-v-9b383ec0>&copy; 2020 <a href="https://github.com/asdfv1929" target="_blank">asdfv1929</a></p></footer></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.06761b2d.js" defer></script><script src="/assets/js/7.1fa92088.js" defer></script><script src="/assets/js/24.3c1157d3.js" defer></script>
+  </body>
+</html>

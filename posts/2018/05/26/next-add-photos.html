@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hexo NexT主题内添加相册功能 | asdfv1929&#39;s Blog</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <meta name="description" content="Just playing">
+    <link rel="preload" href="/assets/css/0.styles.f59195ba.css" as="style"><link rel="preload" href="/assets/js/app.06761b2d.js" as="script"><link rel="preload" href="/assets/js/7.1fa92088.js" as="script"><link rel="preload" href="/assets/js/18.a2f537d7.js" as="script"><link rel="prefetch" href="/assets/js/1.00f260fa.js"><link rel="prefetch" href="/assets/js/10.c8b35ca4.js"><link rel="prefetch" href="/assets/js/11.8bf47934.js"><link rel="prefetch" href="/assets/js/12.d759c060.js"><link rel="prefetch" href="/assets/js/13.85f861a2.js"><link rel="prefetch" href="/assets/js/14.a81018cb.js"><link rel="prefetch" href="/assets/js/15.7b929946.js"><link rel="prefetch" href="/assets/js/16.5c3d3040.js"><link rel="prefetch" href="/assets/js/17.8ab171c9.js"><link rel="prefetch" href="/assets/js/19.6a7e8362.js"><link rel="prefetch" href="/assets/js/20.045e0a3d.js"><link rel="prefetch" href="/assets/js/21.8a100691.js"><link rel="prefetch" href="/assets/js/22.39fa7cf1.js"><link rel="prefetch" href="/assets/js/23.0627500e.js"><link rel="prefetch" href="/assets/js/24.3c1157d3.js"><link rel="prefetch" href="/assets/js/25.73087e58.js"><link rel="prefetch" href="/assets/js/26.fa385498.js"><link rel="prefetch" href="/assets/js/27.ddf555d2.js"><link rel="prefetch" href="/assets/js/3.423e0062.js"><link rel="prefetch" href="/assets/js/4.350ab2c5.js"><link rel="prefetch" href="/assets/js/5.cbb9184a.js"><link rel="prefetch" href="/assets/js/6.fde48977.js"><link rel="prefetch" href="/assets/js/8.0bb0aab6.js"><link rel="prefetch" href="/assets/js/9.a67ad7db.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.f59195ba.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-meteorlxy" style="background-size:cover;background-repeat:no-repeat;background-position:center;background-attachment:scroll;background-image:url(/img/background.svg);"><header class="header" data-v-ea22690e><div data-v-e4145d0a data-v-ea22690e><nav class="navbar" data-v-e4145d0a><div class="container" data-v-e4145d0a><a href="/" class="router-link-active" data-v-e4145d0a><span class="navbar-site-name" data-v-e4145d0a>
+          asdfv1929's Blog
+        </span></a> <div class="navbar-toggler" data-v-e4145d0a><svg class="icon" style="font-size:1.2em;" data-v-e4145d0a data-v-e4145d0a><title data-v-e4145d0a data-v-e4145d0a>menu</title><use xlink:href="#icon-menu" data-v-e4145d0a data-v-e4145d0a></use></svg></div> <div class="navbar-links" data-v-e4145d0a><a href="/" class="navbar-link" data-v-e4145d0a>
+            首页
+          </a><a href="/posts/" class="navbar-link router-link-active" data-v-e4145d0a>
+            文章
+          </a><a href="/about/" class="navbar-link" data-v-e4145d0a>
+            关于
+          </a></div></div></nav> <div class="navbar-holder" style="display:none;" data-v-e4145d0a></div></div></header> <div class="container clearfix show-aside" data-v-4dd605a1 data-v-4dd605a1><main class="main" data-v-4dd605a1><div class="post" data-v-4dd605a1 data-v-4dd605a1><article class="main-div"><h1 style="text-align:center; margin-top:10px; margin-bottom:30px;">
+          Hexo NexT主题内添加相册功能
+    </h1> <div class="post-content content content__default"><p>给博客添加一个相册页面，以展示自己拍摄的一些照片  (≖ᴗ≖)✧
+</p> <h1 id="config-yml"><a href="#config-yml" class="header-anchor">#</a> _config.yml</h1> <p>首先新建<code>hexo new page photos</code>相册页面，将会在<code>source/</code>下创建<code>photos/index.md</code>，在其中添加<code>type: photos</code></p> <p>之后在主题<code>_config.yml</code>文件中对应位置<code>menu</code>里添加<code>Photos: /photos/ || image</code> ，这样生成后就能在页面的对应页面选项中有该相册Tab。</p> <h1 id="json"><a href="#json" class="header-anchor">#</a> json</h1> <p>在博客根目录下新建<code>uploadPhotos</code>文件夹，里面将会存放照片以及相关js文件。</p> <p>新建<code>uploadPhotos/Images/</code>文件夹，然后在其中存放需要在页面中展示的照片集（后续需将该文件夹上传至GitHub相册库，若没有对应库，可新建，并上传图片）。</p> <p>新建<code>uploadPhotos/tool.js</code>文件，里面内容如下，主要功能是访问照片文件夹，获取每张照片的size和name，并生成对应的json文件：</p> <p>命令：<code>Git Bash</code>中键入 <code>node tool.js</code>生成json<br>
+注：若出现<code>Error: Cannot find module 'image-size'</code>问题，请在<code>Git Bash</code>中键入对应命令<code>npm install image-size</code>进行安装。</p> <div class="language- extra-class"><pre class="language-text"><code>&quot;use strict&quot;;
+    const fs = require(&quot;fs&quot;);
+    const sizeOf = require('image-size');
+    const path = &quot;Images&quot;;
+    const output = &quot;../themes/next/source/photos/photoslist.json&quot;;
+    var dimensions;
+    fs.readdir(path, function (err, files) {
+        if (err) {
+            return;
+        }
+        let arr = [];
+        (function iterator(index) {
+            if (index == files.length) {
+                fs.writeFile(output, JSON.stringify(arr, null, &quot;\t&quot;));
+                return;
+            }
+            fs.stat(path + &quot;/&quot; + files[index], function (err, stats) {
+                if (err) {
+                    return;
+                }
+                if (stats.isFile()) {
+                    dimensions = sizeOf(path + &quot;/&quot; + files[index]);
+                    console.log(dimensions.width, dimensions.height);
+                    arr.push(dimensions.width + '.' + dimensions.height + ' ' + files[index]);
+                }
+                iterator(index + 1);
+            })
+        }(0));
+    });
+</code></pre></div><p>json文件样例如下：</p> <div class="language- extra-class"><pre class="language-text"><code>[
+	&quot;4032.3024 IMG_0391.JPG&quot;,
+	&quot;12500.3874 IMG_0404.JPG&quot;,
+	&quot;4032.3024 IMG_0416.JPG&quot;,
+	&quot;4032.3024 IMG_0424.JPG&quot;,
+	&quot;3024.4032 IMG_0427.JPG&quot;,
+	&quot;4032.3024 IMG_0429.JPG&quot;,
+	&quot;4032.3024 IMG_0430.JPG&quot;
+]
+</code></pre></div><h1 id="photo-js"><a href="#photo-js" class="header-anchor">#</a> photo.js</h1> <p>新建<code>themes/next/source/photos/photo.js</code>文件，其中<code>photos</code>文件夹是自己创建的。</p> <p><code>photos.js</code>内容如下，主要功能是访问json文件内容，遍历每行数据，并在页面对应位置上放置代码，展示图片（其中图片链接为自个GitHub相册库中图片的链接）：</p> <div class="language- extra-class"><pre class="language-text"><code>photo ={
+    page: 1,
+    offset: 20,
+    init: function () {
+        var that = this;
+        $.getJSON(&quot;/photos/photoslist.json&quot;, function (data) {
+            that.render(that.page, data);
+            //that.scroll(data);
+        });
+    },
+    render: function (page, data) {
+        var begin = (page - 1) * this.offset;
+        var end = page * this.offset;
+        if (begin &gt;= data.length) return;
+        var html, imgNameWithPattern, imgName, imageSize, imageX, imageY, li = &quot;&quot;;
+        for (var i = begin; i &lt; end &amp;&amp; i &lt; data.length; i++) {
+           imgNameWithPattern = data[i].split(' ')[1];
+           imgName = imgNameWithPattern.split('.')[0]
+           imageSize = data[i].split(' ')[0];
+           imageX = imageSize.split('.')[0];
+           imageY = imageSize.split('.')[1];
+            li += '&lt;div class=&quot;card&quot; style=&quot;width:330px&quot;&gt;' +
+                    '&lt;div class=&quot;ImageInCard&quot; style=&quot;height:'+ 330 * imageY / imageX + 'px&quot;&gt;' +
+                      '&lt;a data-fancybox=&quot;gallery&quot; href=&quot;https://github.com/asdfv1929/BlogPhotos/blob/master/Images/' + imgNameWithPattern + '?raw=true&quot; data-caption=&quot;' + imgName + '&quot;&gt;' +
+                        '&lt;img src=&quot;https://github.com/asdfv1929/BlogPhotos/blob/master/Images/' + imgNameWithPattern + '?raw=true&quot;/&gt;' +
+                      '&lt;/a&gt;' +
+                    '&lt;/div&gt;' +
+                    // '&lt;div class=&quot;TextInCard&quot;&gt;' + imgName + '&lt;/div&gt;' +
+                  '&lt;/div&gt;'
+        }
+        $(&quot;.ImageGrid&quot;).append(li);
+        $(&quot;.ImageGrid&quot;).lazyload();
+        this.minigrid();
+    },
+    minigrid: function() {
+        var grid = new Minigrid({
+            container: '.ImageGrid',
+            item: '.card',
+            gutter: 12
+        });
+        grid.mount();
+        $(window).resize(function() {
+           grid.mount();
+        });
+    }
+}
+photo.init();
+</code></pre></div><h1 id="photos-swig"><a href="#photos-swig" class="header-anchor">#</a> photos.swig</h1> <p>新建<code>themes/next/layout/photos.swig</code>文件，其内容模仿<code>tag.swig</code>中内容（直接复制粘贴），然后将其中的<code>tag</code>全部替换为<code>photos</code>。</p> <h1 id="photos-css"><a href="#photos-css" class="header-anchor">#</a> photos.css</h1> <p>新建<code>themes/next/source/photos/photos.css</code>样式文件，内容如下：</p> <div class="language- extra-class"><pre class="language-text"><code>.ImageGrid {width: 100%;max-width: 1040px;margin: 0 auto; text-align: center;}
+.card {overflow: hidden;transition: .3s ease-in-out; border-radius: 8px; background-color: #ddd;}
+.ImageInCard {}
+.ImageInCard img {padding: 0 0 0 0;}
+.TextInCard {line-height: 54px; background-color: #ffffff; font-size: 24px;}
+</code></pre></div><h1 id="page-swig"><a href="#page-swig" class="header-anchor">#</a> page.swig</h1> <p>修改<code>themes/next/layout/page.swig</code>文件，添加下面代码中中间<code>page.type === &quot;photos&quot;</code>那两行。</p> <div class="language- extra-class"><pre class="language-text"><code>{% block title %}{#
+#}{% set page_title_suffix = ' | ' + config.title %}{#
+#}{% if page.type === &quot;categories&quot; and not page.title %}{#
+  #}{{ __('title.category') + page_title_suffix }}{#
+#}{% elif page.type === &quot;tags&quot; and not page.title %}{#
+  #}{{ __('title.tag') + page_title_suffix }}{#
+#}{% elif page.type === &quot;photos&quot; and not page.title %}{#
+  #}{{ __('title.photos') + page_title_suffix }}{#
+#}{% else %}{#
+  #}{{ page.title + page_title_suffix }}{#
+#}{% endif %}{#
+#}{% endblock %}
+</code></pre></div><p>依旧是该文件中，添加<code>page.type === &quot;photos&quot;</code>那两行：</p> <div class="language- extra-class"><pre class="language-text"><code>{% elif page.type === 'categories' %}
+  &lt;div class=&quot;category-all-page&quot;&gt;
+    &lt;div class=&quot;category-all-title&quot;&gt;
+        {{ _p('counter.categories', site.categories.length) }}
+    &lt;/div&gt;
+    &lt;div class=&quot;category-all&quot;&gt;
+      {{ list_categories() }}
+    &lt;/div&gt;
+  &lt;/div&gt;
+{% elif page.type === 'photos' %}
+    &lt;div class=&quot;ImageGrid&quot;&gt;&lt;/div&gt;
+{% else %}
+  {{ page.content }}
+{% endif %}
+</code></pre></div><h1 id="config-yml-2"><a href="#config-yml-2" class="header-anchor">#</a> _config.yml</h1> <p>在主题配置文件<code>_config.yml</code>中相关部分，进行相关的配置（lazyload、fancybox）：<br>
+首先确保<code>_config.yml</code>中<code>Fancybox</code>部分是否开启：</p> <div class="language- extra-class"><pre class="language-text"><code># Fancybox
+fancybox: true
+</code></pre></div><p>之后亦在该文件<code>_config.yml</code>的末尾部分，找到</p> <div class="language- extra-class"><pre class="language-text"><code>vendors:
+  # Internal path prefix. Please do not edit it.
+  _internal: lib
+</code></pre></div><p>在这个<code>vendors</code>的选项下面，有对应的<code>fancybox</code>、<code>lazyload</code>配置区域，填写相应的URL即可：</p> <div class="language- extra-class"><pre class="language-text"><code>vendors:
+  # Internal path prefix. Please do not edit it.
+  _internal: lib
+  # Internal version: 2.1.3
+  jquery:
+  # Internal version: 2.1.5
+  # See: http://fancyapps.com/fancybox/
+  fancybox: https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js
+  fancybox_css: https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css
+  # Internal version: 1.0.6
+  # See: https://github.com/ftlabs/fastclick
+  fastclick:
+  # Internal version: 1.9.7
+  # See: https://github.com/tuupola/jquery_lazyload
+  lazyload: https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js
+</code></pre></div><p>之后在<code>_layout.swig</code>中相关信息配置：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://unpkg.com/minigrid@3.1.1/dist/minigrid.min.js&quot;&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;/photos/photos.css&quot;&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/photos/photo.js&quot;&gt;&lt;/script&gt;
+</code></pre></div><p>重新生成访问，查看成果。</p> <h1 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h1> <p>以上就是添加相册功能大概流程，因为步骤比较多，且是通过后期回忆步骤进行记录，所以可能存在些许问题，还请原谅，并请把出现的问题在本文下面的评论中点出，我会进行修改。</p> <p>后续的实现：</p> <ul><li>将照片上传至GitHub相册库时，由于照片分辨率较高，其都达到了两三M以上，上传速度较慢，导致上传进度缓慢。后期想通过代码将照片进行压缩后再上传至相册库。</li> <li>相册展示整个操作流程为：先上传照片到git库，再生成json文件，之后便是正常的clean、g、d，后期想把压缩、上传照片和生成json文件整合到一起。</li> <li>目前的照片展示都是所有照片一整块放一起进行瀑布流显示，后期想将照片根据其旅游场景或类别、时间不同进行分类至对应文件夹，并根据类别或时间线显式展示出不同文件夹下的照片。</li></ul> <p>参考链接：
+<a href="https://www.cnblogs.com/xljzlw/p/5137622.html" target="_blank" rel="noopener noreferrer">hexo主题中添加相册功能<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://fchange.github.io/2018/02/18/%E5%A6%82%E4%BD%95%E5%9C%A8Hexo%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%9B%B8%E5%86%8C%E5%8A%9F%E8%83%BD/" target="_blank" rel="noopener noreferrer">如何在Hexo中实现自适应响应式相册功能<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div></article> <section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      发布时间 : 2018-05-27
+    </span> <!----></section> <section class="post-links" data-v-4e23451f><a href="/posts/2018/05/26/next-add-music.html" class="post-link" data-v-4e23451f>
+      上一篇 : Hexo NexT主题中添加网页音乐播放器功能
+    </a> <a href="/posts/2018/07/07/next-add-dynamicbg.html" class="post-link" data-v-4e23451f>
+      下一篇 : Hexo NexT主题内加入动态背景
+    </a></section></section> <div id="post-comments" class="main-div"><!----></div></div></main> <aside class="aside" data-v-4dd605a1><div class="info-card main-div" data-v-9d847660 data-v-4dd605a1><div class="info-card-header" style="background-size:cover;background-repeat:no-repeat;background-position:center;background-attachment:scroll;background-image:url(/img/headbg.jpg);" data-v-9d847660><img src="/img/avatar.jpg" alt="asdfv1929" class="info-avatar" data-v-9d847660></div> <div class="info-card-body" data-v-9d847660><section class="info-nickname" data-v-9d847660>
+      asdfv1929
+    </section> <section class="info-desc" data-v-9d847660>Happy Life!</section> <section class="info-contact" data-v-9d847660><section data-v-9d847660><span title="MoDu, China" data-v-9d847660 data-v-9d847660><svg class="icon" style="font-size:1em;" data-v-9d847660 data-v-9d847660><title data-v-9d847660 data-v-9d847660>MoDu, China</title><use xlink:href="#icon-location" data-v-9d847660 data-v-9d847660></use></svg><span class="info-text" data-v-9d847660 data-v-9d847660>
+          MoDu, China
+        </span></span></section> <section data-v-9d847660><span title="China" data-v-9d847660 data-v-9d847660><svg class="icon" style="font-size:1em;" data-v-9d847660 data-v-9d847660><title data-v-9d847660 data-v-9d847660>China</title><use xlink:href="#icon-organization" data-v-9d847660 data-v-9d847660></use></svg><span class="info-text" data-v-9d847660 data-v-9d847660>
+          China
+        </span></span></section> <section data-v-9d847660><a href="mailto:asdfv1929@163.com" title="asdfv1929@163.com" data-v-9d847660 data-v-9d847660><svg class="icon" style="font-size:1em;" data-v-9d847660 data-v-9d847660><title data-v-9d847660 data-v-9d847660>asdfv1929@163.com</title><use xlink:href="#icon-email" data-v-9d847660 data-v-9d847660></use></svg><span class="info-text" data-v-9d847660 data-v-9d847660>
+          asdfv1929@163.com
+        </span></a></section></section></div> <div class="info-card-footer" data-v-9d847660><section class="info-sns clearfix" data-v-9d847660><a href="https://github.com/asdfv1929" target="_blank" class="sns-link" data-v-9d847660><span title="GitHub: asdfv1929" class="sns-icon" data-v-9d847660 data-v-9d847660><svg class="icon" style="font-size:1.5em;" data-v-9d847660 data-v-9d847660><title data-v-9d847660 data-v-9d847660>GitHub: asdfv1929</title><use xlink:href="#icon-github" data-v-9d847660 data-v-9d847660></use></svg></span></a></section></div></div> <div class="post-nav-card main-div" style="position:relative;top:0;width:0px;" data-v-4dd605a1><!----> <div class="post-nav-comments"><svg class="icon"><title>comment</title><use xlink:href="#icon-comment"></use></svg> <a href="/posts/2018/05/26/next-add-photos.html#post-comments">
+      评论
+    </a></div></div></aside></div> <footer class="footer" data-v-9b383ec0><p class="footer-text" data-v-9b383ec0><span data-v-9b383ec0>Powered by </span> <a href="https://github.com/vuejs/vuepress" target="_blank" data-v-9b383ec0>
+      VuePress
+    </a> <span data-v-9b383ec0> | </span> <a href="https://github.com/meteorlxy/vuepress-theme-meteorlxy" target="_blank" data-v-9b383ec0>
+        meteorlxy
+      </a></p> <p class="footer-text" data-v-9b383ec0>&copy; 2020 <a href="https://github.com/asdfv1929" target="_blank">asdfv1929</a></p></footer></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.06761b2d.js" defer></script><script src="/assets/js/7.1fa92088.js" defer></script><script src="/assets/js/18.a2f537d7.js" defer></script>
+  </body>
+</html>
